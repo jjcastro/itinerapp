@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Itinerapp</title>
+
+    <!-- CSS PRINCIPAL DE BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- CSS PERSONALIZADO-->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- SIDEBAR -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                      ITINERAPP
+                    </a>
+                </li>
+                <li class="itinerary-picker">
+                    <a href="#">
+                      Mis itinerarios
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Línea de tiempo</a>
+                </li>
+                <li>
+                    <a href="#">Visualización mapa</a>
+                </li>
+                <li>
+                    <a href="#">Lista de eventos</a>
+                </li>
+            </ul>
+            <div id="credits-text">
+              <span>
+              Ingesoft © (2016)
+              <br>
+              Hecho posible con <a href="http://getbootstrap.com">Bootstrap</a>.
+              <br>
+              ISIS-2603 - Uniandes
+              </span>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <div id="page-content-wrapper">
+            
+          <div id="navbar-wrapper">
+          <nav class="navbar">
+            <div class="container-fluid"> 
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                  </a></li>
+                  <li><a href="#">
+                    <img src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xft1/v/t1.0-9/11836739_10153110736308525_8531144087394146459_n.jpg?oh=b2f332b6d3f399d65ed38349b401d1e4&oe=572D9EBB&__gda__=1464184393_aa0aa9dcdd6d8998196c2c860607c904" id="mini-profile-pic">
+                    <span id="profile-link">Juan José Castro</span>
+                    <div id="profile-link-small">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                  </a></li>
+                  <li><a href="#">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                  </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                  <li><a href="#menu-toggle" id="menu-toggle">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                  </a></li>
+                  <li><a href="#">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                  </a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Buscar eventos, ciudades...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                      </span>
+                    </div>
+                    </div>
+                </form>
+            </div>
+          </nav>
+          </div>
+
+            <div class="container-fluid">
+                <div class="row" id="main-content-wrapper">
+                    <div class="col-md-8" id="main-dashboard">
+                        
+                        <!-- AQUÍ COMIENZA EL ESPACIO A MODIFICAR -->
+
+                        <h1>Contenido principal</h1>
+
+                        <p>
+                          Hola muchachos, acá es donde van los contenidos principales (línea de tiempo, mapas, etc). Como saben en la columna de la derecha van sugerencias que dejaré fijas en la plantilla y que se supone que cuando la aplicación esté terminada mostrarán las sugerencias egún el itinerario.
+                        </p>
+
+                        <p>Como es evidente en el código fuente, los espacios donde cambiará el contenido estarían todos dispuestos en div con id <code>#main-dashboard</code>. Igualmente los espacios a modificar están comentados, </p>
+
+                        <!-- AQUÍ TERMINA EL ESPACIO A MODIFICAR -->
+
+                    </div>
+
+                    <!-- SUGERENCIAS -->
+                    <div class="col-md-4">
+                      
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
