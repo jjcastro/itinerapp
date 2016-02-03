@@ -13,5 +13,9 @@
                         url: '/evento',
                         templateUrl: "src/modules/evento/evento.tpl.html"
                     })
+                            .state('perfil',{
+                                url:'/perfil',
+                        templateUrl:"src/modules/perfil/perfil.tpl.html"
+                    })     
         }]);
 })(window.angular);
