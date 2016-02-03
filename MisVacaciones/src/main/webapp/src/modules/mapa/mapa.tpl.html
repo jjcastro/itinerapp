@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="resources/css/perfil.css" rel="stylesheet">
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/style.css" rel="stylesheet">
+        <style>
+      #map {
+	width: 1000px;
+        height: 700px;
+      }
+    </style>
+    </head>
+    <body>
+        <div id="map"></div>
+    <script>
+                                // Note: This example requires that you consent to location sharing when
+                                // prompted by your browser. If you see the error "The Geolocation service
+                                // failed.", it means you probably did not give permission for the browser to
+                                // locate you.
+
+                                function initMap() {
+                                  map = new google.maps.Map(document.getElementById('map'),
+                                  {
+                                      center: {lat: 46.8876191, lng: 9.656999600000063},
+                                      zoom: 5
+                                  });
+                                  setMarkers(map);
+                                }
+
+                                var lugares = [
+                                    ['Madrid', 40.4167754, -3.7037901999999576],
+                                    ['Paris', 48.85661400000001, 2.3522219000000177],
+                                    ['Berlin', 52.52000659999999, 13.404953999999975],
+                                    ['Roma', 41.90278349999999, 12.496365500000024],
+                                    ['Alpes', 46.8876191, 9.656999600000063]
+                                ];
+                                function setMarkers(map) {
+                                for (var i = 0; i < lugares.length; i++)
+                                {
+                                    var beach =lugares[i];
+                                    var marker = new google.maps.Marker({
+                                        position: {lat: beach[1], lng: beach[2]},
+                                        map: map,
+                                        title: beach[0]
+                                });
+                                }
+                            }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5lJi8fG4vD-KBBii4iznzSx6g17noiz0&callback=initMap"
+        async defer></script>
+    </body>
+</html>

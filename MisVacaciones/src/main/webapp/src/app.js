@@ -16,6 +16,10 @@
                             .state('perfil',{
                                 url:'/perfil',
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
-                    })     
+                    })
+                            .state('mapa',{
+                                url:'/mapa',
+                        templateUrl:"src/modules/mapa/mapa.tpl.html"
+                    })
         }]);
 })(window.angular);
