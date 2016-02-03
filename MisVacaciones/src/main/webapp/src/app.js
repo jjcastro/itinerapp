@@ -17,9 +17,17 @@
                         url:'/perfil',
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
                     })
-                            .state('mapa',{
+                    .state('mapa',{
                                 url:'/mapa',
                         templateUrl:"src/modules/mapa/mapa.tpl.html"
+                    })
+                    .state('login',{
+                                url:'/login',
+                        templateUrl:"src/modules/login/login.tpl.html"
+                    })
+                    .state('registro',{
+                                url:'/registro',
+                        templateUrl:"src/modules/registro/registro.tpl.html"
                     })
         }]);
 })(window.angular);
