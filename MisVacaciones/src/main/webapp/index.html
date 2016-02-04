@@ -49,18 +49,29 @@ and open the template in the editor.
                     </a>
                 </li>
                 <li class="itinerary-picker">
-                    <a href="#">
-                      Mis itinerarios
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                      <li>Omg</li>
+                      <li role="separator" class="divider"></li>
+                      <li>Crear nuevo</li>
+                    </ul>
+                </li>
+                <li>
+                    <a ui-sref="evento">
+                      <span class="glyphicon glyphicon-hourglass"></span>
+                      Línea de tiempo
                     </a>
                 </li>
                 <li>
-                    <a ui-sref="evento">Línea de tiempo</a>
+                    <a ui-sref="mapa">
+                    <span class="glyphicon glyphicon-picture"></span>
+                    Visualización mapa
+                    </a>
                 </li>
                 <li>
-                    <a ui-sref="mapa">Visualización mapa</a>
-                </li>
-                <li>
-                    <a href="#">Lista de eventos</a>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-list"></span>
+                      Lista de eventos
+                    </a>
                 </li>
             </ul>
             <div id="credits-text">
