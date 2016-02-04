@@ -13,6 +13,10 @@
                         url: '/evento',
                         templateUrl: "src/modules/evento/evento.tpl.html"
                     })
+                    .state('dashboard.timeline', {
+                        url: '/timeline',
+                        templateUrl: "src/modules/timeline/timeline.tpl.html"
+                    })
                     .state('dashboard.perfil',{
                         url:'/perfil',
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
