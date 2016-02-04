@@ -49,11 +49,22 @@ and open the template in the editor.
                     </a>
                 </li>
                 <li class="itinerary-picker">
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-                      <li>Omg</li>
-                      <li role="separator" class="divider"></li>
-                      <li>Crear nuevo</li>
-                    </ul>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Explorar mis itinerarios
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Vuelta al mundo</a></li>
+                    <li><a href="#">Tour por Colombia</a></li>
+                    <li><a href="#">Viaje a Europa</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">
+                      <span class="glyphicon glyphicon-plus"></span>
+                      Crear nuevo
+                    </a></li>
+                  </ul>
+                </div>
                 </li>
                 <li>
                     <a ui-sref="evento">
@@ -74,6 +85,7 @@ and open the template in the editor.
                     </a>
                 </li>
             </ul>
+            
             <div id="credits-text">
               <span>
               Ingesoft © (2016)
@@ -173,11 +185,6 @@ and open the template in the editor.
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <!-- Menu Toggle Script -->
     <script>
