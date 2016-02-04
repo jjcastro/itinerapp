@@ -200,7 +200,8 @@ h1, h2, h3, h4 {
 }
 
 .suggestion {
-  background-color: #fff;
+  background-color: #06A480;
+  color: #fff;
   padding: 15px;
   border-radius: 0 0 5px 5px;
 }
@@ -208,6 +209,19 @@ h1, h2, h3, h4 {
 .suggestion-img {
   width: 100%;
   border-radius: 5px 5px 0 0;
+}
+
+.suggestion-list {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.suggestion small {
+  color: rgba(255,255,255,.6)
+}
+
+.sidebar-nav .glyphicon {
+  padding-right: 15px;
 }
 
 @media(min-width:768px) {
@@ -242,6 +256,10 @@ h1, h2, h3, h4 {
 
   .navbar .container-fluid {
     padding-left: 0;
+  }
+
+  .suggestion-wrapper {
+    /*padding-right: 0 !important;*/
   }
 }
 
