@@ -224,6 +224,37 @@ h1, h2, h3, h4 {
   padding-right: 15px;
 }
 
+.itinerary-picker .glyphicon {
+  padding-right: 0px;
+}
+
+.itinerary-picker {
+  text-indent: 0;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.itinerary-picker .dropdown-menu {
+  margin-left: 15px;
+}
+
+.itinerary-picker .dropdown-toggle {
+  background-color: #06A480;
+  border: none;
+  color: #fff;
+}
+
+.itinerary-picker li a {
+  text-indent: 0;
+  color: #000;
+}
+
+.itinerary-picker li a:hover {
+  background-color: #eee;
+  color: #000;
+}
+
 @media(min-width:768px) {
   #wrapper {
     padding-left: 230px;
