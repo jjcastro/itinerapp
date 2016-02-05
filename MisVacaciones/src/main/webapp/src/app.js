@@ -21,6 +21,14 @@
                         url:'/perfil',
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
                     })
+                    .state('dashboard.perfil.recuerdo',{   
+                        url:'/recuerdo',
+                        templateUrl: "src/modules/perfil/recuerdo.tpl.html" 
+                    })
+                    .state('dashboard.perfil.infogeneral',{   
+                        url:'/recuerdo/infogeneral',
+                        templateUrl: "src/modules/perfil/datosPersonales.tpl.html" 
+                    })
                     .state('dashboard.mapa',{
                                 url:'/mapa',
                         templateUrl:"src/modules/mapa/mapa.tpl.html"

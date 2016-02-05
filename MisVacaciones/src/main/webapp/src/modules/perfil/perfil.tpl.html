@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html ng-app="mainApp">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -12,6 +12,9 @@ and open the template in the editor.
         <link href="resources/css/perfil.css" rel="stylesheet">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/style.css" rel="stylesheet">
+        
+        
+
     </head>
     <body id="perfil">
         <div>
@@ -33,37 +36,36 @@ and open the template in the editor.
         <div class="row">
             <div class="col-md-12" >
                 <ul id="barra">
-                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" class="active" href="index.html">Principal</a></li>
-                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" href="datosPersonales.html">Datos Personales</a></li>
-                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" href="#contact">Contacto</a></li>
-                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" href="#about">Configuración</a></li>
+                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" class="active" ui-sref="dashboard.perfil">Principal</a></li>
+                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" ui-sref="dashboard.perfil.infogeneral">Datos Personales</a></li>
+                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" ui-sref="dashboard.perfil"">Contacto</a></li>
+                    <li id="elementosBarraHorizontalPerfil"><a id="navHorizontal" ui-sref="dashboard.perfil"">Configuración</a></li>
                 </ul>
             </div>
         </div>
-        
-           <div class="row" >
+          
+          <div class="row" >
             <div class="col-md-3" style="background-color: #eeeeee">
                 <div id="navegar">
                     <h4>Recuerdos:</h4>
                     <ul id="panelLateral1">
                         
-                        <li><a id="iter1" href="recuerdosColombia.html" >Colombia</a></li>
-                        <li><a id="iter1" href="">Estados Unidos</a></li>
+                        <li><a id="iter1" ui-sref="dashboard.perfil.recuerdo" >Colombia</a></li>
+                        <li><a id="iter1" ui-sref="dashboard.perfil"">Estados Unidos</a></li>
                     </ul>
                 </div>
             </div>
         
           
             <div class="col-md-9">
-                <div id="contenido">
-                    <h2>London</h2>
-                    <p>London is the capital city of England. It is the most populous city in the United Kingdom,
-                    with a metropolitan area of over 13 million inhabitants.</p>
-                    <p>Standing on the River Thames, London has been a major settlement for two millennia,
-                    its history going back to its founding by the Romans, who named it Londinium.</p>
+                <div id="contenido" ui-view>
+                    <h2>Recuerdos</h2>
+                    <p>¡Bienvenido!</p>
+                    <p>En esta sección podrás guardar fotos y recuerdos de tus viajes pasados.</p>
                 </div>
            </div>
         </div>
-        </div>
+        
+            </div>
     </body>
 </html>
