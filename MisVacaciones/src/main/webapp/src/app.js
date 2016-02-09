@@ -17,6 +17,10 @@
                         url: '/timeline',
                         templateUrl: "src/modules/timeline/timeline.tpl.html"
                     })
+                    .state('dashboard.lista', {
+                        url: '/lista',
+                        templateUrl: "src/modules/lista/lista.tpl.html"
+                    })
                     .state('dashboard.perfil',{
                         url:'/perfil',
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
