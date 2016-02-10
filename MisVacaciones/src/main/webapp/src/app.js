@@ -49,6 +49,10 @@
                                 url:'/landing',
                         templateUrl:"src/modules/landing/landing.tpl.html"
                     })
+                    .state('dashboard.itinerario',{
+                                url:'/itinerario',
+                        templateUrl:"src/modules/itinerario/itinerario.tpl.html"
+                    })
                     .state('dashboard',{
                                 url:'/dashboard',
                         templateUrl:"src/modules/dashboard/dashboard.tpl.html"
