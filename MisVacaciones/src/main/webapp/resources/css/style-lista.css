@@ -1,0 +1,12 @@
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  background-color: #06A480 !important;
+  border-color: #06A480 !important;
+}
+
+.list-group-item.active .list-group-item-text, .list-group-item.active:focus .list-group-item-text, .list-group-item.active:hover .list-group-item-text {
+  color: #9FE8B6;
+}
+
+.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
+  color: #116F49;
+}
