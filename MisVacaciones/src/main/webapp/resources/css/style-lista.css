@@ -1,6 +1,6 @@
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
   background-color: #06A480 !important;
-  border-color: #06A480 !important;
+  border-color: #06A480;
 }
 
 .list-group-item.active .list-group-item-text, .list-group-item.active:focus .list-group-item-text, .list-group-item.active:hover .list-group-item-text {
@@ -10,3 +10,27 @@
 .list-group-item.active>.badge, .nav-pills>.active>a>.badge {
   color: #116F49;
 }
+
+.list-group-item.child {
+  border-left: 5px solid #06A480;
+}
+
+.list-group {
+  margin-bottom: 5px;
+}
+
+img.list-group-item-img {
+  width: 70px;
+  float: left;
+  border-radius: 100% ;
+  margin-right: 15px;
+}
+
+.list-group-item-text:after {
+ visibility: hidden;
+ display: block;
+ font-size: 0;
+ content: " ";
+ clear: both;
+ height: 0;
+ }
