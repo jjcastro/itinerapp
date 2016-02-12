@@ -9,11 +9,22 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="resources/css/perfil.css" rel="stylesheet">
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/style.css" rel="stylesheet">
         
         
+        <script>  jQuery(document).ready(function($) {
+ 
+        $('#myCarousel').carousel({
+                interval: 5000
+        });
+ 
+       
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function (e) {
+                 var id = $('.item.active').data('slide-number');
+                $('#carousel-text').html($('#slide-content-'+id).html());
+        });
+});</script>
+   
 
     </head>
     <body id="perfil">
@@ -21,10 +32,43 @@ and open the template in the editor.
             
         <div>
             <h2>Colombia</h2>
+            
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Iusto, optio, dolorum provident rerum aut hic quasi 
                 placeat iure tempora laudantium ipsa ad debitis unde?
                 Iste voluptatibus minus veritatis qui ut.</p>
+            </div>
+            <div class="col-md-6" id="carousel-bounding-box">
+                <div class="carousel slide" id="myCarousel">
+                                <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item" data-slide-number="0">
+                            <img src="resources/imagenes/canoCristales.jpg"  width="350" height="200">
+                        </div>
+                        <div class="item" data-slide-number="1">
+                            <img src="resources/imagenes/chicamocha.jpg" width="350" height="200">
+                        </div>
+                        <div class="item" data-slide-number="2">
+                            <img src="resources/imagenes/castillo.jpg" width="350" height="200">
+                        </div>
+                        <div class="item" data-slide-number="3">
+                            <img src="resources/imagenes/nevado.jpg" width="350" height="200">
+                        </div>
+                        
+                                <!-- Carousel nav 
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" onclick="right()">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>-->
+                    </div>
+                </div>
+            </div>
         </div>
 
 

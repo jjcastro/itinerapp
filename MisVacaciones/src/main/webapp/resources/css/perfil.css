@@ -1,5 +1,44 @@
-﻿
-       
+
+#fotoPerfil
+{
+    top:55px;
+}
+
+
+.container-fluid#navegacion
+{
+    background-color: #292D30;
+    color:black;
+}
+
+.navbar-nav#navBarPerfil  li a
+{
+    color:white;
+    
+}
+
+
+.navbar-nav#navBarPerfil li a:hover,
+.navbar-nav#navBarPerfil li a:focus,
+.navbar-nav#navBarPerfil >li.dropdown.open>a,
+.navbar-nav#navBarPerfil > li.dropdown.open > ul.dropdown-menu a:hover
+{
+    background-color:#06A480;
+    color:white;
+    
+}
+.dropdown-menu#desplegableRecuerdos li a
+{
+    color:black;
+}
+.top-buffer { margin-top:10px; }
+
+
+
+
+
+
+       /*
         a#iter1:link    {color:green; background-color:transparent; text-decoration:none}
         a#iter1:visited {color:green; background-color:transparent; text-decoration:none}
         a#iter1:hover   {color:red; background-color:transparent; text-decoration:underline}
@@ -43,7 +82,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background-color: #000000;
+            background-color: #292D30;
            
             top: 0px;
             left:0px;
@@ -109,25 +148,16 @@
         
         }
         .active {
-        background-color: #BC0404;
+        background-color: #06A480;
         }
 
         li a#navHorizontal:hover:not(.active) {
-        background-color: #111;
+        background-color: #999999;
         }
 
         
-        img#recuerdos {
-        filter: gray; /* IE6-9 */
-        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-        -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-        box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
-        margin-bottom:20px;
-        }       
+        
 
-        img#recuerdos:hover {
-        filter: none; /* IE6-9 */
-        -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
- 
+        
         }
+*/
