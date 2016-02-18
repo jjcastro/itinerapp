@@ -29,18 +29,17 @@ and open the template in the editor.
                                 function initMap() {
                                   map = new google.maps.Map(document.getElementById('map'),
                                   {
-                                      center: {lat: 46.8876191, lng: 9.656999600000063},
-                                      zoom: 5
+                                      center: {lat: 4.7109885999, lng: -74.072092},
+                                      zoom: 3
                                   });
                                   setMarkers(map);
                                 }
 
                                 var lugares = [
-                                    ['Madrid', 40.4167754, -3.7037901999999576],
-                                    ['Paris', 48.85661400000001, 2.3522219000000177],
-                                    ['Berlin', 52.52000659999999, 13.404953999999975],
-                                    ['Roma', 41.90278349999999, 12.496365500000024],
-                                    ['Alpes', 46.8876191, 9.656999600000063]
+                                    ['Rio de Janeiro', -22.9139476, -43.209397299],
+                                    ['Buenos Aires', -37.2017285, -59.8410696999],
+                                    ['Santiago de Chile', -33.4488897, -70.6692655],
+                                    ['Broadway', 40.7590110000, -74.00594130000002]
                                 ];
                                 function setMarkers(map) {
                                 for (var i = 0; i < lugares.length; i++)
