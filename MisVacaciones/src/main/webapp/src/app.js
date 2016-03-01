@@ -30,16 +30,16 @@
                         url:'/perfil',
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
                     })
-                    .state('perfil.recuerdo',{   
+                    .state('perfil.recuerdo',{
                         url:'/recuerdo',
                         views: {
                         'viewA': {
                         templateUrl: 'src/modules/perfil/recuerdo.tpl.html',
-                      
+
                         }}
-                        
+
                     })
-                    .state('perfil.infogeneral',{   
+                    .state('perfil.infogeneral',{
                         url:'/recuerdo/infogeneral',
                         views: {
                         'viewA': {
@@ -47,7 +47,7 @@
                         controller: "perfilCtrl",
                         controllerAs: "ctrl"
                         }}
-                        
+
                     })
                     .state('mapa',{
                         url:'/mapa',
@@ -65,5 +65,6 @@
                         url:'/crearitinerario',
                         templateUrl:"src/modules/itinerario/crear.tpl.html"
                     })
+
         }]);
 })(window.angular);
