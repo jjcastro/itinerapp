@@ -1,6 +1,7 @@
 (function (ng) {
 
-    var mod = ng.module("mainApp", ["ui.router"]);
+    var mod = ng.module("mainApp", ["ui.router",
+                "perfilModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -31,11 +32,22 @@
                     })
                     .state('perfil.recuerdo',{   
                         url:'/recuerdo',
-                        templateUrl: "src/modules/perfil/recuerdo.tpl.html" 
+                        views: {
+                        'viewA': {
+                        templateUrl: 'src/modules/perfil/recuerdo.tpl.html',
+                      
+                        }}
+                        
                     })
                     .state('perfil.infogeneral',{   
                         url:'/recuerdo/infogeneral',
-                        templateUrl: "src/modules/perfil/datosPersonales.tpl.html" 
+                        views: {
+                        'viewA': {
+                        templateUrl: 'src/modules/perfil/datosPersonales.tpl.html',
+                        controller: "perfilCtrl",
+                        controllerAs: "ctrl"
+                        }}
+                        
                     })
                     .state('mapa',{
                         url:'/mapa',

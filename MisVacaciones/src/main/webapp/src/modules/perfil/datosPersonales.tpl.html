@@ -1,31 +1,95 @@
-
-<div> 
-    <h2>Información General</h2>
+<div>
+        <div ng-show="read" class="ng-hide"> 
+            <h2>Información General
+              <button id = "cofigPerfil" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.editRecord(record)">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+             </button>
+            </h2>
             
-            <table style="width:100%">
-              <tr>
-                <th>Nombre:</th>
-                <td>Juan José Castro</td>
-              </tr>
-              <tr>
-                <th>Lugar de Nacimiento:</th>
-                <td>Bogota - Colombia</td>
-              </tr>
-              <tr>
-                <th>Fecha de Nacimiento:</th>
-                <td>---</td>
-              </tr>
-              <tr>
-                <th>Ciudad Favorita:</th>
-                <td>----</td>
-              </tr>
-              <tr>
-                <th>Correo Electronico:</th>
-                <td>----</td>
-              </tr>
-              <tr>
-                <th>Telefono de Contacto:</th>
-                <td>0000000000</td>
-              </tr>
-            </table>
+            
+                      
+                    
+                    <table style="width:100%">
+                      <tr>
+                        <th>Nombre:</th>
+                        <td>Juan José Castro</td>
+                      </tr>
+                      <tr>
+                        <th>Lugar de Nacimiento:</th>
+                        <td>Bogota - Colombia</td>
+                      </tr>
+                      <tr>
+                        <th>Fecha de Nacimiento:</th>
+                        <td>---</td>
+                      </tr>
+                      <tr>
+                        <th>Ciudad Favorita:</th>
+                        <td>----</td>
+                      </tr>
+                      <tr>
+                        <th>Correo Electronico:</th>
+                        <td>----</td>
+                      </tr>
+                      <tr>
+                        <th>Telefono de Contacto:</th>
+                        <td>0000000000</td>
+                      </tr>
+                    </table>
+            
+        </div>
+<div ng-show="edit" class="ng-hide"> 
+    <form novalidate name="form" id="book-form" role="form" ng-submit="ctrl.saveRecord()">
+        <alert ng-messages="form.$error" type="danger" close="" ng-hide="!form.$error.required">
+            <div ng-message="required">
+                Please, Fill the required fields!
+            </div>
+        </alert>  
+        <fieldset>
+            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.name.$valid && form.name.$dirty, 'has-error': form.name.$invalid && (form.name.$dirty || form.$submitted)}" >
+                <label for="name" class="col-md-2 control-label">Name</label>
+                <div class="col-md-10">
+                    <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.name" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.description.$valid && form.description.$dirty, 'has-error': form.description.$invalid && (form.description.$dirty || form.$submitted)}" >
+                <label for="description" class="col-md-2 control-label">Description</label>
+                <div class="col-md-10">
+                    <input id="description" name="description" class="form-control" type="text" ng-model="currentRecord.description" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.isbn.$valid && form.isbn.$dirty, 'has-error': form.isbn.$invalid && (form.isbn.$dirty || form.$submitted)}" >
+                <label for="isbn" class="col-md-2 control-label">ISBN</label>
+                <div class="col-md-10">
+                    <input id="isbn" name="isbn" class="form-control" type="text" ng-model="currentRecord.isbn" required />
+                </div>
+            </div>
+
+            <div class="form-group col-md-12" ng-class="{'has-success': form.image.$valid && form.image.$dirty, 'has-error': form.image.$invalid && (form.image.$dirty || form.$submitted)}" >
+                <label for="image" class="col-md-2 control-label">Imagen</label>
+                <div class="col-md-10">
+                    <input id="image" name="image" class="form-control" type="text" ng-model="currentRecord.image" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.editorial.$valid && form.editorial.$dirty, 'has-error': form.editorial.$invalid && (form.editorial.$dirty || form.$submitted)}" >
+                <label for="editorial" class="col-md-2 control-label">Editorial</label>
+                <div class="col-md-10">
+                    <select id="editorial" name="editorial" ng-options="rc.name for rc in editorials track by rc.id" class="form-control" type="text" ng-model="currentRecord.editorial" ></select>
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': !form.publishDate.$error.required && form.publishDate.$dirty, 'has-error': form.publishDate.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
+                <label for="publishDate" class="col-md-2 control-label">Publish Date</label>
+                <div class="col-md-10">
+                    <p class="input-group">
+                        <input type="text" id="publishDate" name="publishDate" class="form-control" ng-model="currentRecord.publishDate" ng-required="model.required" datepicker-popup is-open="opened" />
+                        <span class="input-group-btn">
+                            <button type="button" id="publishDate-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+    
 </div>
