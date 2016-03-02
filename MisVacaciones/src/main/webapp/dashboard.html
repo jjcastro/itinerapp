@@ -33,7 +33,11 @@ and open the template in the editor.
     <script src="src/modules/ciudad/ciudadCrud.mod.js" type="text/javascript"></script>
     <script src="src/modules/ciudad/ciudadCrud.ctrl.js" type="text/javascript"></script>
     <script src="src/modules/ciudad/ciudadCrud.svc.js" type="text/javascript"></script>
-    
+
+    <script src="src/modules/eventocrud/eventocrud.mod.js" type="text/javascript"></script>
+    <script src="src/modules/eventocrud/eventocrud.ctrl.js" type="text/javascript"></script>
+    <script src="src/modules/eventocrud/eventocrud.svc.js" type="text/javascript"></script>
+
     <!-- BOOTSTRAP JS & CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -47,15 +51,15 @@ and open the template in the editor.
 
     <!-- ANGULAR APP JS -->
     <script src="src/app.js" type="text/javascript"></script>
-      
+
     <script src="src/modules/perfil/perfil.mod.js" type="text/javascript"></script>
     <script src="src/modules/perfil/perfil.ctrl.js" type="text/javascript"></script>
     <script src="src/modules/perfil/perfilPrincipal.ctrl.js" type="text/javascript"></script>
     <script src="src/modules/perfil/perfil.svc.js" type="text/javascript"></script>
 
-    
-    
-    
+
+
+
 </head>
 
 <body>
@@ -110,6 +114,12 @@ and open the template in the editor.
                     <a ui-sref="listacrudciudad">
                       <span class="glyphicon glyphicon-list"></span>
                       [CRUD] Lista ciudades
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="eventocrud">
+                      <span class="glyphicon glyphicon-list"></span>
+                      CRUD_eventos
                     </a>
                 </li>
             </ul>

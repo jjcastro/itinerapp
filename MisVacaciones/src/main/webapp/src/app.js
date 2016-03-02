@@ -26,6 +26,12 @@
                         controller: "ciudadCrudCtrl",
                         controllerAs: "ctrl"
                     })
+                    .state('eventocrud', {
+                        url: '/eventocrud',
+                        templateUrl: "src/modules/eventocrud/eventoscrud.tpl.html",
+                        controller: "eventocrudCtrl",
+                        controllerAs: "ctrl"
+                    })
                     .state('timeline', {
                         url: '/timeline',
                         templateUrl: "src/modules/itinerario/timeline.tpl.html"

@@ -1,0 +1,37 @@
+<div>
+    <!-- AQUÍ COMIENZA EL ESPACIO A MODIFICAR -->
+
+    <h2>Eventos</h2>
+
+    <div class="list-group" ng-repeat="evento in eventos">
+      <a ui-sref="ciudad({id: evento.id})" class="list-group-item active">
+        <h4 class="list-group-item-heading">{{evento.nombre}}, {{evento.ciudad}}</h4>
+      </a>
+    </div>
+
+    <div class="list-group" ng-repeat="evento in eventos">
+      <a ui-sref="evento({id: evento.id})" class="list-group-item active">
+      <span class="badge">{{evento.fechaI}} - {{evento.fechaF}}</span>
+        <h4 class="list-group-item-heading">{{evento.nombre}}, {{evento.pais}}</h4>
+      </a>
+    </div>
+    <input class="btn btn-lg" style="background-color: #fff; border: 1px solid #bbb;" type="button" value="Agregar nuevo Evento" ng-click="createRecord()" ng-show="!editMode">
+
+    <div ng-show="editMode" >
+      <form class="simple-form form-group">
+        <label>Nombre:</label>
+        <input type="text" class="form-control" ng-model="newEvent.nombre" /><br/>
+        <label>Ciudad:</label>
+        <input type="text" class="form-control" ng-model="newEvent.ciudad" /><br/>
+        <label>Descripción:</label>
+        <input type="text" class="form-control" ng-model="newEvent.descripcion" /><br/>
+        <div class="btnes">
+        <input class="btn btn-default" type="submit" ng-click="submitNewRecord(newEvent)" value="Guardar Evento" />
+        </div>
+      </form>
+    </div>
+
+
+
+    <!-- AQUÍ TERMINA EL ESPACIO A MODIFICAR -->
+</div>
