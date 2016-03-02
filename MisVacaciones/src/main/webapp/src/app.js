@@ -1,7 +1,7 @@
 (function (ng) {
 
     var mod = ng.module("mainApp", ["ui.router",
-                "perfilModule", "ciudadCrudModule","itinerarioModule"]);
+                "perfilModule", "ciudadCrudModule","itinerarioModule", "usuarioModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -71,11 +71,21 @@
                     })
                     .state('login',{
                         url:'/login',
+                        controller: "usuarioCtrl",
+                        controllerAs: "ctrl",
                         templateUrl:"src/modules/usuario/login.tpl.html"
                     })
                     .state('registro',{
                         url:'/registro',
+                        controller: "usuarioCtrl",
+                        controllerAs: "ctrl",
                         templateUrl:"src/modules/usuario/registro.tpl.html"
+                    })
+                    .state('usuarios',{
+                        url:'/usuarios',
+                        controller: "usuarioCtrl",
+                        controllerAs: "ctrl",
+                        templateUrl:"src/modules/usuario/usuarios.tpl.html"
                     })
                     .state('crearitinerario',{
                         url:'/crearitinerario',

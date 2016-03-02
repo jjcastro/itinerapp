@@ -1,6 +1,24 @@
-<div ng-hide="registrado">
+<div ng-hide="modoEdicion">
+    <a class="btn btn-primary" ui-sref="registro">Nuevo usuario</a>
+    <hr style="border-width: 2px; border-style: groove;"/>
+
+    {{ctrl.cargarUsuarios()}}
+    <div ng-repeat="usr in usuarios">
+        <p><strong>Nombre: </strong> {{usr.nombre}}</p>
+        <p><strong>Apellido: </strong> {{usr.apellido}}</p>
+        <p><strong>Cédula: </strong> {{usr.cedula}}</p>
+        <p><strong>Correo electrónico: </strong> {{usr.email}}</p>
+        <div class="btn-group" role="group">
+            <button class="btn btn-primary" ng-click="ctrl.editarUsuario(usr.id)">Editar</button><br/>
+            <button class="btn btn-danger" ng-click="ctrl.eliminarUsuario(usr.id)">Eliminar</button>
+        </div>
+        <hr style="border-width: 2px; border-style: groove;"/>
+    </div>
+</div>
+<div ng-show="modoEdicion">
+
     <form class="form-signin col-md-7 col-md-offset-2">
-        <h2 class="form-signin-heading">Regístrate</h2>
+        <h2 class="form-signin-heading">Editar usuario</h2>
         <label for="inputNombre" class="sr-only">Nombre</label>
         <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" ng-model="usr.nombre" required autofocus><br/>
 
@@ -17,9 +35,9 @@
         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" ng-model="usr.pass" required><br/>
 
         <label for="inputRepPassword" class="sr-only">Repetir contraseña</label>
-        <input type="password" id="inputRepPassword" class="form-control" placeholder="Repetir contraseña" ng-model="usr.repPass" required><br/>
+        <input type="password" id="inputRepPassword" class="form-control" placeholder="Repetir contraseña" ng-model="usr.pass" required><br/>
 
-        <button class="btn btn-lg btn-default btn-block" ng-click="ctrl.crearUsuario()">Registrarse</button>
+        <button class="btn btn-lg btn-default btn-block" ng-click="ctrl.modificarUsuario()">Modificar</button>
       </form>
+
 </div>
-<div class="alert alert-success" role="alert" ng-show="registrado"><strong>¡Felicitaciones! </strong> Te has registrado.</div>
