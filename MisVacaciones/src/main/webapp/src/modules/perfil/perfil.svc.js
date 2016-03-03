@@ -7,56 +7,97 @@
     
     var mod = ng.module("perfilModule");
     
-     mod.service("perfilService", ["$http", "perfilContext", function ($http, context) {
-        /**
-         * Obtener la lista de books.
-         * Hace una petición GET con $http a /books para obtener la lista
-         * de books
-         * @returns {promise} promise para leer la respuesta del servidor}
-         * Devuelve una lista de objetos de books con sus atributos y reviews
-         */
-        this.fetchRecords = function () {
-            return $http.get(context);
+     mod.service("perfilService", ["$http", function ($http) {
+        var usuario = {}
+        var recuerdos = [];
+        this.crearUsuario = function(currentRecord)
+        {
+            /*
+            usuario.push({nombre: currentRecord.nombre, 
+                lugNac: currentRecord.lugNac, 
+                fecNac:currentRecord.fecNac,
+                ciuFav:currentRecord.ciuFav,
+                email:currentRecord.email,
+                telCon: currentRecord.telCon});*/
+            usuario = angular.copy(currentRecord);
+            
         };
-
-        /**
-         * Obtener un registro de books.
-         * Hace una petición GET a /books/:id para obtener
-         * los datos de un registro específico de books
-         * @param {number} id del registro a obtener
-         * @returns {promise} promise para leer la respuesta del servidor
-         * Devuelve un objeto de books con sus atributos y reviews
-         */
-        this.fetchRecord = function (id) {
-            return $http.get(context + "/" + id);
+        this.editarUsuario = function(nombre,master)
+        {
+            /*
+              for(var i = 0; i < usuarios.length; i++)
+            {
+                
+                if(usuarios[i].nombre == nombre)
+                {
+                    usuarios[i] = angular.copy(master);
+                    i=usuarios.length;
+                }
+            }*/
+            usuario = angular.copy(master);
+           
+            
         };
-
-        /**
-         * Guardar un registro de books.
-         * Si currentRecord tiene la propiedad id, hace un PUT a /books/:id con los
-         * nuevos datos de la instancia de books.
-         * Si currentRecord no tiene la propiedad id, se hace un POST a /books
-         * para crear el nuevo registro de books
-         * @param {object} currentRecord instancia de book a guardar/actualizar
-         * @returns {promise} promise para leer la respuesta del servidor
-         * Devuelve un objeto de books con sus datos incluyendo el id
-         */
-        this.saveRecord = function (currentRecord) {
-            if (currentRecord.id) {
-                return $http.put(context + "/" + currentRecord.id, currentRecord);
-            } else {
-                return $http.post(context, currentRecord);
+        this.crearRecuerdo = function(master)
+        {
+            recuerdos.push(master);
+        };
+        
+        
+        
+        this.fetchRecords = function()
+        {
+           
+            return usuario;
+        };
+        
+        this.fetchRecordsRec = function()
+        {
+            return recuerdos;
+        };
+        
+        this.existeUsuario = function(nombre)
+        {
+            //retorna 1 si existe cero en caso contrario.
+             for(var i = 0; i < usuarios.length; i++)
+            {
+                
+                if(usuarios[i].nombre == nombre)
+                {
+                    return 1;
+                }
             }
+            return 0;
         };
-
-        /**
-         * Hace una petición DELETE a /books/:id para eliminar un book
-         * @param {number} id identificador de la instancia de book a eliminar
-         * @returns {promise} promise para leer la respuesta del servidor
-         * No devuelve datos.
-         */
-        this.deleteRecord = function (id) {
-            return $http.delete(context + "/" + id);
+        
+        this.buscarUsuario = function(nombre)
+        {
+            for(var i = 0; i < usuarios.length; i++)
+            {
+                
+                if(usuarios[i].nombre == nombre)
+                {
+                    return usuarios[i];
+                }
+            }
+            return null;
+        };
+        
+        this.deleteInfo = function(nombre)
+        {
+            /*
+            for(var i = 0; i < usuarios.length; i++)
+            {
+                
+                if(usuarios[i].nombre == nombre)
+                {
+                    usuarios.slice(i,1);
+                    i = usuarios.length;
+                    return "done";
+                }
+            }*/
+            usuario = {};
+            
         };
     }]);
     

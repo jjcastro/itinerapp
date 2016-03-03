@@ -8,148 +8,112 @@
 
     var mod = ng.module("perfilModule");
 
-    mod.controller("perfilCtrl", ["$scope", /*"perfilService",*/function ($scope/*, svc*/) {
-           //Se almacenan todas las alertas 
+    mod.controller("perfilDatosCtrl", ["$scope", "perfilService", function ($scope, svc) {
+           
         $scope.read = true;
         $scope.edit = false;
-        $scope.alerts = [];
-            $scope.currentRecord = {};
-            $scope.records = [];
-
-            $scope.today = function () {
-                $scope.value = new Date();
+        $scope.delete = false;
+        var self = this;
+       
+        $scope.user = {};
+        $scope.master = {};
+        $scope.currentRecord = {};
+        $scope.records = {};
+        //$scope.records = [];
+        
+        
+            this.onlyRead = function()
+            {
+                $scope.edit = false;
+                $scope.delete = false;
+                $scope.read=true;  
             };
-
-            $scope.clear = function () {
-                $scope.value = null;
-            };
-
-            $scope.open = function ($event) {
-                $event.preventDefault();
-                $event.stopPropagation();
-
-                $scope.opened = true;
-            };
-
-            //Alertas
-            this.closeAlert = function (index) {
-                $scope.alerts.splice(index, 1);
-            };
-
-            // Función showMessage: Recibe el mensaje en String y su tipo con el fin de almacenarlo en el array $scope.alerts.
-            function showMessage(msg, type) {
-                var types = ["info", "danger", "warning", "success"];
-                if (types.some(function (rc) {
-                    return type === rc;
-                })) {
-                    $scope.alerts.push({type: type, msg: msg});
-                }
-            }
-
-            this.showError = function (msg) {
-                showMessage(msg, "danger");
-            };
-
-            this.showSuccess = function (msg) {
-                showMessage(msg, "success");
-            };
-
-            var self = this;
-            function responseError(response) {
-                self.showError(response.data);
-            }
-            
-            //Variables para el controlador
-            this.readOnly = false;
-            this.editMode = false;
-
-            this.changeTab = function (tab) {
-                $scope.tab = tab;
-            };
-            
-            //Ejemplo alerta
-            showMessage("Bienvenido!, Esto es un ejemplo para mostrar un mensaje de información","info");
-            
-
-            /*
-             * Funcion createRecord emite un evento a los $scope hijos del controlador por medio de la 
-             * sentencia &broadcast ("nombre del evento", record), esto con el fin cargar la información de modulos hijos 
-             * al actual modulo.
-             * Habilita el modo de edicion. El template de la lista cambia por el formulario.
-             * 
-             */
-
-            this.createRecord = function () {
-                $scope.$broadcast("pre-create", $scope.currentRecord);
-                this.editMode = true;
-                $scope.currentRecord = {};
-                $scope.$broadcast("post-create", $scope.currentRecord);
-            };
-
-            /*
-             * Funcion editRecord emite el evento ("pre-edit") a los $Scope hijos del controlador por medio de la 
-             * sentencia &broadcast ("nombre del evento", record), esto con el fin cargar la información de modulos hijos 
-             * al actual modulo.
-             * Habilita el modo de edicion.  Carga el template de formulario con los datos del record a editar.
-             * 
-             */
-
-            this.editRecord = function (record) {
-                $scope.read=false;
+            this.editTrue = function()
+            {
                 $scope.edit = true;
-                /*$scope.$broadcast("pre-edit", $scope.currentRecord);
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    self.editMode = true;
-                    $scope.$broadcast("post-edit", $scope.currentRecord);
-                    return response;
-                }, responseError);*/
+                $scope.read=false;
+                $scope.delete = false;
             };
-
-            /*
-             * Funcion fetchRecords consulta el servicio svc.fetchRecords con el fin de consultar 
-             * todos los registros del modulo book.
-             * Guarda los registros en la variable $scope.records
-             * Muestra el template de la lista de records.
-             */
-
-            this.fetchRecords = function () {
-                return svc.fetchRecords().then(function (response) {
-                    $scope.records = response.data;
-                    $scope.currentRecord = {};
-                    self.editMode = false;
-                    return response;
-                }, responseError);
+            this.reset = function()
+            {
+                
+                $scope.user = angular.copy($scope.master);
+                $scope.edit = false;
+                $scope.delete = false;
+                $scope.read=true;  
             };
-
-            /*
-             * Funcion saveRecord hace un llamado al servicio svc.saveRecord con el fin de
-             * persistirlo en base de datos.
-             * Muestra el template de la lista de records al finalizar la operación saveRecord
-             */
-            this.saveRecord = function () {
-                    return svc.saveRecord($scope.currentRecord).then(function () {
-                        self.fetchRecords();
-                    }, responseError);                
+            this.deleteTrue = function()
+            {
+                $scope.edit = false;
+                $scope.read=false;
+                $scope.delete = true;
             };
-
-            /*
-             * Funcion deleteRecord hace un llamado al servicio svc.deleteRecord con el fin
-             * de eliminar el registro asociado.
-             * Muestra el template de la lista de records al finalizar el borrado del registro.
-             */
-            this.deleteRecord = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
-                    self.fetchRecords();
-                }, responseError);
+            this.deleteInfo = function()
+            {
+                /*
+                if(svc.existeUsuario($scope.master.nombre) === 1)
+                {
+                    svc.deleteInfo($scope.master.nombre);
+                }
+                else
+                {}
+                this.fetchRecords();
+                */
+               svc.deleteInfo($scope.master.nombre);
+               this.fetchRecords();
+               
             };
-
-            /*
-             * Funcion fetchRecords consulta todos los registros del módulo book en base de datos
-             * para desplegarlo en el template de la lista.
-             
+          
+            
+           
+            
+            this.update = function(user) {
+                
+            $scope.master = angular.copy(user);
+            /*if(svc.existeUsuario($scope.master.nombre) === 0){
+                svc.crearUsuario($scope.master);
+            }
+            else
+            {
+                svc.editarUsuario($scope.master.nombre,$scope.master);
+            }*/
+            svc.crearUsuario($scope.master);
             this.fetchRecords();
-*/
+            $scope.edit = false;
+            $scope.read=true;  
+            $scope.delete = false;
+            
+            };
+            
+            
+            this.fetchRecords = function () {
+                
+                //NOTA:
+                /*Se esta realizando de esta manera porque se esta considerando
+                 * que el usuario ha hecho log in por lo tanto siempre
+                 * sera el mismo. Mas adelante el current record lo definira el 
+                 * login del usuario.              
+                 * */
+                   /* $scope.records = svc.fetchRecords();
+                    $scope.master = $scope.records[0];*/
+                    $scope.records = svc.fetchRecords()
+                    $scope.master = $scope.records;
+                    $scope.edit = false;
+                    $scope.read=true;
+                    $scope.delete = false;
+                    this.reset();
+                    return $scope.records;
+                
+            };
+
+          
+            
+
+            
+          
+
+            this.reset();
+            this.fetchRecords();
 
         }]);
 
