@@ -28,6 +28,8 @@
                     })
                     .state('perfil',{
                         url:'/perfil',
+                        controller: "perfilCtrl",
+                        controllerAs: "ctrl",
                         templateUrl:"src/modules/perfil/perfil.tpl.html"
                     })
                     .state('perfil.recuerdo',{   
@@ -44,7 +46,7 @@
                         views: {
                         'viewA': {
                         templateUrl: 'src/modules/perfil/datosPersonales.tpl.html',
-                        controller: "perfilCtrl",
+                        controller: "perfilDatosCtrl",
                         controllerAs: "ctrl"
                         }}
                         

@@ -38,10 +38,9 @@
                       <li><a id="elementosBarraPerfil" data-ui-sref="perfil.infogeneral">Datos Personales</a></li>
                       <li class="dropdown">
                         <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" data-aria-expanded="false" id="elementosBarraPerfil">Recuerdos<span class="caret"></span></a>
-                        <ul class="dropdown-menu" id ="desplegableRecuerdos">
+                        <ul class="dropdown-menu" id ="desplegableRecuerdos" >
                           <li><a data-ui-sref="perfil.recuerdo">Tour por Colombia</a></li>
-                          <li><a href="#">Viaje a Europa</a></li>
-                          <li><a href="#">Vuelta al Mundo</a></li>
+                          <li ng-repeat ="record in records"><a href="#">{{record.nombre}}</a></li>
                         </ul>
                       </li>
                        
@@ -60,9 +59,67 @@
 
             <div class="col-md-12">
                 <div id="contenido" data-ui-view="viewA">
+                    
+                    <div div ng-show="read" class="ng-hide">
                     <h2>¡Bienvenido!</h2>
+                    <!--<p>
+                        MASTER: {{master}}
+                        <br>
+                        USER: {{user}}
+                    </p>-->
                     <p>Esta es tu sección de perfil, aquí encontraras tu información personal, también podrás guardar fotos y recuerdos de tus viajes pasados.</p>
-
+                    <button id = "addRecuerdo" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.editTrue()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Nuevo Recuerdo
+                    </button>
+                    </div>
+                    
+                    <div ng-show="edit" class="ng-hide"> 
+                    <form novalidate name="form" id="datos-form" role="form" ng-submit="ctrl.update(user)">
+                        <alert ng-messages="form.$error" type="danger" close="" ng-hide="!form.$error.required">
+                            <div ng-message="required">
+                                Please, Fill the required fields!
+                            </div>
+                        </alert>  
+                        <fieldset>
+                            <input id="id" class="form-control" type="hidden" ng-model="userR.id"/>
+                            <div class="form-group col-md-12" ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}" >
+                                <label for="nombre" class="col-md-2 control-label">Nombre</label>
+                                <div class="col-md-10">
+                                    <input id="nombreRecuerdo" name="nombre" class="form-control" type="text" ng-model="user.nombre" required />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12" ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}" >
+                                <label for="nombre" class="col-md-2 control-label">Descripción</label>
+                                <div class="col-md-10">
+                                    <input id="descRecuerdo" name="nombre" class="form-control" type="text" ng-model="user.desc" required />
+                                </div>
+                            </div>   
+                        </fieldset>
+                    </form>
+                    <button id="guardar-datos" type="submit" form="datos-form" class="btn btn-default navbar-btn">
+                    <span class="glyphicon glyphicon-save"></span> Guardar
+                    </button>
+                    <button type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.reset()">
+                              Cancelar
+                    </button>
+                    <!--<p>
+                        MASTER: {{master}}
+                        <br>
+                        USER: {{user}}
+                    </p>-->
+                </div>
+                <div div ng-show="delete" class="ng-hide">
+                <h2>¡Bienvenido!</h2>
+               <!-- <p>
+                    MASTER: {{master}}
+                    <br>
+                    USER: {{user}}
+                </p>-->
+                <p>Esta es tu sección de perfil, aquí encontraras tu información personal, también podrás guardar fotos y recuerdos de tus viajes pasados.</p>
+                <button id = "addRecuerdo" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.editTrue()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Nuevo Recuerdo
+                </button>
+                </div>
                 </div>
            </div>
         </div>

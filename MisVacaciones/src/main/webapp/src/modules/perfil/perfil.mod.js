@@ -5,7 +5,7 @@
  */
 (function (ng) {
     var mod = ng.module("perfilModule", ["ui.bootstrap"]);
-    mod.constant("perfilContext", "api/perfil");
+   /* mod.constant("perfilContext", "api/perfil/");*/
 
 })(window.angular);
 
