@@ -1,7 +1,7 @@
 (function (ng) {
 
     var mod = ng.module("mainApp", ["ui.router",
-                "perfilModule", "ciudadCrudModule"]);
+                "perfilModule", "ciudadCrudModule","itinerarioModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -79,6 +79,8 @@
                     })
                     .state('crearitinerario',{
                         url:'/crearitinerario',
+                        controller:'itinerarioController',
+                        controllerAs:'ctrl',
                         templateUrl:"src/modules/itinerario/crear.tpl.html"
                     })
 
