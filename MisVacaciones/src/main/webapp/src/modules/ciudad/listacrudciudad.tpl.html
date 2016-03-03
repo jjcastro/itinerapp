@@ -1,0 +1,37 @@
+<div>
+    <!-- AQUÍ COMIENZA EL ESPACIO A MODIFICAR -->
+
+    <h2>Viaje por suramérica y EEUU</h2>
+
+    <div class="list-group" ng-repeat="ciudad in ciudades">
+      <a ui-sref="ciudad({id: ciudad.id})" class="list-group-item active">
+      <span class="badge">{{ciudad.fechaI}} - {{ciudad.fechaF}}</span>
+        <img class="list-group-item-img" src="resources/imagenes/{{ciudad.fotoSmall}}">
+        <h4 class="list-group-item-heading">{{ciudad.nombre}}, {{ciudad.pais}}</h4>
+        <p class="list-group-item-text">{{ciudad.subtext}}</p>
+      </a>
+    </div>
+    <input class="btn btn-lg" style="background-color: #fff; border: 1px solid #bbb;" type="button" value="Agregar nueva ciudad" ng-click="createRecord()" ng-show="!editMode">
+
+    <div class="row edicion" ng-show="editMode" style="margin-top: 30px;">
+      <form novalidate class="simple-form form-group">
+        <label>Nombre:</label>
+        <input type="text" class="form-control" ng-model="newCity.nombre" /><br/>
+        <label>Pais:</label>
+        <input type="text" class="form-control" ng-model="newCity.pais" /><br/>
+        <label>Fecha Inicio:</label>
+        <input type="text" class="form-control" ng-model="newCity.fechaI" /><br/>
+        <label>Fecha Final:</label>
+        <input type="text" class="form-control" ng-model="newCity.fechaF" /><br/>
+        <label>Descripción:</label>
+        <input type="text" class="form-control" ng-model="newCity.descripcion" /><br/>
+        <div class="btnes">
+        <input class="btn btn-default" type="submit" ng-click="submitNewRecord(newCity)" value="Guardar ciudad" />
+        </div>
+      </form>
+    </div>
+
+    
+
+    <!-- AQUÍ TERMINA EL ESPACIO A MODIFICAR -->
+</div>

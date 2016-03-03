@@ -1,7 +1,7 @@
 (function (ng) {
 
     var mod = ng.module("mainApp", ["ui.router",
-                "perfilModule"]);
+                "perfilModule", "ciudadCrudModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -14,9 +14,17 @@
                         url: '/evento',
                         templateUrl: "src/modules/evento/evento.tpl.html"
                     })
+                    .state('listacrudciudad', {
+                        url: '/listacrudciudad',
+                        templateUrl: "src/modules/ciudad/listacrudciudad.tpl.html",
+                        controller: "ciudadCrudCtrl",
+                        controllerAs: "ctrl"
+                    })
                     .state('ciudad', {
-                        url: '/ciudad',
-                        templateUrl: "src/modules/ciudad/ciudad.tpl.html"
+                        url: '/listacrudciudad/:id',
+                        templateUrl: "src/modules/ciudad/ciudad.tpl.html",
+                        controller: "ciudadCrudCtrl",
+                        controllerAs: "ctrl"
                     })
                     .state('timeline', {
                         url: '/timeline',

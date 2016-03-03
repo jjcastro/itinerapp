@@ -268,6 +268,36 @@
   text-align: left;
 }
 
+@media (min-width: 1200px) {
+  .post {
+    width: initial !important;
+  }
+
+  #perfilciudad {
+    width: initial !important;
+  }
+}
+
 .post h3 {
   color: #00A57F;
+}
+
+.botones .btn-lg {
+  background-color: #00A57F;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.edicion {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.btnes {
+  margin: 0 auto;
+}
+
+.btnes .btn-default {
+  padding: 10px;
+  float: none !important;
 }
