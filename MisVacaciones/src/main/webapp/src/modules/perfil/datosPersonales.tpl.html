@@ -4,7 +4,7 @@
               <button id = "cofigPerfil" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.editTrue()">
               <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
              </button>
-             <button id = "delInfo" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.deleteInfo()">
+             <button id = "delInfo" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.deleteTrue()">
               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
              </button>
             </h2>
@@ -104,6 +104,19 @@
         <br>
         USER: {{user}}
     </p>-->
+</div>
+<div ng-show="delete" class="ng-hide"> 
+            <h2>¿Desea borrar su información del perfil?</h2>
+            <button id = "ac" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.deleteInfo()">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Si
+             </button>
+             <button id = "can" type="button" class="btn btn-default" aria-label="Center Align" ng-click="ctrl.onlyRead()">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>No
+             </button>
+            
+            
+           
+            
 </div>
     
 </div>

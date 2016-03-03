@@ -12,6 +12,7 @@
            
         $scope.read = true;
         $scope.edit = false;
+        $scope.delete = false;
         var self = this;
        
         $scope.user = {};
@@ -21,18 +22,31 @@
         //$scope.records = [];
         
         
-             
+            this.onlyRead = function()
+            {
+                $scope.edit = false;
+                $scope.delete = false;
+                $scope.read=true;  
+            };
             this.editTrue = function()
             {
                 $scope.edit = true;
                 $scope.read=false;
+                $scope.delete = false;
             };
             this.reset = function()
             {
                 
                 $scope.user = angular.copy($scope.master);
                 $scope.edit = false;
+                $scope.delete = false;
                 $scope.read=true;  
+            };
+            this.deleteTrue = function()
+            {
+                $scope.edit = false;
+                $scope.read=false;
+                $scope.delete = true;
             };
             this.deleteInfo = function()
             {
@@ -46,6 +60,8 @@
                 this.fetchRecords();
                 */
                svc.deleteInfo($scope.master.nombre);
+               this.fetchRecords();
+               
             };
           
             
@@ -65,6 +81,7 @@
             this.fetchRecords();
             $scope.edit = false;
             $scope.read=true;  
+            $scope.delete = false;
             
             };
             
@@ -83,6 +100,7 @@
                     $scope.master = $scope.records;
                     $scope.edit = false;
                     $scope.read=true;
+                    $scope.delete = false;
                     this.reset();
                     return $scope.records;
                 
