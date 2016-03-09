@@ -20,6 +20,11 @@ mod.controller('itinerarioController', ['$scope', "itinerarioService" , function
   var slides = $scope.slides = [];
   var currIndex = 0;
 
+  $scope.newitinerario = {
+      dateOut : new Date()
+      
+  };
+
   $scope.addSlide = function() {
     var newWidth = 600 + slides.length + 1;
     slides.push({
@@ -96,7 +101,7 @@ mod.controller('itinerarioController', ['$scope', "itinerarioService" , function
   
     //$scope.today = function() {
         
-    //$scope.newitinerario.dateOut = $scope.dtx;
+    //$scope.newitinerario.dateOut = new Date();
     //};
   //$scope.today();
 

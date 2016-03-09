@@ -174,11 +174,11 @@ Main components
     height: 60px;
     left: 50%;
     margin-left: -30px;
-    /* Force Hardware Acceleration in WebKit */
+    /* Force Hardware Acceleration in WebKit 
     -webkit-transform:
     translateZ(0);
     -webkit-backface-visibility: hidden;
-  }
+  }*/
   .cssanimations .cd-timeline-img.is-hidden {
     visibility: hidden;
   }
@@ -188,7 +188,7 @@ Main components
     -moz-animation: cd-bounce-1 0.6s;
     animation: cd-bounce-1 0.6s;
   }
-}*/
+
 
 @-webkit-keyframes cd-bounce-1 {
   0% {
@@ -372,7 +372,7 @@ Main components
     -moz-animation: cd-bounce-2-inverse 0.6s;
     animation: cd-bounce-2-inverse 0.6s;
   }
-}*/
+
 @-webkit-keyframes cd-bounce-2 {
   0% {
     opacity: 0;
