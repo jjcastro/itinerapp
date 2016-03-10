@@ -88,8 +88,8 @@
                 nombre: 'Santiago',
                 apellido: 'Robayo',
                 username: 's.robayo',
-                email: 's.robayo10@uniandes.edu.co',
-                password: 'zxcv',
+                email: 's.robayo222@uniandes.edu.co',
+                password: 'srg',
                 cedula : 0,
                 administrador: true
             },
