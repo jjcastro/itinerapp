@@ -17,8 +17,7 @@
         var itinerarios = [{
              id: 0,
             'name': 'Viral',
-            'email': 'hello@gmail.com',
-            'phone': '123-2343-44',
+            'image': 'hello@gmail.com',
             'dateOut': '12/12/16'
             
     }];

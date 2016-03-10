@@ -29,10 +29,8 @@
     <form class="well">
         <label>Name</label>
         <input type="text" name="name" ng-model="newitinerario.name" />
-        <label>Email</label>
-        <input type="text" name="email" ng-model="newitinerario.email" />
-        <label>Phone</label>
-        <input type="text" name="phone" ng-model="newitinerario.phone" />
+        <label>Image</label>
+        <input type="text" name="email" ng-model="newitinerario.image" />
         <br/>
         <input type="hidden" ng-model="newitinerario.id" />
         <input type="button" value="Save" ng-click="saveItinerario()" class="btn btn-primary" />
@@ -41,18 +39,18 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
+                <th>Image</th>
                 <th>DateOut</th>
+                <th>DateIn</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="itinerario in itinerarios">
                 <td>{{ itinerario.name }}</td>
-                <td>{{ itinerario.email }}</td>
-                <td>{{ itinerario.phone }}</td>
+                <td>{{ itinerario.image }}</td>
                 <td>{{ itinerario.dateOut | date:'fullDate' }}</td>
+                <td>{{ itinerario.dateIn | date:'fullDate' }}</td>
                 
                 <td> <a href="javascript:void(0)" ng-click="edit(itinerario.id)">edit</a> | <a href="javascript:void(0)" ng-click="delete(itinerario.id)">delete</a>
 
@@ -84,15 +82,15 @@
     
     <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
         <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-        <input type="text" name="dateOut" ng-model="newitinerario.dateOut" />
+  
 </div>
     
 
-<pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+<pre>Selected date is: <em>{{newitinerario.dateIn | date:'fullDate' }}</em></pre>
 
-    <h4>Fecha de Salida</h4>
+    <h4>Fecha de Regreso</h4>
     <div style="display:inline-block; min-height:290px;">
-      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptions"></uib-datepicker>
+      <uib-datepicker ng-model="newitinerario.dateIn" class="well well-sm" datepicker-options="inlineOptions"></uib-datepicker>
     
     
     <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>

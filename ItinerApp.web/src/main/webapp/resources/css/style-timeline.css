@@ -33,9 +33,6 @@ Primary style
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-}
 
 #container h1, #container h2 {
   font-weight: bold;
@@ -127,6 +124,10 @@ Main components
 }
 .cd-timeline-block:last-child {
   margin-bottom: 0;
+}
+
+.list-group-item-img {
+  max-width: 100%;
 }
 /*@media only screen and (min-width: 1170px) {
   .cd-timeline-block {

@@ -29,6 +29,27 @@ public class ItinerarioDtos {
      * Metodos GET y SET de la clase Itinerario de todos sus atributos
      */
     
+    public ItinerarioDtos(Long pId, String pNombre, String pImagen, Date pDateIn, Date pDateOut){
+        id= pId;
+        nombre = pNombre;
+        imagen = pImagen;
+        dateOut = pDateOut;
+        dateIn = pDateIn;
+        
+    }
+    
+     public ItinerarioDtos(Long pId, String pNombre, Date pDateIn, Date pDateOut){
+        id= pId;
+        nombre = pNombre;
+        dateOut = pDateOut;
+        dateIn = pDateIn;
+        
+    }
+            
+    
+    
+    
+    
     public Long getId(){
         return id;
     }

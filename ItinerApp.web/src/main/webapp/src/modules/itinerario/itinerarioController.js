@@ -21,7 +21,8 @@ mod.controller('itinerarioController', ['$scope', "itinerarioService" , function
   var currIndex = 0;
 
   $scope.newitinerario = {
-      dateOut : new Date()
+      dateOut : new Date(),
+      dateIn : new Date()
       
   };
 
@@ -179,14 +180,10 @@ mod.controller('itinerarioController', ['$scope', "itinerarioService" , function
     
     
     
-    
-     $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
+  
 
   $scope.clear = function() {
-    $scope.dt = null;
+    $scope.dateIn = null;
   };
 
   $scope.inlineOptions = {
@@ -204,7 +201,7 @@ mod.controller('itinerarioController', ['$scope', "itinerarioService" , function
   };
   
   $scope.setDate = function(year, month, day) {
-    $scope.dt = new Date(year, month, day);
+    $scope.dateIn = new Date(year, month, day);
   };
 
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
