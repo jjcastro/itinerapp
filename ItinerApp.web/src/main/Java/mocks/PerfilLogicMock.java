@@ -27,8 +27,8 @@ public class PerfilLogicMock {
     	if (recuerdos == null) {
             recuerdos = new ArrayList<>();
             recuerdos.add(new PerfilDtos(1L, "Paris", "Increible ciudad"));
-            recuerdos.add(new PerfilDtos(1L, "Florida", "Muy divertido!"));
-            recuerdos.add(new PerfilDtos(1L, "Rio De Janeiro", "Su gente es muy amable"));
+            recuerdos.add(new PerfilDtos(2L, "Florida", "Muy divertido!"));
+            recuerdos.add(new PerfilDtos(3L, "Rio De Janeiro", "Su gente es muy amable"));
             
         }
         
@@ -112,6 +112,7 @@ public class PerfilLogicMock {
             	
             	recuerdo.setId(updatedRecuerdo.getId());
                 recuerdo.setNombre(updatedRecuerdo.getNombre());
+                recuerdo.setDescripcion(updatedRecuerdo.getDescripcion());
                 
                 
             	logger.info("Modificando Recuerdo " + recuerdo);
@@ -143,4 +144,5 @@ public class PerfilLogicMock {
         logger.severe("No existe un recuerdo con ese id");
         throw new PerfilLogicException("No existe un recuerdo con ese id");
     }
+   
 }

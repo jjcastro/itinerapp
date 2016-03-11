@@ -60,5 +60,7 @@ public class PerfilResource {
     public void deleteRecuerdo(@PathParam("id") Long id) throws PerfilLogicException {
     	perfilLogic.deleteRecuerdo(id);
     }
+    
+    
 
 }
