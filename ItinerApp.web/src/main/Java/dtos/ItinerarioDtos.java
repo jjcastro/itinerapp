@@ -30,6 +30,7 @@ public class ItinerarioDtos {
      */
     
     public ItinerarioDtos(Long pId, String pNombre, String pImagen, Date pDateIn, Date pDateOut){
+        super();
         id= pId;
         nombre = pNombre;
         imagen = pImagen;
@@ -39,6 +40,7 @@ public class ItinerarioDtos {
     }
     
      public ItinerarioDtos(Long pId, String pNombre, Date pDateIn, Date pDateOut){
+            super();
         id= pId;
         nombre = pNombre;
         dateOut = pDateOut;

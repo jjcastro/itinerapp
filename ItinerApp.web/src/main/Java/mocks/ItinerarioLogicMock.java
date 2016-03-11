@@ -35,6 +35,7 @@ public class ItinerarioLogicMock {
         
         /**
      * Constructor. Crea los datos de ejemplo.
+     * @throws java.text.ParseException
      */
     public ItinerarioLogicMock() throws ParseException {
         
@@ -83,7 +84,7 @@ public class ItinerarioLogicMock {
     /**
 	 * Obtiene el listado de itinerarios. 
 	 * @return lista de itinerarios
-	 * @throws CityLogicException cuando no existe la lista en memoria  
+         * @throws exceptions.ItinerarioException  
 	 */    
     public List<ItinerarioDtos> getItinerarios() throws ItinerarioException {
     	if (itinerarios == null) {
