@@ -19,6 +19,7 @@ import javax.ws.rs.Produces;
 
 import dtos.eventoDTO;
 import exceptions.eventoLogicException;
+import javax.enterprise.context.RequestScoped;
 import mocks.eventoLogicMock;
 
 /**
@@ -27,62 +28,34 @@ import mocks.eventoLogicMock;
  */
 @Path("eventos")
 @Produces("application/json")
+@RequestScoped
 public class eventoResource
 {
     @Inject
-	eventoLogicMock eventoLogic;
+            eventoLogicMock eventoLogic;
 
-	/**
-	 * Obtiene el listado de ciudades.
-	 * @return lista de ciudades
-	 * @throws CityLogicException excepción retornada por la lógica
-	 */
     @GET
-    public List<eventoDTO> getCities() throws eventoLogicException {
+    public List<eventoDTO> getEvento() throws eventoLogicException {
         return eventoLogic.getEvento();
     }
 
-    /**
-     * Obtiene una ciudad
-     * @param id identificador de la ciudad
-     * @return ciudad encontrada
-     * @throws CityLogicException cuando la ciudad no existe
-     */
     @GET
     @Path("{id: \\d+}")
     public eventoDTO getEvento(@PathParam("id") Long id) throws eventoLogicException {
         return eventoLogic.getEvento(id);
     }
 
-    /**
-     * Agrega una ciudad
-     * @param city ciudad a agregar
-     * @return datos de la ciudad a agregar
-     * @throws CityLogicException cuando ya existe una ciudad con el id suministrado
-     */
     @POST
     public eventoDTO createEvento(eventoDTO evento) throws eventoLogicException {
         return eventoLogic.createEvento(evento);
     }
 
-    /**
-     * Actualiza los datos de una ciudad
-     * @param id identificador de la ciudad a modificar
-     * @param city ciudad a modificar
-     * @return datos de la ciudad modificada
-     * @throws CityLogicException cuando no existe una ciudad con el id suministrado
-     */
     @PUT
     @Path("{id: \\d+}")
     public eventoDTO updateEvento(@PathParam("id") Long id, eventoDTO evento) throws eventoLogicException {
         return eventoLogic.updateEvento(id, evento);
     }
 
-    /**
-     * Elimina los datos de una ciudad
-     * @param id identificador de la ciudad a eliminar
-     * @throws CityLogicException cuando no existe una ciudad con el id suministrado
-     */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteEvento(@PathParam("id") Long id) throws eventoLogicException {

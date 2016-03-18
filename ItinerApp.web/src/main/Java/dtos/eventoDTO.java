@@ -22,11 +22,6 @@ public class eventoDTO {
     {
     }
 
-    /**
-     * Constructor con parámetros.
-     * @param id identificador de la ciudad
-     * @param name nombre dedel evento
-     */
     public eventoDTO(Long id, String name, String city, String des) {
 		super();
 		this.id = id;
@@ -35,65 +30,39 @@ public class eventoDTO {
                 this.descripcion = des;
 	}
 
-	/**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * @return the name
-     */
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * @param name the name to set
-     */
     public void setNombre(String name) {
         this.nombre = name;
     }
 
-    /**
-     * @return the city
-     */
     public String getCiudad() {
         return ciudad;
     }
 
-    /**
-     * @param city the city to set
-     */
     public void setCiudad(String city) {
         this.ciudad = city;
     }
 
-    /**
-     * @return the description
-     */
     public String getDescripcion() {
         return descripcion;
     }
 
-    /**
-     * @param des the description to set
-     */
     public void setDescripcion(String des) {
         this.descripcion = des;
     }
 
-    /**
-     * Convierte el objeto a una cadena
-     */
     @Override
     public String toString() {
     	return "{ id : " + getId() + ", nombre : \"" + getNombre() + ", ciudad : \""+getCiudad()+ ", descripcion : \""+getDescripcion()+"\"}" ;
