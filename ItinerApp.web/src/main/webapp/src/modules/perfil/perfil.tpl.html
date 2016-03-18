@@ -88,10 +88,10 @@
                                     <input id="nombreRecuerdo" name="nombre" class="form-control" type="text" ng-model="user.nombre" required />
                                 </div>
                             </div>
-                            <div class="form-group col-md-12" ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}" >
-                                <label for="nombre" class="col-md-2 control-label">Descripción</label>
+                            <div class="form-group col-md-12" ng-class="{'has-success': form.desc.$valid && form.desc.$dirty, 'has-error': form.desc.$invalid && (form.desc.$dirty || form.$submitted)}" >
+                                <label for="desc" class="col-md-2 control-label">Descripción</label>
                                 <div class="col-md-10">
-                                    <input id="descRecuerdo" name="nombre" class="form-control" type="text" ng-model="user.desc" required />
+                                    <input id="descRecuerdo" name="desc" class="form-control" type="text" ng-model="user.desc" required />
                                 </div>
                             </div>   
                         </fieldset>

@@ -140,6 +140,10 @@ Main components
     margin-bottom: 0;
   }
 }*/
+.fotoTimeline
+{
+    max-width: 100%;
+}
 
 .cd-timeline-img {
   position: absolute;

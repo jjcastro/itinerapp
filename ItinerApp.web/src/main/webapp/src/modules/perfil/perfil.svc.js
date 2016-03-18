@@ -8,8 +8,10 @@
     var mod = ng.module("perfilModule");
     
      mod.service("perfilService", ["$http", function ($http) {
-        var usuario = {}
+        var usuario = {};
         var recuerdos = [];
+        
+        
         this.crearUsuario = function(currentRecord)
         {
             /*
@@ -40,7 +42,8 @@
         };
         this.crearRecuerdo = function(master)
         {
-            recuerdos.push(master);
+            //recuerdos.push(master);
+            return $http.post('api/recuerdos',master);
         };
         
         
@@ -53,7 +56,8 @@
         
         this.fetchRecordsRec = function()
         {
-            return recuerdos;
+            //return recuerdos;
+            return $http.get('api/recuerdos');
         };
         
         this.existeUsuario = function(nombre)

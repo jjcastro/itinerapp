@@ -87,6 +87,7 @@
             };
             
             this.update = function(user) {
+                /*
             $scope.master = angular.copy(user);
             
             svc.crearRecuerdo($scope.master);
@@ -95,6 +96,18 @@
             $scope.edit = false;
             $scope.delete = false;
             $scope.read=true;  
+                */
+            $scope.master = angular.copy($scope.user);
+            
+            svc.crearRecuerdo($scope.master).then(function ()
+            {
+                self.fetchRecordsRec();
+                $scope.edit = false;
+                $scope.delete = false;
+                $scope.read=true; 
+            });
+            
+            
             
             };
             
@@ -110,14 +123,26 @@
                  * sera el mismo. Mas adelante el current record lo definira el 
                  * login del usuario.              
                  * */
-                    $scope.records = svc.fetchRecordsRec();
+                /*    $scope.records = svc.fetchRecordsRec();
                     $scope.master = $scope.records[0];
                     $scope.edit = false;
                     $scope.delete = false;
                     $scope.read=true;
                     this.reset();
                     return $scope.records;
-                
+                */
+               return  svc.fetchRecordsRec().then(function(response)
+               {
+                    $scope.records = response.data;
+                    //$scope.master = $scope.records[0];
+                    $scope.edit = false;
+                    $scope.delete = false;
+                    $scope.read=true;
+                    self.reset();
+                    return response;
+               });
+               
+               
             };
 
           
