@@ -39,8 +39,8 @@
                       <li class="dropdown">
                         <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" data-aria-expanded="false" id="elementosBarraPerfil">Recuerdos<span class="caret"></span></a>
                         <ul class="dropdown-menu" id ="desplegableRecuerdos" >
-                          <li><a data-ui-sref="perfil.recuerdo">Tour por Colombia</a></li>
-                          <li ng-repeat ="record in records"><a href="#">{{record.nombre}}</a></li>
+                          <li><a data-ui-sref="perfil.recuerdo">Tour por Colombia {{prueba}}</a></li>
+                          <li ng-repeat ="record in records"><a data-ui-sref="perfil.recuerdo" ng-click="ctrl.actualizarCurrent(record)">{{record.nombre}}{{prueba}}</a></li>
                         </ul>
                       </li>
                        

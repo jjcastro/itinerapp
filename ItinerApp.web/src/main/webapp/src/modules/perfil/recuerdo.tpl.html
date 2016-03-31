@@ -12,21 +12,19 @@ $('#myCarousel').on('slid.bs.carousel', function (e) {
         $('#carousel-text').html($('#slide-content-'+id).html());
 });
 });</script>
+
    
 <div id="perfil">
 
         
     <div>
-        <h2>Colombia</h2>
+        <h2>{{records.nombre}}</h2>
         
     </div>
     
     <div class="row">
         <div class="col-md-6">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Iusto, optio, dolorum provident rerum aut hic quasi 
-            placeat iure tempora laudantium ipsa ad debitis unde?
-            Iste voluptatibus minus veritatis qui ut.</p>
+        <p>{{records.descripcion}}</p>
         </div>
         <div class="col-md-6" id="carousel-bounding-box">
             <div class="carousel slide" id="myCarousel">

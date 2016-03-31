@@ -19,8 +19,15 @@
         $scope.records = [];
         $scope.user = {};
         $scope.master ={};
+        $scope.prueba ='prueba';
         
-      
+          this.actualizarCurrent =function(record)
+            {
+                
+                $scope.prueba = ' '+record.id;
+                svc.actualizarRecuerdoSeleccionado(record);
+                
+            };
             this.deleteTrue = function()
             {
                 $scope.delete = true;

@@ -22,6 +22,7 @@ import javax.ws.rs.Produces;
 
 @Path("recuerdos")
 @Produces("application/json")
+//@Consume("application/json") intentar esto problema desc.
 @RequestScoped
 public class PerfilResource {
 

@@ -10,8 +10,18 @@
      mod.service("perfilService", ["$http", function ($http) {
         var usuario = {};
         var recuerdos = [];
+        var actual = -1;
         
+        this.actualizarRecuerdoSeleccionado= function(record)
+        {
+            actual = record.id;
+            return actual;
+        };
         
+        this.recuerdoSeleccionado = function()
+        {            
+            return $http.get('api/recuerdos/'+actual);  
+        };
         this.crearUsuario = function(currentRecord)
         {
             /*

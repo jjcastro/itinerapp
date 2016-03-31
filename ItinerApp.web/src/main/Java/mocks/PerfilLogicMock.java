@@ -26,7 +26,9 @@ public class PerfilLogicMock {
 
     	if (recuerdos == null) {
             recuerdos = new ArrayList<>();
-            recuerdos.add(new PerfilDtos(1L, "Paris", "Increible ciudad"));
+            recuerdos.add(new PerfilDtos(1L, "Paris", "Me gustó mucho esta ciudad."
+                    + "Paris es una hermosa ciudad, fue increíble la vista "
+                    + "desde la torre Eiffel y la arquitectura de Notre Dame."));
             recuerdos.add(new PerfilDtos(2L, "Florida", "Muy divertido!"));
             recuerdos.add(new PerfilDtos(3L, "Rio De Janeiro", "Su gente es muy amable"));
             

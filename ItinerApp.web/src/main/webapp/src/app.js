@@ -51,6 +51,8 @@
                         views: {
                         'viewA': {
                         templateUrl: 'src/modules/perfil/recuerdo.tpl.html',
+                        controller:"recuerdoCtrl",
+                        controllerAs:"ctrl"
 
                         }}
 
