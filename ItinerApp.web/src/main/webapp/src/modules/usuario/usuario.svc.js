@@ -9,12 +9,12 @@
 
         this.crearUsuario = function(usr){
             var req = {
-                method: 'POST', 
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios', 
-                headers: {'Content-Type': undefined}, 
+                method: 'POST',
+                url: 'http://localhost:8080/ItinerApp.web/api/usuarios',
+                headers: {'Content-Type': undefined},
                 data: {usuario: usr}
             };
-            
+
             $http(req).then(function(){alert('Usuario creado.');}, function(){alert('No se creó el usuario.');});
             //this.usuarios.push(usr);
         };
@@ -26,53 +26,53 @@
                     i = this.usuarios.length;
                 }
             }*/
-            
+
             var req = {
-                method: 'DELETE', 
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarioS/' + id, 
+                method: 'DELETE',
+                url: 'http://localhost:8080/ItinerApp.web/api/usuarioS/' + id,
                 headers: {'Content-Type': undefined}
             };
-            
+
             $http(req).then(function(){alert('Usuario eliminado.');}, function(){alert('No se eliminó el usuario.');});
         };
 
         this.modificarUsuario = function(usr){
             var req = {
-                method: 'PUT', 
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios' + usr.id, 
-                headers: {'Content-Type': undefined}, 
+                method: 'PUT',
+                url: 'http://localhost:8080/ItinerApp.web/api/usuarios' + usr.id,
+                headers: {'Content-Type': undefined},
                 data: {usuario: usr}
             };
-            
+
             $http(req).then(function(){alert('Usuario modificado.');}, function(){alert('No se modificó el usuario.');});
             this.usuarios[usr.id] = usr;
         };
 
         this.cargarUsuario = function(id){
             var usuar = {};
-            
+
             var req = {
-                method: 'GET', 
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios/' + id, 
+                method: 'GET',
+                url: 'http://localhost:8080/ItinerApp.web/api/usuarios/' + id,
                 headers: {'Content-Type': undefined}
             };
-            
-            $http(req).then(function(resp){usuar = resp.data;}, function(){alert('No se cargó el usuario.');})
-            
+
+            $http(req).then(function(resp){usuar = resp.data;}, function(){alert('No se cargó el usuario.');});
+
             return usuar;
         };
 
         this.cargarUsuarios = function(){
             var usrs;
-            
+
             var req = {
-                method: 'GET', 
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios', 
+                method: 'GET',
+                url: 'http://localhost:8080/ItinerApp.web/api/usuarios',
                 headers: {'Content-Type': undefined}
             };
-            
-            $http(req).then(function(resp){usrs = resp.data;}, function(){alert('No se cargaron los usuarios.');})
-            
+
+            $http(req).then(function(resp){usrs = resp.data;}, function(){alert('No se cargaron los usuarios.');});
+
             return usrs;
         };
 
@@ -96,7 +96,6 @@
         };
     }]);
 
-/*
     var users = [
             {
                 id: 0,
@@ -158,5 +157,5 @@
                 cedula : 0,
                 administrador: true
             }
-        ];*/
+        ];
 })(window.angular);
