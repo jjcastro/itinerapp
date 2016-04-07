@@ -21,11 +21,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import dtos.ItinerarioDtos;
 import exceptions.ItinerarioException;
+import java.util.ArrayList;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.core.MediaType;
 import mocks.ItinerarioLogicMock;
 
-@Path("/itinerario")
+@Path("itinerario")
 @Produces("application/json")
 @RequestScoped
 public class ItinerarioResource {
@@ -34,15 +36,20 @@ public class ItinerarioResource {
 	ItinerarioLogicMock itinerarioLogic;
  
       @GET
+      @Produces(MediaType.TEXT_PLAIN)
     public List<ItinerarioDtos> getItinerarios() throws ItinerarioException {
-          System.out.println("Esta pidiendo itinerarios");
-        return itinerarioLogic.getItinerarios();
+       // System.out.println("Esta pidiendo itinerarios");
+       List<ItinerarioDtos> M = new ArrayList<>();
+        ItinerarioDtos n = new ItinerarioDtos(4L, "juan", "123", "123");
+        M.add(n);
+        return M;
+        //return itinerarioLogic.getItinerarios();
     }
     
     
     @GET
     @Path("{id: \\d+}")
-    public ItinerarioDtos getItinerario(@PathParam("id") Long id) throws ItinerarioException {
+   public ItinerarioDtos getItinerario(@PathParam("id") Long id) throws ItinerarioException {
         return itinerarioLogic.getItinerario(id);
     }
     

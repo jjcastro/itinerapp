@@ -39,37 +39,12 @@ public class ItinerarioLogicMock {
      */
     public ItinerarioLogicMock() throws ParseException {
         
-        String date_parisIn = " 2016-04-18"; 
-        SimpleDateFormat dtparisin = new SimpleDateFormat("yyyyy-mm-dd"); 
-        Date dateInP = dtparisin.parse(date_parisIn); 
         
-        String date_parisOut = " 2016-05-18"; 
-        SimpleDateFormat dtparisout = new SimpleDateFormat("yyyyy-mm-dd"); 
-        Date dateOutP = dtparisout.parse(date_parisOut); 
-       
-        
-        String date_eeuuIn = " 2016-06-20"; 
-        SimpleDateFormat dteeuuin = new SimpleDateFormat("yyyyy-mm-dd"); 
-        Date dateEeuuIn = dteeuuin.parse(date_eeuuIn); 
-        
-        String date_eeuuOut = " 2016-08-2"; 
-        SimpleDateFormat dteeuuout = new SimpleDateFormat("yyyyy-mm-dd"); 
-        Date dateEeuuOut = dteeuuout.parse(date_eeuuOut); 
-        
-        String date_asiaIn = " 2016-09-19"; 
-        SimpleDateFormat dtasiain = new SimpleDateFormat("yyyyy-mm-dd"); 
-        Date dateAsiaIn = dtasiain.parse(date_asiaIn); 
-        
-        String date_asiaOut = " 2016-11-25"; 
-        SimpleDateFormat dtasiaout = new SimpleDateFormat("yyyyy-mm-dd"); 
-        Date dateAsiaOut = dtasiaout.parse(date_asiaOut); 
-        
-
     	if (itinerarios == null) {
             itinerarios = new ArrayList<>();
-            itinerarios.add(new ItinerarioDtos(1L, "Viaje Paris", "https://scdn3.thomascook.com/crop?imageUrl=http://magnolia.production.thomascook.io/wcms/dam/tcuk/city-breaks/paris/1hero1.jpg&maxWidth=1200&maxHeight=0", dateInP, dateOutP ));
-            itinerarios.add(new ItinerarioDtos(2L, "Viaje EEUU", "http://static.thousandwonders.net/Washington.D.C..original.14.jpg", dateEeuuIn, dateEeuuOut));
-            itinerarios.add(new ItinerarioDtos(3L, "Viaje Asia", "http://www.interfima.org/wp-content/uploads/2015/03/china-information.jpg", dateAsiaIn, dateAsiaOut));
+            itinerarios.add(new ItinerarioDtos(1L, "Viaje Paris", "https://scdn3.thomascook.com/crop?imageUrl=http://magnolia.production.thomascook.io/wcms/dam/tcuk/city-breaks/paris/1hero1.jpg&maxWidth=1200&maxHeight=0", " 2016-04-18", " 2016-05-18" ));
+            itinerarios.add(new ItinerarioDtos(2L, "Viaje EEUU", "http://static.thousandwonders.net/Washington.D.C..original.14.jpg", " 2016-06-20", " 2016-08-2"));
+            itinerarios.add(new ItinerarioDtos(3L, "Viaje Asia", "http://www.interfima.org/wp-content/uploads/2015/03/china-information.jpg", " 2016-09-19", " 2016-11-25"));
         }
         
     	// indica que se muestren todos los mensajes
@@ -93,6 +68,7 @@ public class ItinerarioLogicMock {
     	}
     	
     	logger.info("retornando todos los itinerarios");
+        logger.info("itinerarios" + itinerarios );
     	return itinerarios;
     }
     
@@ -143,7 +119,7 @@ public class ItinerarioLogicMock {
     	} else {
 
     		// genera un id para la ciudad
-    		logger.info("Generando id paa la nueva ciudad");
+    		logger.info("Generando id para la nueva ciudad");
     		long newId = 1;
 	        for (ItinerarioDtos itinerario : itinerarios) {
 	            if (newId <= itinerario.getId()){

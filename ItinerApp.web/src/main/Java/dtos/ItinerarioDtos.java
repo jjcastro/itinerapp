@@ -9,7 +9,6 @@ package dtos;
  * @author johnycsc
  */
 
-import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
@@ -22,14 +21,14 @@ public class ItinerarioDtos {
     private Long id;
     private String imagen;
     private String nombre;
-    private Date dateOut;
-    private Date dateIn;
+    private String dateOut;
+    private String dateIn;
     
     /**
      * Metodos GET y SET de la clase Itinerario de todos sus atributos
      */
     
-    public ItinerarioDtos(Long pId, String pNombre, String pImagen, Date pDateIn, Date pDateOut){
+    public ItinerarioDtos(Long pId, String pNombre, String pImagen, String pDateIn, String pDateOut){
         super();
         id= pId;
         nombre = pNombre;
@@ -39,7 +38,7 @@ public class ItinerarioDtos {
         
     }
     
-     public ItinerarioDtos(Long pId, String pNombre, Date pDateIn, Date pDateOut){
+     public ItinerarioDtos(Long pId, String pNombre, String pDateIn, String pDateOut){
             super();
         id= pId;
         nombre = pNombre;
@@ -76,19 +75,19 @@ public class ItinerarioDtos {
         this.imagen = pImagen;
     }
     
-    public Date getDateOut(){
+    public String getDateOut(){
         return dateOut;
     }
     
-    public void setDateOut(Date pDateOut){
+    public void setDateOut(String pDateOut){
         this.dateOut = pDateOut;
     }
     
-    public Date getDateIn(){
+    public String getDateIn(){
         return dateIn;
     }
     
-    public void setDateIn(Date pDateIn){
+    public void setDateIn(String pDateIn){
         this.dateIn = pDateIn;
     }
     
