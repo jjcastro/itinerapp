@@ -1,9 +1,11 @@
 package com.ingesoft.itinerapp.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
 
 /**
  * @generated
@@ -20,15 +22,17 @@ public class CiudadEntity implements Serializable {
   private String subtext;
   private String fotoBig;
   private String fotoSmall;
+  @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaI;
+  @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaF;
 
   public CiudadEntity()
   {
 
   }
-  
-  public CiudadDTO( Long id, String nombre, String pais, String descripcion, String subtext, String fotoBig, String fotoSmall, Date fechaI, Date fechaF ){
+
+  public CiudadEntity( Long id, String nombre, String pais, String descripcion, String subtext, String fotoBig, String fotoSmall, Date fechaI, Date fechaF ){
       this.id = id;
       this.nombre = nombre;
       this.pais = pais;

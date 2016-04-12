@@ -1,5 +1,5 @@
 
-package dtos;
+package com.ingesoft.itinerapp.dtos;
 
 
 

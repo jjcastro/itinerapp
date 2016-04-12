@@ -1,10 +1,8 @@
 package com.ingesoft.itinerapp.ejbs;
 
 import com.ingesoft.itinerapp.api.ICiudadLogic;
-import com.ingesoft.itinerapp.converter.CiudadConverter;
 import com.ingesoft.itinerapp.dtos.CiudadDTO;
 import com.ingesoft.itinerapp.entities.CiudadEntity;
-import com.ingesoft.itinerapp.persistence.CiudadPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -22,7 +20,7 @@ public class CiudadLogic implements ICiudadLogic {
 
     public CiudadDTO getCiudad(Long id) {
         // TODO
-      return null
+      return null;
     }
 
     public CiudadDTO createCiudad(CiudadDTO dto) {
