@@ -17,6 +17,7 @@ public class RecuerdoEntity implements Serializable {
     
     private String descripcion;
     private String imagen;
+    private String name;
 
 
     /**
@@ -59,6 +60,20 @@ public class RecuerdoEntity implements Serializable {
      */
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    /**
+     * @generated
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @generated
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
    

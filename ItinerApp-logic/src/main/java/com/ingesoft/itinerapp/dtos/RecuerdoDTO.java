@@ -9,10 +9,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class RecuerdoDTO {
 
     private Long id;
+    private String descripcion;
     private String name;
-    private String isbn;
-    private String image;
-    private String description;
+    private String imagen;
+
     /**
      * @generated
      */
@@ -25,6 +25,20 @@ public class RecuerdoDTO {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * @generated
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    /**
+     * @generated
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     /**
@@ -44,43 +58,14 @@ public class RecuerdoDTO {
     /**
      * @generated
      */
-    public String getIsbn() {
-        return isbn;
+    public String getImagen() {
+        return imagen;
     }
 
     /**
      * @generated
      */
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
-
-    /**
-     * @generated
-     */
-    public String getImage() {
-        return image;
-    }
-
-    /**
-     * @generated
-     */
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    /**
-     * @generated
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @generated
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
 }

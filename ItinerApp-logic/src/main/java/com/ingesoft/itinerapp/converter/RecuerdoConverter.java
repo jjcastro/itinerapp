@@ -1,19 +1,19 @@
 package com.ingesoft.itinerapp.converter;
 
 
+import com.ingesoft.itinerapp.dtos.RecuerdoDTO;
+import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class RecuerdoConverter {
 
-    public static BookDTO basicEntity2DTO(BookEntity entity) {
+    public static RecuerdoDTO basicEntity2DTO(RecuerdoEntity entity) {
         if (entity != null) {
-            BookDTO dto = new BookDTO();
+            RecuerdoDTO dto = new RecuerdoDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
-            dto.setIsbn(entity.getIsbn());
-            dto.setImage(entity.getImage());
-            dto.setDescription(entity.getDescription());
+            dto.setImagen(entity.getImagen());
+            dto.setName(entity.getImagen());
 
             return dto;
         } else {
@@ -21,14 +21,12 @@ public abstract class RecuerdoConverter {
         }
     }
 
-    public static BookEntity basicDTO2Entity(BookDTO dto) {
+    public static RecuerdoEntity basicDTO2Entity(RecuerdoDTO dto) {
         if (dto != null) {
-            BookEntity entity = new BookEntity();
+            RecuerdoEntity entity = new RecuerdoEntity();
             entity.setId(dto.getId());
+            entity.setImagen(dto.getImagen());
             entity.setName(dto.getName());
-            entity.setIsbn(dto.getIsbn());
-            entity.setImage(dto.getImage());
-            entity.setDescription(dto.getDescription());
 
             return entity;
         } else {
@@ -36,20 +34,20 @@ public abstract class RecuerdoConverter {
         }
     }
 
-    public static List<BookDTO> listEntity2DTO(List<BookEntity> entities) {
-        List<BookDTO> dtos = new ArrayList<BookDTO>();
+    public static List<RecuerdoDTO> listEntity2DTO(List<RecuerdoEntity> entities) {
+        List<RecuerdoDTO> dtos = new ArrayList<RecuerdoDTO>();
         if (entities != null) {
-            for (BookEntity entity : entities) {
+            for (RecuerdoEntity entity : entities) {
                 dtos.add(basicEntity2DTO(entity));
             }
         }
         return dtos;
     }
 
-    public static List<BookEntity> listDTO2Entity(List<BookDTO> dtos) {
-        List<BookEntity> entities = new ArrayList<BookEntity>();
+    public static List<RecuerdoEntity> listDTO2Entity(List<RecuerdoDTO> dtos) {
+        List<RecuerdoEntity> entities = new ArrayList<RecuerdoEntity>();
         if (dtos != null) {
-            for (BookDTO dto : dtos) {
+            for (RecuerdoDTO dto : dtos) {
                 entities.add(basicDTO2Entity(dto));
             }
         }

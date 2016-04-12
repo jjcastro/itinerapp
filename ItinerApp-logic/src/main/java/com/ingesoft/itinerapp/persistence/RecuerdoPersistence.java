@@ -1,6 +1,7 @@
 package com.ingesoft.itinerapp.persistence;
 
-import co.edu.uniandes.csw.bookbasico.entities.BookEntity;
+
+import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -13,29 +14,29 @@ import javax.persistence.Query;
 @Stateless
 public class RecuerdoPersistence {
 
-    @PersistenceContext(unitName = "BookBasicoPU")
+    @PersistenceContext(unitName = "ItinerAppPU")
     protected EntityManager em;
 
-    public BookEntity create(BookEntity entity) {
+    public RecuerdoEntity create(RecuerdoEntity entity) {
         em.persist(entity);
         return entity;
     }
 
-    public BookEntity update(BookEntity entity) {
+    public RecuerdoEntity update(RecuerdoEntity entity) {
         return em.merge(entity);
     }
 
     public void delete(Long id) {
-        BookEntity entity = em.find(BookEntity.class, id);
+        RecuerdoEntity entity = em.find(RecuerdoEntity.class, id);
         em.remove(entity);
     }
 
-    public BookEntity find(Long id) {
-        return em.find(BookEntity.class, id);
+    public RecuerdoEntity find(Long id) {
+        return em.find(RecuerdoEntity.class, id);
     }
 
-    public List<BookEntity> findAll() {
-        Query q = em.createQuery("select u from BookEntity u");
+    public List<RecuerdoEntity> findAll() {
+        Query q = em.createQuery("select u from RecuerdoEntity u");
         return q.getResultList();
     }
 }
