@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 
 /**
  * @generated
@@ -16,9 +15,6 @@ public class RecuerdoEntity implements Serializable {
     @GeneratedValue(generator = "Recuerdo")
     private Long id;
     
-    // @ManyToOne
-    //private UsuarioEntity usuario;
-     
     private String descripcion;
     private String imagen;
     private String name;
