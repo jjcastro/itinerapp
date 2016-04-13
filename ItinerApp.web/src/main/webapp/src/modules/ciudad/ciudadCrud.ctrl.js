@@ -9,16 +9,16 @@
   // crea el controlador con dependencias a $scope y a personService
   mod.controller("ciudadCrudCtrl", ["$scope", "$state", "$stateParams", "ciudadCrudService", function ($scope, $state, $stateParams, svc) {
 
-    // TODO: define los atributos en el scope   
+    // TODO: define los atributos en el scope
 
-    $scope.listaCiudades = [];
+    $scope.ciudades = svc.ciudades;
 
     $scope.currentRecord = {};
 
     this.editMode = false;
 
     $scope.fetchRecords = function () {
-        $scope.listaCiudades = svc.fetchRecords();
+        svc.fetchRecords();
         $scope.currentRecord = {};
         this.editMode = false;
     };
@@ -55,18 +55,18 @@
 
     $scope.fetchRecords();
 
-    if($stateParams.id)
-    {
-    	for (var i = 0; i < $scope.listaCiudades.length; i++) {
-			if ($scope.listaCiudades[i].id == $stateParams.id) {
-			  $scope.ciudades = $scope.listaCiudades[i];
-			}
-		}
-    }
-    else
-    {
-       $scope.ciudades = $scope.listaCiudades;
-    }     
+//    if($stateParams.id)
+//    {
+//    	for (var i = 0; i < $scope.listaCiudades.length; i++) {
+//			if ($scope.listaCiudades[i].id == $stateParams.id) {
+//			  $scope.ciudades = $scope.listaCiudades[i];
+//			}
+//		}
+//    }
+//    else
+//    {
+//       $scope.ciudades = $scope.listaCiudades;
+//    }
 
     // TODO: define funciones que son invocadas desde la pantalla
     // y que usan funciones definidas en el servicio
