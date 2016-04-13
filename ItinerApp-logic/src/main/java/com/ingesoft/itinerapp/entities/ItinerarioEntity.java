@@ -29,11 +29,11 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
     private int id;
     
     
-    @ManyToOne
-    private UsuarioEntity usuario;
+    //@ManyToOne
+   // private UsuarioEntity usuario;
     
-    @ManyToMany
-    private list<CiudadEntity> ciudades = new Arraylist<>();
+   // @ManyToMany
+   // private list<CiudadEntity> ciudades = new Arraylist<>();
     
     /**
      * retorna el nombre del itinerario

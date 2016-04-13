@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
  *
  * @author johnycsc
  */
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class ItinerarioPersistenceTest {
     
      @Deployment
