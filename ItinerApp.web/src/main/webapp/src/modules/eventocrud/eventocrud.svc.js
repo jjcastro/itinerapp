@@ -9,54 +9,32 @@
 
      mod.service("eventocrudService", ["$http", "eventocrudContext", function ($http, context) {
 
-     	this.eventos = [
-     		{
-     			"id": 1,
-     			"nombre": "Estereo Picnic",
-     			"ciudad": "Bogota",
-     			"descripcion": "Festival de musica mas esperado del año",
-
-     		},
-     		{
-     			"id": 2,
-     			"nombre": "Rock al Parque",
-                        "ciudad": "Bogota",
-     			"descripcion": "Rock en Bogota :D",
-
-     		},
-     	];
+     	this.eventos = [ ];
 
         this.fetchRecords = function () {
-            return this.eventos;
+            $http.get('api/eventos').success(function (data) {
+            data.forEach(function (evento) {
+                console.log(evento);
+                (this.eventos).push(evento);
+                console.log(this.evento);
+            });
+        });
         };
+
+        this.fetchRecords = function () {
+            $http.get('api/eventos'+id);
+        }
 
         this.deleteRecord = function (id) {
-        	for (var i = 0; i < this.eventos.length; i++) {
-				if (this.eventos[i].id == id) {
-				  this.eventos.splice(i,1);
-				}
-			}
+        	return $http.delete("api/eventos" + id);
         };
 
-        this.newRecord = function (record) {
-            record.subtext = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus.";
- 			record.fotoBig = "Rio de Janeiro";
- 			record.fotoSmall = "usa-square.jpg";
-
- 			var max = 0;
- 			for (var i = 0; i < this.eventos.length; i++) {
-				if (this.eventos[i].id > max) {
-				  max = this.eventos[i].id;
-				}
-			}
-
-			record.id = max+1;
- 			this.eventos.push(record);
-        };
-
-        this.updateRecord = function (record, id) {
-        	this.deleteRecord(id);
-        	this.newRecord(record);
+        this.saveRecord = function (record) {
+            if (record.id) {
+                    return $http.put("api/evento/" + currentRecord.id, currentRecord);
+                } else {
+                    return $http.post("api/evento", currentRecord);
+                }
         };
     }]);
 

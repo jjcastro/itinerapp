@@ -10,8 +10,8 @@
     </properties>
     <name>itinerapp.pom</name>
       <modules>
-            <module>../itinerapp.web</module>
             <module>../ItinerApp-logic</module>
+            <module>../itinerapp.web</module>
       </modules>
       <repositories>
         <repository>
@@ -20,7 +20,7 @@
             <url>http://157.253.238.75:8081/content/repositories/releases/</url>
         </repository>
     </repositories>
-    
+
     <dependencyManagement>
         <dependencies>
             <dependency>
