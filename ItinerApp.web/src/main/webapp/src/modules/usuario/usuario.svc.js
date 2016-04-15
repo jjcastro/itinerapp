@@ -10,7 +10,7 @@
         this.crearUsuario = function(usr){
             var req = {
                 method: 'POST',
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios',
+                url: 'http://localhost:27087/ItinerApp.web/api/usuarios',
                 headers: {'Content-Type': undefined},
                 data: {usuario: usr}
             };
@@ -29,7 +29,7 @@
 
             var req = {
                 method: 'DELETE',
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarioS/' + id,
+                url: 'http://localhost:27087/ItinerApp.web/api/usuarioS/' + id,
                 headers: {'Content-Type': undefined}
             };
 
@@ -39,7 +39,7 @@
         this.modificarUsuario = function(usr){
             var req = {
                 method: 'PUT',
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios' + usr.id,
+                url: 'http://localhost:27087/ItinerApp.web/api/usuarios' + usr.id,
                 headers: {'Content-Type': undefined},
                 data: {usuario: usr}
             };
@@ -53,7 +53,7 @@
 
             var req = {
                 method: 'GET',
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios/' + id,
+                url: 'http://localhost:27087/ItinerApp.web/api/usuarios/' + id,
                 headers: {'Content-Type': undefined}
             };
 
@@ -63,17 +63,17 @@
         };
 
         this.cargarUsuarios = function(){
-            var usrs;
-
+            /*var usrs;
+            
             var req = {
                 method: 'GET',
-                url: 'http://localhost:8080/ItinerApp.web/api/usuarios',
+                url: 'http://localhost:27087/ItinerApp.web/api/usuarios',
                 headers: {'Content-Type': undefined}
             };
 
             $http(req).then(function(resp){usrs = resp.data;}, function(){alert('No se cargaron los usuarios.');});
-
-            return usrs;
+            */
+            return $http.get('api/usuarios');;
         };
 
         this.estaAutenticado = function(){
