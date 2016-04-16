@@ -4,7 +4,7 @@ package mocks;
  * @author jc.martha10
  */
 
-import dtos.UsuarioDtos;
+import dtos.UsuarioDTO;
 import exceptions.UsuarioException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +25,7 @@ public class UsuarioLogicMock {
         private final static Logger logger = Logger.getLogger(UsuarioLogicMock.class.getName());
 
 
-        private static ArrayList<UsuarioDtos> usuarios;
+        private static ArrayList<UsuarioDTO> usuarios;
 
         /**
      * Constructor. Crea los datos de ejemplo.
@@ -70,11 +70,11 @@ public class UsuarioLogicMock {
 
     	if (usuarios == null) {
             usuarios = new ArrayList<>();
-			usuarios.add(new UsuarioDtos(id1, nombre1, apellido1, username1, email1, cedula1));
-			usuarios.add(new UsuarioDtos(id2, nombre2, apellido2, username2, email2, cedula2));
-			usuarios.add(new UsuarioDtos(id3, nombre3, apellido3, username3, email3, cedula3));
-			usuarios.add(new UsuarioDtos(id4, nombre4, apellido4, username4, email4, cedula4));
-			usuarios.add(new UsuarioDtos(id5, nombre5, apellido5, username5, email5, cedula5));
+			usuarios.add(new UsuarioDTO(id1, nombre1, apellido1, username1, email1, cedula1));
+			usuarios.add(new UsuarioDTO(id2, nombre2, apellido2, username2, email2, cedula2));
+			usuarios.add(new UsuarioDTO(id3, nombre3, apellido3, username3, email3, cedula3));
+			usuarios.add(new UsuarioDTO(id4, nombre4, apellido4, username4, email4, cedula4));
+			usuarios.add(new UsuarioDTO(id5, nombre5, apellido5, username5, email5, cedula5));
 		}
 
     	// indica que se muestren todos los mensajes
@@ -91,7 +91,7 @@ public class UsuarioLogicMock {
 	 * @return lista de usuarios
          * @throws exceptions.UsuarioException
 	 */
-    public List<UsuarioDtos> getUsuarios() throws UsuarioException {
+    public List<UsuarioDTO> getUsuarios() throws UsuarioException {
     	if (usuarios == null) {
     		logger.severe("Error interno: lista de usuarios no existe.");
     		throw new UsuarioException("Error interno: lista de usuarios no existe.");
@@ -107,11 +107,11 @@ public class UsuarioLogicMock {
      * @return usuario encontrado
      * @throws UsuarioLogicException cuando el usuario no existe
      */
-    public UsuarioDtos getUsuario(Long id) throws UsuarioException {
+    public UsuarioDTO getUsuario(Long id) throws UsuarioException {
     	logger.info("recibiendo solicitud de usuario con id " + id);
 
     	// busca el usuario con el id suministrado
-        for (UsuarioDtos usuario : usuarios) {
+        for (UsuarioDTO usuario : usuarios) {
             if (Objects.equals(usuario.getId(), id)){
             	logger.info("retornando usuario " + usuario);
                 return usuario;
@@ -130,13 +130,13 @@ public class UsuarioLogicMock {
      * @throws UsuarioLogicException cuando ya existe una usuario con el id suministrado
      * @return usuario agregado
      */
-    public UsuarioDtos createUsuario(UsuarioDtos newUsuario) throws UsuarioException {
+    public UsuarioDTO createUsuario(UsuarioDTO newUsuario) throws UsuarioException {
     	logger.info("recibiendo solicitud de agregar usuario " + newUsuario);
 
     	// la nueva usuario tiene id ?
     	if ( newUsuario.getId() != null ) {
 	    	// busca el usuario con el id suministrado
-	        for (UsuarioDtos city : usuarios) {
+	        for (UsuarioDTO city : usuarios) {
 	        	// si existe una usuario con ese id
 	            if (Objects.equals(city.getId(), newUsuario.getId())){
 	            	logger.severe("Ya existe un usuario con ese id");
@@ -150,7 +150,7 @@ public class UsuarioLogicMock {
     		// genera un id para el usuario
     		logger.info("Generando id paa la nueva usuario");
     		long newId = 1;
-	        for (UsuarioDtos usuario : usuarios) {
+	        for (UsuarioDTO usuario : usuarios) {
 	            if (newId <= usuario.getId()){
 	                newId =  usuario.getId() + 1;
 	            }
@@ -172,11 +172,11 @@ public class UsuarioLogicMock {
      * @return datos de el usuario modificada
      * @throws UsuarioLogicException cuando no existe una usuario con el id suministrado
      */
-    public UsuarioDtos updateUsuario(Long id, UsuarioDtos updatedUsuario) throws UsuarioException {
+    public UsuarioDTO updateUsuario(Long id, UsuarioDTO updatedUsuario) throws UsuarioException {
     	logger.info("recibiendo solictud de modificar usuario " + updatedUsuario);
 
     	// busca el usuario con el id suministrado
-        for (UsuarioDtos usuario : usuarios) {
+        for (UsuarioDTO usuario : usuarios) {
             if (Objects.equals(usuario.getId(), id)) {
 
             	// modifica el usuario
@@ -205,17 +205,17 @@ public class UsuarioLogicMock {
      * @param id identificador de el usuario a eliminar
      * @throws UsuarioLogicException cuando no existe una usuario con el id suministrado
      */
-    public void deleteUsuario(Long id) throws UsuarioException {
+    public UsuarioDTO deleteUsuario(Long id) throws UsuarioException {
     	logger.info("recibiendo solictud de eliminar usuario con id " + id);
 
     	// busca el usuario con el id suministrado
-        for (UsuarioDtos usuario : usuarios) {
+        for (UsuarioDTO usuario : usuarios) {
             if (Objects.equals(usuario.getId(), id)) {
 
             	// elimina el usuario
             	logger.info("eliminando usuario " + usuario);
                 usuarios.remove(usuario);
-                return;
+                return usuario;
             }
         }
 

@@ -12,50 +12,47 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import dtos.UsuarioDtos;
+import dtos.UsuarioDTO;
 import exceptions.UsuarioException;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import mocks.UsuarioLogicMock;
 
-@Path("/usuario")
+@Path("usuarios")
 @Produces("application/json")
 @RequestScoped
 public class UsuarioResource {
-    
-     @Inject
-	UsuarioLogicMock usuarioLogic;
- 
-      @GET
-    public List<UsuarioDtos> getUsuarios() throws UsuarioException {
+
+    @Inject
+    UsuarioLogicMock usuarioLogic;
+
+    @GET
+    public List<UsuarioDTO> getUsuarios() throws UsuarioException {
           System.out.println("Esta pidiendo usuarios");
         return usuarioLogic.getUsuarios();
     }
-    
-    
+
+
     @GET
     @Path("{id: \\d+}")
-    public UsuarioDtos getUsuario(@PathParam("id") Long id) throws UsuarioException {
+    public UsuarioDTO getUsuario(@PathParam("id") Long id) throws UsuarioException {
         return usuarioLogic.getUsuario(id);
     }
-    
+
      @POST
-    public UsuarioDtos createUsuario(UsuarioDtos usuario) throws UsuarioException{
+    public UsuarioDTO createUsuario(UsuarioDTO usuario) throws UsuarioException{
         return usuarioLogic.createUsuario(usuario);
     }
-    
+
      @PUT
     @Path("{id: \\d+}")
-    public UsuarioDtos updateUsuario(@PathParam("id") Long id, UsuarioDtos usuario) throws UsuarioException {
+    public UsuarioDTO updateUsuario(@PathParam("id") Long id, UsuarioDTO usuario) throws UsuarioException {
         return usuarioLogic.updateUsuario(id, usuario);
     }
-    
+
       @DELETE
     @Path("{id: \\d+}")
-    public void deleteUsuario(@PathParam("id") Long id) throws UsuarioException {
-    	usuarioLogic.deleteUsuario(id);
+    public UsuarioDTO deleteUsuario(@PathParam("id") Long id) throws UsuarioException {
+    	return usuarioLogic.deleteUsuario(id);
     }
-     
-    
-    
 }
