@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -28,6 +29,8 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaSalida;
     private String nombre;
+    
+    @Id
     private int id;
     
     

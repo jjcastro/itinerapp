@@ -153,7 +153,7 @@ public class RecuerdoPersistenceTest {
         RecuerdoEntity resp = em.find(RecuerdoEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getName(), resp.getName());
-        Assert.assertEquals(newEntity.getDescripcion(), entity.getDescripcion());
-        Assert.assertEquals(newEntity.getImagen(), entity.getImagen());
+        Assert.assertEquals(newEntity.getDescripcion(), resp.getDescripcion());
+        Assert.assertEquals(newEntity.getImagen(), resp.getImagen());
     }
 }

@@ -5,14 +5,14 @@
     <artifactId>itinerapp.pom</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <name>itinerapp.pom</name>
       <modules>
             <module>../ItinerApp-logic</module>
             <module>../itinerapp.web</module>
       </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
       <repositories>
         <repository>
             <id>csw-releases</id>
@@ -20,7 +20,6 @@
             <url>http://157.253.238.75:8081/content/repositories/releases/</url>
         </repository>
     </repositories>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -62,4 +61,19 @@
             <version>6.0.2.RELEASE</version>
         </dependency>
     </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
