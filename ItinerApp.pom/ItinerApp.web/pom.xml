@@ -8,7 +8,7 @@
 
     <name>itinerapp.web</name>
     <parent>
-        <groupId>com.ingeSoft</groupId>
+        <groupId>com.ingesoft</groupId>
         <artifactId>itinerapp.pom</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
