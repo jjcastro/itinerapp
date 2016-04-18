@@ -104,7 +104,8 @@
             $scope.delete = false;
             $scope.read=true;  
                 */
-            $scope.master = angular.copy($scope.user);
+            $scope.master = angular.copy(user);
+            
             
             svc.crearRecuerdo($scope.master).then(function ()
             {

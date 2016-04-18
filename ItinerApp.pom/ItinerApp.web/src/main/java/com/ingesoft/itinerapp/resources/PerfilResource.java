@@ -31,7 +31,7 @@ public class PerfilResource {
 
     //El codigo esta comentado mientras se arreglan ciertos problemas, por ahora se usa el Mock.
     
-    /*
+    
     @Inject
     private IRecuerdoLogic perfilLogic;
 
@@ -67,7 +67,7 @@ public class PerfilResource {
     public void deleteRecuerdo(@PathParam("id") Long id) throws PerfilLogicException {
     	perfilLogic.deleteRecuerdo(id);
     }
-    */
+    /*
      @Inject
     private PerfilLogicMock perfilLogic;
 
@@ -103,6 +103,6 @@ public class PerfilResource {
     public void deleteRecuerdo(@PathParam("id") Long id) throws PerfilLogicException {
     	perfilLogic.deleteRecuerdo(id);
     }
-    
-
+    */
+        
 }
