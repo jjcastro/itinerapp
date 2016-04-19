@@ -1,11 +1,13 @@
 package com.ingesoft.itinerapp.entities;
 
+import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  * @generated
@@ -22,8 +24,10 @@ public class CiudadEntity implements Serializable {
   private String subtext;
   private String fotoBig;
   private String fotoSmall;
+  @PodamStrategyValue(DateStrategy.class)
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaI;
+  @PodamStrategyValue(DateStrategy.class)
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaF;
 
