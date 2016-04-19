@@ -18,6 +18,18 @@ public class RecuerdoDTO {
     private String name;
     private String imagen;
 
+    public RecuerdoDTO() {
+    }
+
+    public RecuerdoDTO(Long id, String descripcion, String name, String imagen) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.name = name;
+        this.imagen = imagen;
+    }
+
+    
+    
     /**
      * @generated
      */

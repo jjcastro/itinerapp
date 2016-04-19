@@ -1,8 +1,6 @@
 package com.ingesoft.itinerapp.ejbs;
 
 import com.ingesoft.itinerapp.api.ICiudadLogic;
-import com.ingesoft.itinerapp.converter.CiudadConverter;
-import com.ingesoft.itinerapp.dtos.CiudadDTO;
 import com.ingesoft.itinerapp.entities.CiudadEntity;
 import com.ingesoft.itinerapp.persistence.CiudadPersistence;
 import java.util.List;
@@ -17,26 +15,33 @@ public class CiudadLogic implements ICiudadLogic {
 
     @Inject private CiudadPersistence persistence;
 
-     public List<CiudadDTO> getCiudades() {
-        return CiudadConverter.listEntity2DTO(persistence.findAll());
+     public List<CiudadEntity> getCiudades() {
+         List<CiudadEntity> ciudades = persistence.findAll();
+        return ciudades;
     }
 
-    public CiudadDTO getCiudad(Long id) {
-        return CiudadConverter.basicEntity2DTO(persistence.find(id));
+    public CiudadEntity getCiudad(Long id) {
+        
+        //faltan validaciones.
+        return persistence.find(id);
     }
 
-    public CiudadDTO createCiudad(CiudadDTO dto) {
-        CiudadEntity entity = CiudadConverter.basicDTO2Entity(dto);
+    public CiudadEntity createCiudad(CiudadEntity entity) {
+        //faltan validaciones.
+        
         persistence.create(entity);
-        return CiudadConverter.basicEntity2DTO(entity);
+        return entity;
     }
 
-    public CiudadDTO updateCiudad(CiudadDTO dto) {
-        CiudadEntity entity = persistence.update(CiudadConverter.basicDTO2Entity(dto));
-        return CiudadConverter.basicEntity2DTO(entity);
+    public CiudadEntity updateCiudad(CiudadEntity pEntity) {
+        //faltan validaciones.
+        CiudadEntity entity = persistence.update(pEntity);
+        
+        return entity;
     }
 
     public void deleteCiudad(Long id) {
+        //faltan validaciones.
         persistence.delete(id);
     }
 }

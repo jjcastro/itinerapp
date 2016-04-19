@@ -1,6 +1,6 @@
 package com.ingesoft.itinerapp.mocks;
 
-import com.ingesoft.itinerapp.dtos.eventoDTO;
+import com.ingesoft.itinerapp.dtos.EventoDTOBORRAR;
 import com.ingesoft.itinerapp.exceptions.eventoLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +24,16 @@ public class eventoLogicMock
     private final static Logger logger = Logger.getLogger(eventoLogicMock.class.getName());
 
 
-    private static ArrayList<eventoDTO> eventos;
+    private static ArrayList<EventoDTOBORRAR> eventos;
 
 
     public eventoLogicMock() {
 
     	if (eventos == null) {
             eventos = new ArrayList<>();
-            eventos.add(new eventoDTO(1L, "Estereo Picnic", "Bogota", "Un Mundo Distino"));
-            eventos.add(new eventoDTO(2L, "Rock al Parque", "Bogota", "Cultura de Paz"));
-            eventos.add(new eventoDTO(3L, "Carnaval de Barranquilla", "Barranquilla", "#Carnaval Somos Todos"));
+            eventos.add(new EventoDTOBORRAR(1L, "Estereo Picnic", "Bogota", "Un Mundo Distino"));
+            eventos.add(new EventoDTOBORRAR(2L, "Rock al Parque", "Bogota", "Cultura de Paz"));
+            eventos.add(new EventoDTOBORRAR(3L, "Carnaval de Barranquilla", "Barranquilla", "#Carnaval Somos Todos"));
         }
 
     	logger.setLevel(Level.INFO);
@@ -43,7 +43,7 @@ public class eventoLogicMock
     	logger.info("eventos" + eventos );
     }
 
-    public List<eventoDTO> getEvento() throws eventoLogicException {
+    public List<EventoDTOBORRAR> getEvento() throws eventoLogicException {
     	if (eventos == null) {
     		logger.severe("Error interno: lista de eventos no existe.");
     		throw new eventoLogicException("Error interno: lista de eventos no existe.");
@@ -53,10 +53,10 @@ public class eventoLogicMock
     	return eventos;
     }
 
-    public eventoDTO getEvento(Long id) throws eventoLogicException {
+    public EventoDTOBORRAR getEvento(Long id) throws eventoLogicException {
     	logger.info("recibiendo solicitud de evento con id " + id);
 
-        for (eventoDTO evento : eventos) {
+        for (EventoDTOBORRAR evento : eventos) {
             if (Objects.equals(evento.getId(), id)){
             	logger.info("retornando evento " + evento);
                 return evento;
@@ -67,12 +67,12 @@ public class eventoLogicMock
         throw new eventoLogicException("No existe evento con ese id");
     }
 
-    public eventoDTO createEvento(eventoDTO newEvento) throws eventoLogicException {
+    public EventoDTOBORRAR createEvento(EventoDTOBORRAR newEvento) throws eventoLogicException {
     	logger.info("recibiendo solicitud de agregar evento " + newEvento);
 
     	// la nueva ciudad tiene id ?
     	if ( newEvento.getId() != null ) {
-	        for (eventoDTO city : eventos) {
+	        for (EventoDTOBORRAR city : eventos) {
 	        	// si existe una ciudad con ese id
 	            if (Objects.equals(city.getId(), newEvento.getId())){
 	            	logger.severe("Ya existe un evento con ese id");
@@ -83,7 +83,7 @@ public class eventoLogicMock
     	} else {
     		logger.info("Generando id para el nuevo evento");
     		long newId = 1;
-	        for (eventoDTO evento : eventos) {
+	        for (EventoDTOBORRAR evento : eventos) {
 	            if (newId <= evento.getId()){
 	                newId =  evento.getId() + 1;
 	            }
@@ -96,10 +96,10 @@ public class eventoLogicMock
         return newEvento;
     }
 
-    public eventoDTO updateEvento(Long id, eventoDTO updatedEvento) throws eventoLogicException {
+    public EventoDTOBORRAR updateEvento(Long id, EventoDTOBORRAR updatedEvento) throws eventoLogicException {
     	logger.info("recibiendo solictud de modificar evento " + updatedEvento);
 
-        for (eventoDTO evento : eventos) {
+        for (EventoDTOBORRAR evento : eventos) {
             if (Objects.equals(evento.getId(), id)) {
 
             	evento.setId(updatedEvento.getId());
@@ -116,7 +116,7 @@ public class eventoLogicMock
     public void deleteEvento(Long id) throws eventoLogicException {
     	logger.info("recibiendo solictud de eliminar evento con id " + id);
 
-        for (eventoDTO evento : eventos) {
+        for (EventoDTOBORRAR evento : eventos) {
             if (Objects.equals(evento.getId(), id)) {
 
             	logger.info("eliminando evento " + evento);

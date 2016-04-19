@@ -10,8 +10,6 @@ package com.ingesoft.itinerapp.ejbs;
  * @author s.robayo222
  */
 import com.ingesoft.itinerapp.api.IEventoLogic;
-import com.ingesoft.itinerapp.converter.EventoConverter;
-import com.ingesoft.itinerapp.dtos.EventoDTO;
 import com.ingesoft.itinerapp.entities.EventoEntity;
 import com.ingesoft.itinerapp.persistence.EventoPersistence;
 import java.util.List;
@@ -24,26 +22,32 @@ public class EventoLogic implements IEventoLogic
 
     @Inject private EventoPersistence persistence;
 
-    public List<EventoDTO> getEvento() {
-        return EventoConverter.listEntity2DTO(persistence.findAll());
+    public List<EventoEntity> getEvento() {
+       //Faltan Validaciones.
+        List<EventoEntity> eventos = persistence.findAll();
+        return eventos;
     }
 
-    public EventoDTO getEvento(Long id) {
-        return EventoConverter.basicEntity2DTO(persistence.find(id));
+    public EventoEntity getEvento(Long id) {
+        //Faltan Validaciones.
+        return persistence.find(id);
     }
 
-    public EventoDTO createEvento(EventoDTO dto) {
-        EventoEntity entity = EventoConverter.basicDTO2Entity(dto);
+    public EventoEntity createEvento(EventoEntity entity) {
+        //Faltan Validaciones.
+        
         persistence.create(entity);
-        return EventoConverter.basicEntity2DTO(entity);
+        return entity;
     }
 
-    public EventoDTO updateEvento(EventoDTO dto) {
-        EventoEntity entity = persistence.update(EventoConverter.basicDTO2Entity(dto));
-        return EventoConverter.basicEntity2DTO(entity);
+    public EventoEntity updateEvento(EventoEntity pEntity) {
+        //Faltan Validaciones.
+        EventoEntity entity = persistence.update(pEntity);
+        return entity;
     }
 
     public void deleteEvento(Long id) {
+        //Faltan Validaciones.
         persistence.delete(id);
     }
 }

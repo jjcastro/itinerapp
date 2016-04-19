@@ -5,7 +5,7 @@
  */
 package com.ingesoft.itinerapp.resources;
 
-import com.ingesoft.itinerapp.dtos.eventoDTO;
+import com.ingesoft.itinerapp.dtos.EventoDTOBORRAR;
 import com.ingesoft.itinerapp.exceptions.eventoLogicException;
 import com.ingesoft.itinerapp.mocks.eventoLogicMock;
 
@@ -38,24 +38,24 @@ public class eventoResource
             eventoLogicMock eventoLogic;
 
     @GET
-    public List<eventoDTO> getEvento() throws eventoLogicException {
+    public List<EventoDTOBORRAR> getEvento() throws eventoLogicException {
         return eventoLogic.getEvento();
     }
 
     @GET
     @Path("{id: \\d+}")
-    public eventoDTO getEvento(@PathParam("id") Long id) throws eventoLogicException {
+    public EventoDTOBORRAR getEvento(@PathParam("id") Long id) throws eventoLogicException {
         return eventoLogic.getEvento(id);
     }
 
     @POST
-    public eventoDTO createEvento(eventoDTO evento) throws eventoLogicException {
+    public EventoDTOBORRAR createEvento(EventoDTOBORRAR evento) throws eventoLogicException {
         return eventoLogic.createEvento(evento);
     }
 
     @PUT
     @Path("{id: \\d+}")
-    public eventoDTO updateEvento(@PathParam("id") Long id, eventoDTO evento) throws eventoLogicException {
+    public EventoDTOBORRAR updateEvento(@PathParam("id") Long id, EventoDTOBORRAR evento) throws eventoLogicException {
         return eventoLogic.updateEvento(id, evento);
     }
 

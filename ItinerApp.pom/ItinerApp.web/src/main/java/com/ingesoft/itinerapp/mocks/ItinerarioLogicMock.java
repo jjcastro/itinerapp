@@ -10,7 +10,7 @@ package com.ingesoft.itinerapp.mocks;
  * @author johnycsc
  */
 
-import com.ingesoft.itinerapp.dtos.ItinerarioDtos;
+import com.ingesoft.itinerapp.dtos.ItinerarioDtosBORRAR;
 import com.ingesoft.itinerapp.exceptions.ItinerarioException;
 
 import java.text.ParseException;
@@ -32,7 +32,7 @@ public class ItinerarioLogicMock {
         private final static Logger logger = Logger.getLogger(ItinerarioLogicMock.class.getName());
         
         
-        private static ArrayList<ItinerarioDtos> itinerarios;
+        private static ArrayList<ItinerarioDtosBORRAR> itinerarios;
         
         /**
      * Constructor. Crea los datos de ejemplo.
@@ -43,9 +43,9 @@ public class ItinerarioLogicMock {
         
     	if (itinerarios == null) {
             itinerarios = new ArrayList<>();
-            itinerarios.add(new ItinerarioDtos(1L, "Viaje Paris", "https://scdn3.thomascook.com/crop?imageUrl=http://magnolia.production.thomascook.io/wcms/dam/tcuk/city-breaks/paris/1hero1.jpg&maxWidth=1200&maxHeight=0", " 2016-04-18", " 2016-05-18" ));
-            itinerarios.add(new ItinerarioDtos(2L, "Viaje EEUU", "http://static.thousandwonders.net/Washington.D.C..original.14.jpg", " 2016-06-20", " 2016-08-2"));
-            itinerarios.add(new ItinerarioDtos(3L, "Viaje Asia", "http://www.interfima.org/wp-content/uploads/2015/03/china-information.jpg", " 2016-09-19", " 2016-11-25"));
+            itinerarios.add(new ItinerarioDtosBORRAR(1L, "Viaje Paris", "https://scdn3.thomascook.com/crop?imageUrl=http://magnolia.production.thomascook.io/wcms/dam/tcuk/city-breaks/paris/1hero1.jpg&maxWidth=1200&maxHeight=0", " 2016-04-18", " 2016-05-18" ));
+            itinerarios.add(new ItinerarioDtosBORRAR(2L, "Viaje EEUU", "http://static.thousandwonders.net/Washington.D.C..original.14.jpg", " 2016-06-20", " 2016-08-2"));
+            itinerarios.add(new ItinerarioDtosBORRAR(3L, "Viaje Asia", "http://www.interfima.org/wp-content/uploads/2015/03/china-information.jpg", " 2016-09-19", " 2016-11-25"));
         }
         
     	// indica que se muestren todos los mensajes
@@ -62,7 +62,7 @@ public class ItinerarioLogicMock {
 	 * @return lista de itinerarios
          * @throws exceptions.ItinerarioException  
 	 */    
-    public List<ItinerarioDtos> getItinerarios() throws ItinerarioException {
+    public List<ItinerarioDtosBORRAR> getItinerarios() throws ItinerarioException {
     	if (itinerarios == null) {
     		logger.severe("Error interno: lista de itinerarios no existe.");
     		throw new ItinerarioException("Error interno: lista de itinerarios no existe.");    		
@@ -79,11 +79,11 @@ public class ItinerarioLogicMock {
      * @return itinerario encontrada
      * @throws CityLogicException cuando la ciudad no existe
      */
-    public ItinerarioDtos getItinerario(Long id) throws ItinerarioException {
+    public ItinerarioDtosBORRAR getItinerario(Long id) throws ItinerarioException {
     	logger.info("recibiendo solicitud de ciudad con id " + id);
     	
     	// busca la ciudad con el id suministrado
-        for (ItinerarioDtos itinerario : itinerarios) {
+        for (ItinerarioDtosBORRAR itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)){
             	logger.info("retornando itinerario " + itinerario);
                 return itinerario;
@@ -102,13 +102,13 @@ public class ItinerarioLogicMock {
      * @throws CityLogicException cuando ya existe una ciudad con el id suministrado
      * @return itinerario agregado
      */
-    public ItinerarioDtos createItinerario(ItinerarioDtos newItinerario) throws ItinerarioException {
+    public ItinerarioDtosBORRAR createItinerario(ItinerarioDtosBORRAR newItinerario) throws ItinerarioException {
     	logger.info("recibiendo solicitud de agregar itinerario " + newItinerario);
     	
     	// la nueva ciudad tiene id ?
     	if ( newItinerario.getId() != null ) {
 	    	// busca la ciudad con el id suministrado
-	        for (ItinerarioDtos city : itinerarios) {
+	        for (ItinerarioDtosBORRAR city : itinerarios) {
 	        	// si existe una ciudad con ese id
 	            if (Objects.equals(city.getId(), newItinerario.getId())){
 	            	logger.severe("Ya existe un itinerario con ese id");
@@ -122,7 +122,7 @@ public class ItinerarioLogicMock {
     		// genera un id para la ciudad
     		logger.info("Generando id para la nueva ciudad");
     		long newId = 1;
-	        for (ItinerarioDtos itinerario : itinerarios) {
+	        for (ItinerarioDtosBORRAR itinerario : itinerarios) {
 	            if (newId <= itinerario.getId()){
 	                newId =  itinerario.getId() + 1;
 	            }
@@ -144,11 +144,11 @@ public class ItinerarioLogicMock {
      * @return datos de la ciudad modificada 
      * @throws CityLogicException cuando no existe una ciudad con el id suministrado
      */
-    public ItinerarioDtos updateItinerario(Long id, ItinerarioDtos updatedItinerario) throws ItinerarioException {
+    public ItinerarioDtosBORRAR updateItinerario(Long id, ItinerarioDtosBORRAR updatedItinerario) throws ItinerarioException {
     	logger.info("recibiendo solictud de modificar itinerario " + updatedItinerario);
     	
     	// busca la ciudad con el id suministrado
-        for (ItinerarioDtos itinerario : itinerarios) {
+        for (ItinerarioDtosBORRAR itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)) {
             	
             	// modifica la ciudad
@@ -180,7 +180,7 @@ public class ItinerarioLogicMock {
     	logger.info("recibiendo solictud de eliminar itinerario con id " + id);
     	
     	// busca la ciudad con el id suministrado
-        for (ItinerarioDtos itinerario : itinerarios) {
+        for (ItinerarioDtosBORRAR itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)) {
             	
             	// elimina la ciudad

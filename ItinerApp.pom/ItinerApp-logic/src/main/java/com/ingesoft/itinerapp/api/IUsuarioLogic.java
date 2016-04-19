@@ -1,6 +1,7 @@
 package com.ingesoft.itinerapp.api;
 
-import com.ingesoft.itinerapp.dtos.UsuarioDTO;
+
+import com.ingesoft.itinerapp.entities.UsuarioEntity;
 import java.util.List;
 
 /**
@@ -8,13 +9,13 @@ import java.util.List;
  */
 public interface IUsuarioLogic {
 
-    public List<UsuarioDTO> getUsuarios();
+    public List<UsuarioEntity> getUsuarios();
 
-    public UsuarioDTO getUsuario(Long id);
+    public UsuarioEntity getUsuario(Long id);
 
-    public UsuarioDTO createUsuario(UsuarioDTO dto);
+    public UsuarioEntity createUsuario(UsuarioEntity dto);
 
-    public UsuarioDTO updateUsuario(UsuarioDTO dto);
+    public UsuarioEntity updateUsuario(UsuarioEntity dto);
 
     public void deleteUsuario(Long id);
 }

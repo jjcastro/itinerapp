@@ -1,13 +1,13 @@
 package com.ingesoft.itinerapp.api;
 
 
-import com.ingesoft.itinerapp.dtos.CiudadDTO;
+import com.ingesoft.itinerapp.entities.CiudadEntity;
 import java.util.List;
 
 public interface ICiudadLogic {
-    public List<CiudadDTO> getCiudades();
-    public CiudadDTO getCiudad(Long id);
-    public CiudadDTO createCiudad(CiudadDTO dto);
-    public CiudadDTO updateCiudad(CiudadDTO dto);
+    public List<CiudadEntity> getCiudades();
+    public CiudadEntity getCiudad(Long id);
+    public CiudadEntity createCiudad(CiudadEntity dto);
+    public CiudadEntity updateCiudad(CiudadEntity dto);
     public void deleteCiudad(Long id);
 }

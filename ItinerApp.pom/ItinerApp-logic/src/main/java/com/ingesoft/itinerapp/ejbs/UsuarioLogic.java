@@ -1,7 +1,7 @@
 package com.ingesoft.itinerapp.ejbs;
 
 import com.ingesoft.itinerapp.api.IUsuarioLogic;
-import com.ingesoft.itinerapp.dtos.UsuarioDTO;
+
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -13,22 +13,22 @@ import javax.inject.Inject;
 @Stateless
 public class UsuarioLogic implements IUsuarioLogic {
 
-    public List<UsuarioDTO> getUsuarios() {
+    public List<UsuarioEntity> getUsuarios() {
         // TODO
       return null;
     }
 
-    public UsuarioDTO getUsuario(Long id) {
+    public UsuarioEntity getUsuario(Long id) {
         // TODO
       return null;
     }
 
-    public UsuarioDTO createUsuario(UsuarioDTO dto) {
+    public UsuarioEntity createUsuario(UsuarioEntity dto) {
         // TODO
       return null;
     }
 
-    public UsuarioDTO updateUsuario(UsuarioDTO dto) {
+    public UsuarioEntity updateUsuario(UsuarioEntity dto) {
       // TODO
       return null;
     }

@@ -15,7 +15,7 @@ public abstract class RecuerdoConverter {
             dto.setId(entity.getId());
             dto.setImagen(entity.getImagen());
             dto.setName(entity.getImagen());
-
+            dto.setDescripcion(entity.getDescripcion());
             return dto;
         } else {
             return null;
@@ -28,6 +28,7 @@ public abstract class RecuerdoConverter {
             entity.setId(dto.getId());
             entity.setImagen(dto.getImagen());
             entity.setName(dto.getName());
+            entity.setDescripcion(dto.getDescripcion());
 
             return entity;
         } else {

@@ -1,6 +1,7 @@
 package com.ingesoft.itinerapp.mocks;
 
-import com.ingesoft.itinerapp.dtos.PerfilDtos;
+
+import com.ingesoft.itinerapp.dtos.RecuerdoDTO;
 import com.ingesoft.itinerapp.exceptions.PerfilLogicException;
 
 import java.util.ArrayList;
@@ -20,18 +21,18 @@ public class PerfilLogicMock {
     private final static Logger logger = Logger.getLogger(PerfilLogicMock.class.getName());
 	
 	
-    private static ArrayList<PerfilDtos> recuerdos;
+    private static ArrayList<RecuerdoDTO> recuerdos;
 
     
     public PerfilLogicMock() {
 
     	if (recuerdos == null) {
             recuerdos = new ArrayList<>();
-            recuerdos.add(new PerfilDtos(1L, "Paris", "Me gustó mucho esta ciudad."
+            recuerdos.add(new RecuerdoDTO(1L, "Paris", "Me gustó mucho esta ciudad."
                     + "Paris es una hermosa ciudad, fue increíble la vista "
-                    + "desde la torre Eiffel y la arquitectura de Notre Dame."));
-            recuerdos.add(new PerfilDtos(2L, "Florida", "Muy divertido!"));
-            recuerdos.add(new PerfilDtos(3L, "Rio De Janeiro", "Su gente es muy amable"));
+                    + "desde la torre Eiffel y la arquitectura de Notre Dame.","imagen"));
+            recuerdos.add(new RecuerdoDTO(2L, "Florida", "Muy divertido!","imagen"));
+            recuerdos.add(new RecuerdoDTO(3L, "Rio De Janeiro", "Su gente es muy amable","imagen"));
             
         }
         
@@ -42,7 +43,7 @@ public class PerfilLogicMock {
     	logger.info("recuerdos" + recuerdos );
     }    
        
-    public List<PerfilDtos> getRecuerdos() throws PerfilLogicException {
+    public List<RecuerdoDTO> getRecuerdos() throws PerfilLogicException {
     	if (recuerdos == null) {
     		logger.severe("Error interno: lista de recuerdos no existe.");
     		throw new PerfilLogicException("Error interno: lista de recuerdos no existe.");    		
@@ -53,11 +54,11 @@ public class PerfilLogicMock {
     }
 
   
-    public PerfilDtos getRecuerdo(Long id) throws PerfilLogicException {
+    public RecuerdoDTO getRecuerdo(Long id) throws PerfilLogicException {
     	logger.info("recibiendo solicitud de recuerdo con id " + id);
     	
     	
-        for (PerfilDtos recuerdo : recuerdos) {
+        for (RecuerdoDTO recuerdo : recuerdos) {
             if (Objects.equals(recuerdo.getId(), id)){
             	logger.info("retornando recuerdo " + recuerdo);
                 return recuerdo;
@@ -70,13 +71,13 @@ public class PerfilLogicMock {
     }
 
     
-    public PerfilDtos createRecuerdo(PerfilDtos newRecuerdo) throws PerfilLogicException {
+    public RecuerdoDTO createRecuerdo(RecuerdoDTO newRecuerdo) throws PerfilLogicException {
     	logger.info("recibiendo solicitud de agregar recuerdo " + newRecuerdo);
     	
     
     	if ( newRecuerdo.getId() != null ) {
 	    	
-	        for (PerfilDtos recuerdo : recuerdos) {
+	        for (RecuerdoDTO recuerdo : recuerdos) {
 	        	
 	            if (Objects.equals(recuerdo.getId(), newRecuerdo.getId())){
 	            	logger.severe("Ya existe un recuerdo con ese id");
@@ -90,7 +91,7 @@ public class PerfilLogicMock {
     		
     		logger.info("Generando id para el nuevo recuerdo");
     		long newId = 1;
-	        for (PerfilDtos recuerdo : recuerdos) {
+	        for (RecuerdoDTO recuerdo : recuerdos) {
 	            if (newId <= recuerdo.getId()){
 	                newId =  recuerdo.getId() + 1;
 	            }
@@ -105,17 +106,18 @@ public class PerfilLogicMock {
     }
 
     
-    public PerfilDtos updateRecuerdo(Long id, PerfilDtos updatedRecuerdo) throws PerfilLogicException {
+    public RecuerdoDTO updateRecuerdo(Long id, RecuerdoDTO updatedRecuerdo) throws PerfilLogicException {
     	logger.info("recibiendo solictud de modificar recuerdo " + updatedRecuerdo);
     	
     	
-        for (PerfilDtos recuerdo : recuerdos) {
+        for (RecuerdoDTO recuerdo : recuerdos) {
             if (Objects.equals(recuerdo.getId(), id)) {
             	
             	
             	recuerdo.setId(updatedRecuerdo.getId());
-                recuerdo.setNombre(updatedRecuerdo.getNombre());
+                recuerdo.setName(updatedRecuerdo.getName());
                 recuerdo.setDescripcion(updatedRecuerdo.getDescripcion());
+                recuerdo.setImagen(updatedRecuerdo.getImagen());
                 
                 
             	logger.info("Modificando Recuerdo " + recuerdo);
@@ -133,7 +135,7 @@ public class PerfilLogicMock {
     	logger.info("recibiendo solictud de eliminar recuerdo con id " + id);
     	
     	
-        for (PerfilDtos recuerdo : recuerdos) {
+        for (RecuerdoDTO recuerdo : recuerdos) {
             if (Objects.equals(recuerdo.getId(), id)) {
             	
             	

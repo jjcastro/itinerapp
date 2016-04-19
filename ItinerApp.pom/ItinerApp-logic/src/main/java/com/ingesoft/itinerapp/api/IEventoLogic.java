@@ -9,14 +9,15 @@ package com.ingesoft.itinerapp.api;
  *
  * @author s.robayo222
  */
-import com.ingesoft.itinerapp.dtos.EventoDTO;
+
+import com.ingesoft.itinerapp.entities.EventoEntity;
 import java.util.List;
 
 public interface IEventoLogic
 {
-    public List<EventoDTO> getEvento();
-    public EventoDTO getEvento(Long id);
-    public EventoDTO createEvento(EventoDTO dto);
-    public EventoDTO updateEvento(EventoDTO dto);
+    public List<EventoEntity> getEvento();
+    public EventoEntity getEvento(Long id);
+    public EventoEntity createEvento(EventoEntity dto);
+    public EventoEntity updateEvento(EventoEntity dto);
     public void deleteEvento(Long id);
 }

@@ -11,7 +11,7 @@ package com.ingesoft.itinerapp.resources;
  * @author johnycsc
  */
 
-import com.ingesoft.itinerapp.dtos.ItinerarioDtos;
+import com.ingesoft.itinerapp.dtos.ItinerarioDtosBORRAR;
 import com.ingesoft.itinerapp.exceptions.ItinerarioException;
 import com.ingesoft.itinerapp.mocks.ItinerarioLogicMock;
 import java.util.List;
@@ -39,10 +39,10 @@ public class ItinerarioResource {
  
       @GET
       @Produces(MediaType.TEXT_PLAIN)
-    public List<ItinerarioDtos> getItinerarios() throws ItinerarioException {
+    public List<ItinerarioDtosBORRAR> getItinerarios() throws ItinerarioException {
        // System.out.println("Esta pidiendo itinerarios");
-       List<ItinerarioDtos> M = new ArrayList<>();
-        ItinerarioDtos n = new ItinerarioDtos(4L, "juan", "123", "123");
+       List<ItinerarioDtosBORRAR> M = new ArrayList<>();
+        ItinerarioDtosBORRAR n = new ItinerarioDtosBORRAR(4L, "juan", "123", "123");
         M.add(n);
         return M;
         //return itinerarioLogic.getItinerarios();
@@ -51,18 +51,18 @@ public class ItinerarioResource {
     
     @GET
     @Path("{id: \\d+}")
-   public ItinerarioDtos getItinerario(@PathParam("id") Long id) throws ItinerarioException {
+   public ItinerarioDtosBORRAR getItinerario(@PathParam("id") Long id) throws ItinerarioException {
         return itinerarioLogic.getItinerario(id);
     }
     
      @POST
-    public ItinerarioDtos createItinerario(ItinerarioDtos itinerario) throws ItinerarioException{
+    public ItinerarioDtosBORRAR createItinerario(ItinerarioDtosBORRAR itinerario) throws ItinerarioException{
         return itinerarioLogic.createItinerario(itinerario);
     }
     
      @PUT
     @Path("{id: \\d+}")
-    public ItinerarioDtos updateItinerario(@PathParam("id") Long id, ItinerarioDtos itinerario) throws ItinerarioException {
+    public ItinerarioDtosBORRAR updateItinerario(@PathParam("id") Long id, ItinerarioDtosBORRAR itinerario) throws ItinerarioException {
         return itinerarioLogic.updateItinerario(id, itinerario);
     }
     

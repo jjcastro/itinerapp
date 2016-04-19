@@ -2,13 +2,14 @@ package com.ingesoft.itinerapp.api;
 
 
 
-import com.ingesoft.itinerapp.dtos.RecuerdoDTO;
+
+import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import java.util.List;
 
 public interface IRecuerdoLogic {
-    public List<RecuerdoDTO> getRecuerdos();
-    public RecuerdoDTO getRecuerdo(Long id);
-    public RecuerdoDTO createRecuerdo(RecuerdoDTO dto);
-    public RecuerdoDTO updateRecuerdo(RecuerdoDTO dto);
+    public List<RecuerdoEntity> getRecuerdos();
+    public RecuerdoEntity getRecuerdo(Long id);
+    public RecuerdoEntity createRecuerdo(RecuerdoEntity dto);
+    public RecuerdoEntity updateRecuerdo(RecuerdoEntity dto);
     public void deleteRecuerdo(Long id);
 }

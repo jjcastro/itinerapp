@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class ItinerarioDtos {
+public class ItinerarioDtosBORRAR {
     /**
      * Atributos de la clase Itinerario
      */
@@ -28,7 +28,7 @@ public class ItinerarioDtos {
      * Metodos GET y SET de la clase Itinerario de todos sus atributos
      */
     
-    public ItinerarioDtos(Long pId, String pNombre, String pImagen, String pDateIn, String pDateOut){
+    public ItinerarioDtosBORRAR(Long pId, String pNombre, String pImagen, String pDateIn, String pDateOut){
         super();
         id= pId;
         nombre = pNombre;
@@ -38,7 +38,7 @@ public class ItinerarioDtos {
         
     }
     
-     public ItinerarioDtos(Long pId, String pNombre, String pDateIn, String pDateOut){
+     public ItinerarioDtosBORRAR(Long pId, String pNombre, String pDateIn, String pDateOut){
             super();
         id= pId;
         nombre = pNombre;
