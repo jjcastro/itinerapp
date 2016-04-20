@@ -16,15 +16,15 @@ public class RecuerdoEntity implements Serializable {
     @Id
     @GeneratedValue(generator = "Recuerdo")
     private Long id;
-    
+
     @ManyToOne
     @PodamExclude
     private UsuarioEntity usuario;
-    
+
     private String descripcion;
     private String imagen;
     private String name;
-    
+
 
     /**
      * @generated
@@ -95,10 +95,10 @@ public class RecuerdoEntity implements Serializable {
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
-    
-    
-   
 
- 
+
+
+
+
 
 }

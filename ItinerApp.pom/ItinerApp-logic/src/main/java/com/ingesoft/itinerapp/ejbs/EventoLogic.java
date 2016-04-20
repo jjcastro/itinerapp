@@ -13,6 +13,8 @@ import com.ingesoft.itinerapp.api.IEventoLogic;
 import com.ingesoft.itinerapp.entities.EventoEntity;
 import com.ingesoft.itinerapp.persistence.EventoPersistence;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -20,17 +22,20 @@ import javax.inject.Inject;
 public class EventoLogic implements IEventoLogic
 {
 
-    @Inject private EventoPersistence persistence;
+    private static final Logger logger = Logger.getLogger(RecuerdoLogic.class.getName());
 
-    public List<EventoEntity> getEvento() {
-       //Faltan Validaciones.
-        List<EventoEntity> eventos = persistence.findAll();
-        return eventos;
-    }
+    @Inject private EventoPersistence persistence;
 
     public EventoEntity getEvento(Long id) {
         //Faltan Validaciones.
-        return persistence.find(id);
+        logger.log(Level.INFO, "Inicia proceso de consultar el evento con el id dado", id);
+        EventoEntity recuerdo = persistence.find(id);
+        if (recuerdo == null) {
+            logger.log(Level.SEVERE, "El evento con id: " +id+ " no existe", id);
+            throw new IllegalArgumentException("El evento solicitado no existe");
+        }
+        logger.log(Level.INFO, "Termina proceso de consultar evento con id "+id, id);
+        return recuerdo;
     }
 
     public EventoEntity createEvento(EventoEntity entity) {

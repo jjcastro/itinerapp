@@ -15,7 +15,6 @@ import java.util.List;
 
 public interface IEventoLogic
 {
-    public List<EventoEntity> getEvento();
     public EventoEntity getEvento(Long id);
     public List<EventoEntity> getEventos();
     public EventoEntity createEvento(EventoEntity dto);
