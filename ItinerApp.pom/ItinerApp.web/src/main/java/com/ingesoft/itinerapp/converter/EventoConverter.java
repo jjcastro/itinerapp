@@ -20,7 +20,6 @@ public class EventoConverter
         if (entity != null) {
             EventoDTO dto = new EventoDTO();
             dto.setId(entity.getId());
-            dto.setCiudad(entity.getCiudad());
             dto.setName(entity.getName());
 
             return dto;
@@ -33,7 +32,6 @@ public class EventoConverter
         if (dto != null) {
             EventoEntity entity = new EventoEntity();
             entity.setId(dto.getId());
-            entity.setCiudad(dto.getCiudad());
             entity.setName(dto.getName());
 
             return entity;
