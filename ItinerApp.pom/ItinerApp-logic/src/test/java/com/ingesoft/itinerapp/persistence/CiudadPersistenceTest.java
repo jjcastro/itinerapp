@@ -115,4 +115,48 @@ public class CiudadPersistenceTest {
         }
     }
 
+    @Test
+    public void getCiudadTest()
+    {
+        CiudadEntity entity = data.get(0);
+        CiudadEntity newEntity = ciudadPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+        Assert.assertEquals(newEntity.getPais(), entity.getPais());
+        Assert.assertEquals(newEntity.getDescripcion(), entity.getDescripcion());
+        Assert.assertEquals(newEntity.getFechaF(), entity.getFechaF());
+        Assert.assertEquals(newEntity.getFechaI(), entity.getFechaI());
+        Assert.assertEquals(newEntity.getFotoBig(), entity.getFotoBig());
+        Assert.assertEquals(newEntity.getFotoSmall(), entity.getFotoSmall());
+        Assert.assertEquals(newEntity.getSubtext(), entity.getSubtext());
+    }
+
+
+    @Test
+    public void deleteCiudadTest()
+    {
+        CiudadEntity entity = data.get(0);
+        ciudadPersistence.delete(entity.getId());
+        CiudadEntity deleted = em.find(CiudadEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+
+    @Test
+    public void updateEventoTest()
+    {
+        CiudadEntity entity = data.get(0);
+        CiudadEntity newEntity = factory.manufacturePojo(CiudadEntity.class);
+        newEntity.setId(entity.getId());
+        ciudadPersistence.update(newEntity);
+        CiudadEntity rta = em.find(CiudadEntity.class, entity.getId());
+        Assert.assertEquals(newEntity.getNombre(), rta.getNombre());
+        Assert.assertEquals(newEntity.getPais(), rta.getPais());
+        Assert.assertEquals(newEntity.getDescripcion(), rta.getDescripcion());
+        Assert.assertEquals(newEntity.getFechaF(), rta.getFechaF());
+        Assert.assertEquals(newEntity.getFechaI(), rta.getFechaI());
+        Assert.assertEquals(newEntity.getFotoBig(), rta.getFotoBig());
+        Assert.assertEquals(newEntity.getFotoSmall(), rta.getFotoSmall());
+        Assert.assertEquals(newEntity.getSubtext(), rta.getSubtext());
+    }
+
 }
