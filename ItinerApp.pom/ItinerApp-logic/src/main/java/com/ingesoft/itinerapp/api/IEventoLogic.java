@@ -17,6 +17,7 @@ public interface IEventoLogic
 {
     public List<EventoEntity> getEvento();
     public EventoEntity getEvento(Long id);
+    public List<EventoEntity> getEventos();
     public EventoEntity createEvento(EventoEntity dto);
     public EventoEntity updateEvento(EventoEntity dto);
     public void deleteEvento(Long id);

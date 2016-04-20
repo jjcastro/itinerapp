@@ -13,15 +13,19 @@ import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
-public class EventoEntity
+public class EventoEntity implements Serializable
 {
     @Id
     @GeneratedValue(generator = "Evento")
     private Long id;
     private String descripcion;
-    private String ciudad;
+    @ManyToOne
+    @PodamExclude
+    private CiudadEntity ciudad;
     private String name;
 
 
@@ -56,14 +60,14 @@ public class EventoEntity
     /**
      * @generated
      */
-    public String getCiudad() {
+    public CiudadEntity getCiudad() {
         return ciudad;
     }
 
     /**
      * @generated
      */
-    public void setCiudad(String ciudad) {
+    public void setCiudad(CiudadEntity ciudad) {
         this.ciudad = ciudad;
     }
 

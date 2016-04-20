@@ -35,7 +35,6 @@ public class EventoLogic implements IEventoLogic
 
     public EventoEntity createEvento(EventoEntity entity) {
         //Faltan Validaciones.
-        
         persistence.create(entity);
         return entity;
     }
@@ -49,5 +48,11 @@ public class EventoLogic implements IEventoLogic
     public void deleteEvento(Long id) {
         //Faltan Validaciones.
         persistence.delete(id);
+    }
+
+    public List<EventoEntity> getEventos()
+    {
+       List<EventoEntity> eventos = persistence.findAll();
+       return eventos;
     }
 }

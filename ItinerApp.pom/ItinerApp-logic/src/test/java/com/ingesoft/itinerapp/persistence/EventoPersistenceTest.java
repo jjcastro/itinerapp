@@ -101,7 +101,6 @@ public class EventoPersistenceTest
         EventoEntity entity = enm.find(EventoEntity.class, resultado.getId());
         Assert.assertEquals(nuevaEntidad.getName(), entity.getName());
         Assert.assertEquals(nuevaEntidad.getDescripcion(), entity.getDescripcion());
-        Assert.assertEquals(nuevaEntidad.getCiudad(), entity.getCiudad());
     }
 
     @Test
@@ -123,6 +122,21 @@ public class EventoPersistenceTest
        }
    }
 
+    @Test
+    public void getRecuerdosTest() {
+        List<EventoEntity> list = eventoPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (EventoEntity ent : list) {
+            boolean found = false;
+            for (EventoEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
    @Test
     public void getEventoTest()
     {
@@ -131,7 +145,6 @@ public class EventoPersistenceTest
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
         Assert.assertEquals(entity.getDescripcion(), newEntity.getDescripcion());
-        Assert.assertEquals(entity.getCiudad(), entity.getCiudad());
     }
 
 
@@ -154,7 +167,6 @@ public class EventoPersistenceTest
         EventoEntity rta = enm.find(EventoEntity.class, entity.getId());
         Assert.assertEquals(nuevaEntidad.getName(), rta.getName());
         Assert.assertEquals(nuevaEntidad.getDescripcion(), rta.getDescripcion());
-        Assert.assertEquals(nuevaEntidad.getCiudad(), rta.getCiudad());
     }
 }
 
