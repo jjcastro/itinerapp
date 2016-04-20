@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * @generated
@@ -17,6 +18,7 @@ public class RecuerdoEntity implements Serializable {
     private Long id;
     
     @ManyToOne
+    @PodamExclude
     private UsuarioEntity usuario;
     
     private String descripcion;
@@ -80,6 +82,21 @@ public class RecuerdoEntity implements Serializable {
         this.name = name;
     }
 
+    /**
+     * @generated
+     */
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @generated
+     */
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
+    
+    
    
 
  
