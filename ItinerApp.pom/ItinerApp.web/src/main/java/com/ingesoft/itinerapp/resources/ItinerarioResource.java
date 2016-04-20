@@ -34,11 +34,11 @@ import javax.ws.rs.core.MediaType;
 @RequestScoped
 public class ItinerarioResource {
     
-     @Inject
-	ItinerarioLogicMock itinerarioLogic;
+    @Inject
+    ItinerarioLogicMock itinerarioLogic;
  
-      @GET
-      @Produces(MediaType.TEXT_PLAIN)
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public List<ItinerarioDtosBORRAR> getItinerarios() throws ItinerarioException {
        // System.out.println("Esta pidiendo itinerarios");
        List<ItinerarioDtosBORRAR> M = new ArrayList<>();

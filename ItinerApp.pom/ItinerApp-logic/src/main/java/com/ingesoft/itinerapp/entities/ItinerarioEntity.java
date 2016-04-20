@@ -28,10 +28,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
     private Date fechaEntrada;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaSalida;
-    private String nombre;
-    
-    @Id
-    private int id;
+ 
     
     
     @ManyToOne
@@ -44,21 +41,14 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
      * retorna el nombre del itinerario
      * @return 
      */
-     
-    public String getNombre(){
-        return nombre;
-    }
-    
+  
     
     /**
      * Insertar el nombre
      * @param nombre
      */
     
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-    
+ 
     /**
      * retorna la imagen del itinerario
      * @return 
