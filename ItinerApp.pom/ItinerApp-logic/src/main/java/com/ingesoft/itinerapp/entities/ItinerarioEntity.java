@@ -105,6 +105,15 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
         this.fechaEntrada = fechaEntrada;
     }
     
+    
+    public List<CiudadEntity> getCiudades() {
+        return ciudades;
+    }
+
+    public void setBooks(List<CiudadEntity> books) {
+        this.ciudades = books;
+    }
+    
     /**
      * Retorna el id del Itinerario
      * @return 

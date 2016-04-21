@@ -20,7 +20,7 @@ public interface IItinerarioLogic {
     
     public ItinerarioEntity getItinerario(Long id);
 
-    public ItinerarioEntity createItinerario(ItinerarioEntity entity);
+    public ItinerarioEntity createItinerario(ItinerarioEntity entity) throws BusinessLogicException;
     
     public ItinerarioEntity updateItinerario(ItinerarioEntity entity);
     

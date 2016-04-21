@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Wed Apr 20 14:09:52 COT 2016:
- Iniciando instancia a816c00e-0154-3514-217c-0000075c5010 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos C:\Users\estudiante\AppData\Local\Temp\gfembed1864583892743925876tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@75b84c92
-Cargado desde file:/C:/Users/estudiante/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1.1/glassfish-embedded-all-4.1.1.jar
+Wed Apr 20 23:32:52 COT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0154-3717-9291-0000038f34c0 
+on database directory /private/var/folders/h8/tcj7tbw52336lms634txrg380000gn/T/gfembed8233370694375251336tmp/lib/databases/embedded_default with class loader sun.misc.Launcher$AppClassLoader@232204a1 
+Loaded from file:/Users/johnycsc/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1.1/glassfish-embedded-all-4.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_66-b18
-user.dir=C:\Users\estudiante\Documents\GitHub\ingesoft\ItinerApp.pom\ItinerApp-logic
-os.name=Windows 7
-os.arch=amd64
-os.version=6.1
+java.runtime.version=1.8.0_73-b02
+user.dir=/Users/johnycsc/ingesoft/FinalPomInge/ItinerApp.pom/ItinerApp-logic
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.11.3
 derby.system.home=null
-Cargador de clases de base de datos iniciado - derby.database.classpath=''
+Database Class Loader started - derby.database.classpath=''

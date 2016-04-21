@@ -29,7 +29,7 @@ public class ItinerarioLogic implements  IItinerarioLogic{
     private ItinerarioPersistence persistence;
 
     @Inject
-    private CiudadPersistence authorPersistence;
+    private CiudadPersistence ciudadPersistence;
 
     @Override
     public List<ItinerarioEntity> getItinerarios() {
@@ -53,10 +53,11 @@ public class ItinerarioLogic implements  IItinerarioLogic{
     }
 
     @Override
-    public ItinerarioEntity createItinerario(ItinerarioEntity entity){
+    public ItinerarioEntity createItinerario(ItinerarioEntity entity) throws BusinessLogicException{
         logger.info("Inicia proceso de creación de itinerario");
         if (!validateDates(entity.getFechaSalida(), entity.getFechaEntrada())) {
-          //  throw new BusinessLogicException("Las fechas no son válidas");
+      
+          throw new BusinessLogicException("Las fechas no son válidas");
         }
         persistence.create(entity);
         logger.info("Termina proceso de creación de itinerario");
@@ -65,33 +66,64 @@ public class ItinerarioLogic implements  IItinerarioLogic{
 
     @Override
     public ItinerarioEntity updateItinerario(ItinerarioEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       logger.log(Level.INFO, "Inicia proceso de actualizar autor con id={0}", entity.getId());
+       ItinerarioEntity newEntity = persistence.update(entity);
+       logger.log(Level.INFO, "Termina proceso de actualizar autor con id={0}", entity.getId());
+       return newEntity;      
     }
 
     @Override
     public void deleteItinerario(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        logger.log(Level.INFO, "Inicia proceso de borrar autor con id={0}", id);
+        persistence.delete(id);
+        logger.log(Level.INFO, "Termina proceso de borrar autor con id={0}", id);
     }
 
     @Override
     public List<CiudadEntity> getCiudades(Long itinerarioId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getItinerario(itinerarioId).getCiudades();
     }
 
     @Override
     public CiudadEntity getCiudad(Long idCiudad, Long idItinerario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<CiudadEntity> authors = getItinerario(idItinerario).getCiudades();
+        CiudadEntity ciudadEntity = ciudadPersistence.find(idCiudad);
+        if (ciudadEntity == null) {
+            throw new IllegalArgumentException("La ciudad no existe");
+        }
+        int index = authors.indexOf(ciudadEntity);
+        if (index >= 0) {
+            return authors.get(index);
+        }
+        throw new IllegalArgumentException("La ciudad no está asociada al itinerario");
     }
 
     @Override
     public CiudadEntity agregarCiudad(Long idCiudad, Long idItinerario) throws BusinessLogicException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ItinerarioEntity itinerarioEntity = getItinerario(idItinerario);
+        CiudadEntity ciudadEntity = ciudadPersistence.find(idCiudad);
+        if (ciudadEntity == null) {
+            throw new IllegalArgumentException("La ciudad no existe");
+        }
+        if (!validateDates(ciudadEntity.getFechaF(), itinerarioEntity.getFechaSalida())) {
+            throw new BusinessLogicException("La fecha de publicación no puede ser anterior a la fecha de nacimiento del autor");
+        }
+        itinerarioEntity.getCiudades().add(ciudadEntity);
+        return ciudadEntity;
     }
 
     @Override
     public void borrarCiudad(Long idCiudad, Long idItinerario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ItinerarioEntity bookEntity = getItinerario(idItinerario);
+        CiudadEntity authorEntity = ciudadPersistence.find(idCiudad);
+        if (authorEntity == null) {
+            throw new IllegalArgumentException("El autor no existe");
+        }
+        bookEntity.getCiudades().remove(authorEntity);
+        
     }
+    
+    
     
     
     
