@@ -69,6 +69,7 @@ public class UsuarioLogicTest {
     }
 
     private void insertData() {
+
         for (int i = 0; i < 3; i++) {
             UsuarioEntity entity = factory.manufacturePojo(UsuarioEntity.class);
 
@@ -153,4 +154,5 @@ public class UsuarioLogicTest {
         Assert.assertEquals(expected.getEmail(), resp.getEmail());
         Assert.assertEquals(expected.getCedula(), resp.getCedula());
     }
+
 }

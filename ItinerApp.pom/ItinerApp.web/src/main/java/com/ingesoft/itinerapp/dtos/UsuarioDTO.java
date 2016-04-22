@@ -1,7 +1,6 @@
 package com.ingesoft.itinerapp.dtos;
 
 /**
- *
  * @author jc.martha10
  */
 
@@ -24,8 +23,7 @@ public class UsuarioDTO {
     /**
      * Metodos GET y SET de la clase Usuario de todos sus atributos
      */
-    public UsuarioDTO() {
-    }
+    public UsuarioDTO() {}
 
     public UsuarioDTO(Long pId, String pNombre, String pApellido, String pUsername, String pEmail, String pCedula) {
         id = pId;
@@ -34,7 +32,6 @@ public class UsuarioDTO {
         username = pUsername;
         email = pEmail;
         cedula = pCedula;
-
     }
 
     public Long getId() {
