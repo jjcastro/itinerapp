@@ -98,6 +98,10 @@ public class PerfilLogicMock {
 	        }
 	        newRecuerdo.setId(newId);
     	}
+        if(newRecuerdo.getImagen()== null)
+        {
+            newRecuerdo.setImagen("img");
+        }
     	
         
     	logger.info("agregando recuerdo " + newRecuerdo);

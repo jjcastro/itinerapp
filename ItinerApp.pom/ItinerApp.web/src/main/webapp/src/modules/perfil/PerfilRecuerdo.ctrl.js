@@ -19,7 +19,12 @@
         $scope.user = {};
         $scope.master = {};
         $scope.currentRecord = {};
-        $scope.records = {};
+        $scope.records = {
+           
+                descripcion: '' /*Tipo String*/,
+                name: '' /*Tipo String*/
+               
+        };
         //$scope.records = [];
         
         
@@ -97,7 +102,7 @@
                  * */
                    /* $scope.records = svc.fetchRecords();
                     $scope.master = $scope.records[0];*/
-                    $scope.records = svc.fetchRecords()
+                    $scope.records = svc.fetchRecords();
                     $scope.master = $scope.records;
                     $scope.edit = false;
                     $scope.read=true;

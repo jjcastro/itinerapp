@@ -24,28 +24,13 @@
         };
         this.crearUsuario = function(currentRecord)
         {
-            /*
-            usuario.push({nombre: currentRecord.nombre, 
-                lugNac: currentRecord.lugNac, 
-                fecNac:currentRecord.fecNac,
-                ciuFav:currentRecord.ciuFav,
-                email:currentRecord.email,
-                telCon: currentRecord.telCon});*/
+            
             usuario = angular.copy(currentRecord);
             
         };
         this.editarUsuario = function(nombre,master)
         {
-            /*
-              for(var i = 0; i < usuarios.length; i++)
-            {
-                
-                if(usuarios[i].nombre == nombre)
-                {
-                    usuarios[i] = angular.copy(master);
-                    i=usuarios.length;
-                }
-            }*/
+            
             usuario = angular.copy(master);
            
             
@@ -99,17 +84,7 @@
         
         this.deleteInfo = function(nombre)
         {
-            /*
-            for(var i = 0; i < usuarios.length; i++)
-            {
-                
-                if(usuarios[i].nombre == nombre)
-                {
-                    usuarios.slice(i,1);
-                    i = usuarios.length;
-                    return "done";
-                }
-            }*/
+           
             usuario = {};
             
         };

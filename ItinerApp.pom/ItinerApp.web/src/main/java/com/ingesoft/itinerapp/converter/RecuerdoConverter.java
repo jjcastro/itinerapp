@@ -14,7 +14,7 @@ public abstract class RecuerdoConverter {
             RecuerdoDTO dto = new RecuerdoDTO();
             dto.setId(entity.getId());
             dto.setImagen(entity.getImagen());
-            dto.setName(entity.getImagen());
+            dto.setName(entity.getName());
             dto.setDescripcion(entity.getDescripcion());
             return dto;
         } else {

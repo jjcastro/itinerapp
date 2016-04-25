@@ -21,7 +21,7 @@ public class RecuerdoDTO {
     public RecuerdoDTO() {
     }
 
-    public RecuerdoDTO(Long id, String descripcion, String name, String imagen) {
+    public RecuerdoDTO(Long id,String name, String descripcion, String imagen) {
         this.id = id;
         this.descripcion = descripcion;
         this.name = name;

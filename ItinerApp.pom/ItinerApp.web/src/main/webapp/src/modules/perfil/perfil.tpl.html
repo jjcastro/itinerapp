@@ -40,7 +40,7 @@
                         <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" data-aria-expanded="false" id="elementosBarraPerfil">Recuerdos<span class="caret"></span></a>
                         <ul class="dropdown-menu" id ="desplegableRecuerdos" >
                           <!--<li><a data-ui-sref="perfil.recuerdo">Tour por Colombia {{prueba}}</a></li>-->
-                          <li ng-repeat ="record in records"><a data-ui-sref="perfil.recuerdo" ng-click="ctrl.actualizarCurrent(record)">{{record.nombre}}</a></li>
+                          <li ng-repeat ="record in records"><a data-ui-sref="perfil.recuerdo" ng-click="ctrl.actualizarCurrent(record)">{{record.name}}</a></li>
                         </ul>
                       </li>
                        
@@ -85,13 +85,13 @@
                             <div class="form-group col-md-12" ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}" >
                                 <label for="nombre" class="col-md-2 control-label">Nombre</label>
                                 <div class="col-md-10">
-                                    <input id="nombreRecuerdo" name="nombre" class="form-control" type="text" ng-model="user.nombre" required />
+                                    <input id="nombreRecuerdo" name="nombre" class="form-control" type="text" ng-model="user.name" required />
                                 </div>
                             </div>
                             <div class="form-group col-md-12" ng-class="{'has-success': form.desc.$valid && form.desc.$dirty, 'has-error': form.desc.$invalid && (form.desc.$dirty || form.$submitted)}" >
                                 <label for="desc" class="col-md-2 control-label">Descripción</label>
                                 <div class="col-md-10">
-                                    <input id="descRecuerdo" name="desc" class="form-control" type="text" ng-model="user.desc" required />
+                                    <input id="descRecuerdo" name="desc" class="form-control" type="text" ng-model="user.descripcion" required />
                                 </div>
                             </div>   
                         </fieldset>

@@ -17,9 +17,16 @@
         $scope.delete = false;
         $scope.currentRecord = {};
         $scope.records = [];
-        $scope.user = {};
+        //$scope.user = {};
         $scope.master ={};
         $scope.prueba ='prueba';
+        
+         $scope.user = {
+                id: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                name: '' /*Tipo String*/,
+                descripcion: '' /*Tipo String*/,
+                imagen: '' /*Tipo String*/
+            };
         
           this.actualizarCurrent =function(record)
             {
@@ -59,28 +66,10 @@
                 {}
                 this.fetchRecordsRec();
             };
-            /*
-            this.changeCurrent = function()
-            {
-                $scope.currentRecord.nombre = $scope.user.nombre;
-                $scope.currentRecord.lugNac = $scope.user.LugNac;
-                $scope.currentRecord.fecNac = $scope.user.FecNac;
-                $scope.currentRecord.ciuFav = $scope.user.CiuFav;
-                $scope.currentRecord.email = $scope.user.Email;
-                $scope.currentRecord.telCon = $scope.user.TelCon;
-            };*/
+          
             this.createRecord = function () {
                
-               /*this.changeCurrent();
-               if(svc.existeUsuario($scope.currentRecord.nombre) === 0){
-                svc.crearUsuario($scope.currentRecord);
-            }
-            else
-            {
-                svc.editarUsuario($scope.currentRecord);
-            }
-                this.fetchRecords();*/
-  
+             
             };
             this.editRecord = function (record) {
                 
@@ -94,19 +83,8 @@
             };
             
             this.update = function(user) {
-                /*
-            $scope.master = angular.copy(user);
-            
-            svc.crearRecuerdo($scope.master);
-            
-            this.fetchRecordsRec();
-            $scope.edit = false;
-            $scope.delete = false;
-            $scope.read=true;  
-                */
-            $scope.master = angular.copy(user);
-            
-            
+               
+            $scope.master = angular.copy($scope.user);
             svc.crearRecuerdo($scope.master).then(function ()
             {
                 self.fetchRecordsRec();
@@ -125,20 +103,7 @@
             };
             this.fetchRecordsRec = function () {
                 
-                //NOTA:
-                /*Se esta realizando de esta manera porque se esta considerando
-                 * que el usuario ha hecho log in por lo tanto el record siempre
-                 * sera el mismo. Mas adelante el current record lo definira el 
-                 * login del usuario.              
-                 * */
-                /*    $scope.records = svc.fetchRecordsRec();
-                    $scope.master = $scope.records[0];
-                    $scope.edit = false;
-                    $scope.delete = false;
-                    $scope.read=true;
-                    this.reset();
-                    return $scope.records;
-                */
+                
                return  svc.fetchRecordsRec().then(function(response)
                {
                     $scope.records = response.data;

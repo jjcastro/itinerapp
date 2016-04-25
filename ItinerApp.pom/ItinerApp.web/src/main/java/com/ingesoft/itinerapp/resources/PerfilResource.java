@@ -105,27 +105,27 @@ public class PerfilResource {
 
 	
     @GET
-    public List<PerfilDtos> getRecuerdos() throws PerfilLogicException {
+    public List<RecuerdoDTO> getRecuerdos() throws PerfilLogicException {
         return perfilLogic.getRecuerdos();
     }
 
   
     @GET
     @Path("{id: \\d+}")
-    public PerfilDtos getRecuerdo(@PathParam("id") Long id) throws PerfilLogicException {
+    public RecuerdoDTO getRecuerdo(@PathParam("id") Long id) throws PerfilLogicException {
         return perfilLogic.getRecuerdo(id);
     }
 
     
     @POST
-    public PerfilDtos createRecuerdo(PerfilDtos precuerdo) throws PerfilLogicException {
+    public RecuerdoDTO createRecuerdo(RecuerdoDTO precuerdo) throws PerfilLogicException {
         return perfilLogic.createRecuerdo(precuerdo);
     }
 
     
     @PUT
     @Path("{id: \\d+}")
-    public PerfilDtos updateRecuerdo(@PathParam("id") Long id, PerfilDtos pRecuerdo) throws PerfilLogicException {
+    public RecuerdoDTO updateRecuerdo(@PathParam("id") Long id, RecuerdoDTO pRecuerdo) throws PerfilLogicException {
         return perfilLogic.updateRecuerdo(id,pRecuerdo);
     }
 
