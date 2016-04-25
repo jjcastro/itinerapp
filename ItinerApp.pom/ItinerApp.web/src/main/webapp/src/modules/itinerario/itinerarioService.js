@@ -9,7 +9,7 @@
     
     var mod = ng.module("itinerarioModule");
     
-        mod.service("itinerarioService", function () {
+        mod.service("itinerarioService", ["$http", function ($http) {
         
         var uid = 1;
     
@@ -66,12 +66,72 @@
                 itinerarios.splice(i, 1);
             }
         }
+        return $http.get('api/itinerarios/'+actual);
     };
 
     //simply returns the contacts list
     this.list = function () {
         return itinerarios;
     };
+    
+    this.actualizarItinerarioSeleccionado= function(record)
+        {
+            actual = record.id;
+            return actual;
+        };
+        
+        this.itinerarioSeleccionado = function()
+        {            
+            return $http.get('api/itinerarios/'+actual);  
+        };
+        this.crearItinerario = function(currentRecord)
+        {
+            /*
+            usuario.push({nombre: currentRecord.nombre, 
+                lugNac: currentRecord.lugNac, 
+                fecNac:currentRecord.fecNac,
+                ciuFav:currentRecord.ciuFav,
+                email:currentRecord.email,
+                telCon: currentRecord.telCon});*/
+            itinerario = angular.copy(currentRecord);
+            
+        };
+        this.editarIitnerario = function(nombre,master)
+        {
+            /*
+              for(var i = 0; i < usuarios.length; i++)
+            {
+                
+                if(usuarios[i].nombre == nombre)
+                {
+                    usuarios[i] = angular.copy(master);
+                    i=usuarios.length;
+                }
+            }*/
+            itinerario = angular.copy(master);
+           
+            
+        };
+        this.crearItinerario = function(master)
+        {
+            //recuerdos.push(master);
+            return $http.post('api/itinerario',master);
+        };
+        
+        
+        
+        this.fetchRecords = function()
+        {
+           
+            return itinerario;
+        };
+        
+        this.fetchRecordsRec = function()
+        {
+            //return recuerdos;
+            return $http.get('api/itinerarios');
+        };
+    
 });
     
     

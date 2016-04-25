@@ -28,6 +28,10 @@ public class ItinerarioDTO {
         this.imagen = imagen;
         
     }
+
+    public ItinerarioDTO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
