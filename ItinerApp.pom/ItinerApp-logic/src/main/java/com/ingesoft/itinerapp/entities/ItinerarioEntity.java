@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -32,21 +33,12 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
     
     
     @ManyToOne
+    @PodamExclude
     private UsuarioEntity usuario;
     
     @ManyToMany
+    @PodamExclude
     private List<CiudadEntity> ciudades = new ArrayList<>();
-    
-    /**
-     * retorna el nombre del itinerario
-     * @return 
-     */
-  
-    
-    /**
-     * Insertar el nombre
-     * @param nombre
-     */
     
  
     /**
@@ -110,7 +102,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
         return ciudades;
     }
 
-    public void setBooks(List<CiudadEntity> books) {
+    public void setCiudades(List<CiudadEntity> books) {
         this.ciudades = books;
     }
     

@@ -99,7 +99,7 @@ public class ItinerarioLogicTest {
         
     }
      
-    //   @Test
+    @Test
     public void createItinerarioTest() {
         ItinerarioEntity expected = factory.manufacturePojo(ItinerarioEntity.class);
            System.out.println("w" + expected.getName() + expected.getFechaEntrada() + expected.getFechaSalida());
@@ -137,25 +137,32 @@ public class ItinerarioLogicTest {
 
     private void insertData() {
         //Crear ciudades y agregarlos al itinerarios
-        for (int i = 0; i < 3; i++) {
-            CiudadEntity ciudades = factory.manufacturePojo(CiudadEntity.class);
-            System.out.println(ciudades.getFechaI());
-            System.out.println(ciudades.getFechaF());
-            em.persist(ciudades);
-            ciudadData.add(ciudades);
+     //   for (int i = 0; i < 3; i++) {
+      //      CiudadEntity ciudades = factory.manufacturePojo(CiudadEntity.class);
+       //     System.out.println(ciudades.getFechaI());
+        //    System.out.println(ciudades.getFechaF());
+         //   em.persist(ciudades);
+          //  ciudadData.add(ciudades);
+            //System.out.println(ciudadData.size());
            
-        }
+        //}
 
         for (int i = 0; i < 3; i++) {
             ItinerarioEntity entity = factory.manufacturePojo(ItinerarioEntity.class);
-            //entity.setFechaEntrada(getMinDate());
-            //entity.setFechaSalida(getMaxDate());
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
+            Date y = new Date(2016, 4, 25);
+            Date yy = new Date(2016, 4, 29);
+
+            entity.setFechaEntrada(y);
+            entity.setFechaSalida(yy);
 
           
 
-            entity.getCiudades().add(ciudadData.get(0));
+    //        entity.getCiudades().add(ciudadData.get(0));
             em.persist(entity);
             data.add(entity);
+            System.out.println(data.size());
         }
     }
     
@@ -176,7 +183,7 @@ public class ItinerarioLogicTest {
         }
     }
 
-  //  @Test
+    @Test
     public void getItinerarioTest() {
         ItinerarioEntity result = itinerarioLogic.getItinerario(data.get(0).getId());
 
@@ -197,15 +204,16 @@ public class ItinerarioLogicTest {
 
     }
 
-  //  @Test
+    @Test
     public void deleteItinerarioTest() {
+        System.out.println(data.size());
         ItinerarioEntity entity = data.get(1);
         itinerarioLogic.deleteItinerario(entity.getId());
         ItinerarioEntity expected = em.find(ItinerarioEntity.class, entity.getId());
         Assert.assertNull(expected);
     }
 
-  //  @Test
+    @Test
     public void updateItinerarioTest() {
         ItinerarioEntity entity = data.get(0);
         ItinerarioEntity expected = factory.manufacturePojo(ItinerarioEntity.class);
