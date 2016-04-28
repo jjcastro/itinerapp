@@ -6,7 +6,9 @@ import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
@@ -16,17 +18,21 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 public class CiudadEntity implements Serializable {
 
   @Id
-  @GeneratedValue(generator = "Ciudad")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @PodamExclude
   private Long id;
+  
   private String nombre;
   private String pais;
   private String descripcion;
   private String subtext;
   private String fotoBig;
   private String fotoSmall;
+  
   @PodamStrategyValue(DateStrategy.class)
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaI;
+  
   @PodamStrategyValue(DateStrategy.class)
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaF;

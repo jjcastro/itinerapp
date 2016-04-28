@@ -94,9 +94,16 @@ public class ItinerarioLogicTest {
   
 
      private void clearData() {
+         
+         for(ItinerarioEntity it : data){
+             em.remove(it);
+         }
+         for(CiudadEntity c: ciudadData){
+             em.remove(c);
+         }
+
+        em.createQuery("delete from ItinerarioEntity").executeUpdate();                 
         em.createQuery("delete from CiudadEntity").executeUpdate();
-        em.createQuery("delete from ItinerarioEntity").executeUpdate();
-        
     }
      
     @Test
@@ -137,15 +144,21 @@ public class ItinerarioLogicTest {
 
     private void insertData() {
         //Crear ciudades y agregarlos al itinerarios
-     //   for (int i = 0; i < 3; i++) {
-      //      CiudadEntity ciudades = factory.manufacturePojo(CiudadEntity.class);
-       //     System.out.println(ciudades.getFechaI());
-        //    System.out.println(ciudades.getFechaF());
-         //   em.persist(ciudades);
-          //  ciudadData.add(ciudades);
-            //System.out.println(ciudadData.size());
+        for (int i = 0; i < 3; i++) {
+            CiudadEntity ciudades = factory.manufacturePojo(CiudadEntity.class);
+            System.out.println(ciudades.getFechaI());
+            System.out.println(ciudades.getFechaF());
+            em.persist(ciudades);
+            ciudadData.add(ciudades);
+            System.out.println(ciudadData.size());
            
-        //}
+        }
+        
+                
+        List<CiudadEntity> ciudades = em.createQuery("select c from CiudadEntity c", CiudadEntity.class).getResultList();
+        for (CiudadEntity ciudad : ciudades ) {
+            System.out.println("c = " +  ciudad.getId());
+        }
 
         for (int i = 0; i < 3; i++) {
             ItinerarioEntity entity = factory.manufacturePojo(ItinerarioEntity.class);
@@ -157,13 +170,15 @@ public class ItinerarioLogicTest {
             entity.setFechaEntrada(y);
             entity.setFechaSalida(yy);
 
-          
-
+            CiudadEntity ciudad = ciudadData.get(0);
+            entity.getCiudades().add(ciudad);
+            
     //        entity.getCiudades().add(ciudadData.get(0));
             em.persist(entity);
             data.add(entity);
             System.out.println(data.size());
         }
+       
     }
     
     

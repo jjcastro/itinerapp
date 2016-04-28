@@ -25,12 +25,12 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class ItinerarioEntity extends BaseEntity implements Serializable{
 
     private String imagen;
+    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaEntrada;
+    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaSalida;
- 
-    
     
     @ManyToOne
     @PodamExclude
@@ -38,8 +38,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable{
     
     @ManyToMany
     @PodamExclude
-    private List<CiudadEntity> ciudades = new ArrayList<>();
-    
+    private List<CiudadEntity> ciudades = new ArrayList<>();    
  
     /**
      * retorna la imagen del itinerario
