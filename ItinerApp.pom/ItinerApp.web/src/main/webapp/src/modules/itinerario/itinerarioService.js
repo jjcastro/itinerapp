@@ -132,7 +132,7 @@
             return $http.get('api/itinerarios');
         };
     
-});
+}]);
     
     
 })(window.angular);
