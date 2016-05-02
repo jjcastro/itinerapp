@@ -19,6 +19,18 @@ public class EventoDTO {
     private String name;
     private String ciudad;
 
+    public EventoDTO()
+    {
+
+    }
+
+    public EventoDTO(Long id, String descripcion, String name, String ciudad)
+    {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.name = name;
+        this.ciudad = ciudad;
+    }
     /**
      * @generated
      */
