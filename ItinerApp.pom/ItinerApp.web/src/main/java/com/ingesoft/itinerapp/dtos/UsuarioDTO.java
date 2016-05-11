@@ -12,6 +12,7 @@ public class UsuarioDTO {
     /**
      * Atributos de la clase Usuario
      */
+    
 
     private Long id;
     private String nombre;

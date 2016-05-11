@@ -2,6 +2,7 @@ package com.ingesoft.itinerapp.api;
 
 
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
+import com.ingesoft.itinerapp.entities.UsuarioLoginEntity;
 import java.util.List;
 
 /**
@@ -18,4 +19,6 @@ public interface IUsuarioLogic {
     public UsuarioEntity updateUsuario(UsuarioEntity dto);
 
     public void deleteUsuario(Long id);
+
+    public boolean login(UsuarioLoginEntity entity);
 }

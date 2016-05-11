@@ -3,11 +3,11 @@
 
     <form class="form-signin col-md-7 col-md-offset-2">
     <h2 class="form-signin-heading">Iniciar sesión</h2>
-    <label for="inputEmail" class="sr-only">Correo electrónico</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus><br/>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Username" ng-model="usrLogin.username" required autofocus><br/>
 
     <label for="inputPassword" class="sr-only">Contraseña</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required><br/>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" ng-model="usrLogin.pass" required><br/>
 
     <div class="checkbox">
       <label>
@@ -15,7 +15,7 @@
       </label>
     </div><br/>
 
-    <button class="btn btn-lg btn-default btn-block" type="submit">Iniciar sesión</button><br/><br/>
+    <button class="btn btn-lg btn-default btn-block" ng-click="ctrl.iniciarSesion()">Iniciar Sesión</button>
 
     <span>¿No tienes una cuenta? <a ui-sref="registro">Regístrate</a></span>
   </form>

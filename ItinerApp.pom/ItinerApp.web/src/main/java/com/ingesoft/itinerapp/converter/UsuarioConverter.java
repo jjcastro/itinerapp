@@ -26,14 +26,7 @@ public abstract class UsuarioConverter {
 
     public static UsuarioEntity basicDTO2Entity(UsuarioDTO dto) {
         if (dto != null) {
-            UsuarioEntity entity = new UsuarioEntity();
-            entity.setId(dto.getId());
-            entity.setNombre(dto.getNombre());
-            entity.setApellido(dto.getApellido());
-            entity.setUsername(dto.getUsername());
-            entity.setEmail(dto.getEmail());
-            entity.setCedula(dto.getCedula());
-
+            UsuarioEntity entity = new UsuarioEntity(dto.getId(), dto.getNombre(), dto.getApellido(), dto.getUsername(), dto.getEmail(), dto.getCedula());
             return entity;
         } else {
             return null;

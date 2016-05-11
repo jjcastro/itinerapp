@@ -2,6 +2,7 @@ package com.ingesoft.itinerapp.persistence;
 
 
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
+import com.ingesoft.itinerapp.entities.UsuarioLoginEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -38,5 +39,9 @@ public class UsuarioPersistence {
     public List<UsuarioEntity> findAll() {
         Query q = em.createQuery("select u from UsuarioEntity u");
         return q.getResultList();
+    }
+
+    public UsuarioLoginEntity login(UsuarioLoginEntity entity){
+        return em.find(UsuarioLoginEntity.class, entity.getUsername());
     }
 }

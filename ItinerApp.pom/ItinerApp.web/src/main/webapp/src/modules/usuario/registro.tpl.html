@@ -13,11 +13,12 @@
         <label for="inputEmail" class="sr-only">Correo electrónico</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" ng-model="usr.email" required autofocus><br/>
 
-        <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" ng-model="usr.pass" required><br/>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" ng-model="usr.username" required><br/>
 
-        <label for="inputRepPassword" class="sr-only">Repetir contraseña</label>
-        <input type="password" id="inputRepPassword" class="form-control" placeholder="Repetir contraseña" ng-model="usr.repPass" required><br/>
+        <!--<label for="inputRepPassword" class="sr-only">Repetir contraseña</label>
+        <input type="password" id="inputRepPassword" class="form-control" placeholder="Repetir contraseña" ng-model="usr.repPass" rsr.repPassequired><br/>
+        -->
 
         <button class="btn btn-lg btn-default btn-block" ng-click="ctrl.crearUsuario()">Registrarse</button>
       </form>

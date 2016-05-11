@@ -2,6 +2,7 @@ package com.ingesoft.itinerapp.ejbs;
 
 import com.ingesoft.itinerapp.api.IUsuarioLogic;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
+import com.ingesoft.itinerapp.entities.UsuarioLoginEntity;
 import com.ingesoft.itinerapp.persistence.UsuarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -57,5 +58,13 @@ public class UsuarioLogic implements IUsuarioLogic {
         logger.log(Level.INFO, "Inicia proceso de borrar usuario con id "+id, id);
         persistence.delete(id);
         logger.log(Level.INFO, "Termina proceso de borrar usuario con id "+id, id);
+    }
+
+    @Override
+    public boolean login(UsuarioLoginEntity entity) {
+        logger.log(Level.INFO, "Inicia proceso de autenticar el usuario con username "+entity.getUsername(), entity.getUsername());
+        UsuarioLoginEntity newEntity = persistence.login(entity);
+        logger.log(Level.INFO, "Termina proceso de autenticar usuario con id "+entity.getUsername(), entity.getUsername());
+        return newEntity != null;
     }
 }
