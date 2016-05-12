@@ -5,7 +5,9 @@ package com.ingesoft.itinerapp.resources;
  */
 
 import com.ingesoft.itinerapp.api.IUsuarioLogic;
+import com.ingesoft.itinerapp.converter.RecuerdoConverter;
 import com.ingesoft.itinerapp.converter.UsuarioConverter;
+import com.ingesoft.itinerapp.dtos.RecuerdoDTO;
 import com.ingesoft.itinerapp.dtos.UsuarioDTO;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
 import com.ingesoft.itinerapp.exceptions.UsuarioException;
@@ -45,6 +47,13 @@ public class UsuarioResource {
         return UsuarioConverter.basicEntity2DTO(ent);
     }
 
+     
+    @GET
+    @Path("{usuarioId: \\d+}/recuerdos")
+    public List<RecuerdoDTO> listRecuerdos(@PathParam("usuarioId") Long usuarioId) {
+        return RecuerdoConverter.listEntity2DTO(usuarioLogic.getRecuerdos(usuarioId));
+    }
+    
     @POST
     public UsuarioDTO createUsuario(UsuarioDTO usuario) throws UsuarioException{
         System.out.println("Creando usuario con correo: " + usuario.getCorreo());

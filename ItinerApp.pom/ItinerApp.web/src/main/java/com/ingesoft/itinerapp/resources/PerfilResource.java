@@ -64,7 +64,7 @@ public class PerfilResource {
     }
 
     @GET
-    @Path("{usuarioId: \\d+}/recuerdo/{id: \\d+}")
+    @Path("usuario/{usuarioId: \\d+}")
     public List<RecuerdoDTO> getRecuerdosUsuario(@PathParam("usuarioId")Long usuarioId, @PathParam("id") Long id) throws PerfilLogicException {
         logger.info("Se ejecuta método getRecuerdosUsuario");
          List<RecuerdoEntity> recuerdos = perfilLogic.getRecuerdosUsuario(usuarioId);

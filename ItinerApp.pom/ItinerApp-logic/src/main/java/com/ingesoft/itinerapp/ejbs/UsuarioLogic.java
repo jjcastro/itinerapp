@@ -1,6 +1,7 @@
 package com.ingesoft.itinerapp.ejbs;
 
 import com.ingesoft.itinerapp.api.IUsuarioLogic;
+import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
 import com.ingesoft.itinerapp.persistence.UsuarioPersistence;
 import java.util.List;
@@ -22,6 +23,11 @@ public class UsuarioLogic implements IUsuarioLogic {
         List<UsuarioEntity> usuarios = persistence.findAll();
         logger.info("Termina proceso de consultar todos los usuarios");
         return usuarios;
+    }
+    
+     @Override
+    public List<RecuerdoEntity> getRecuerdos(Long usuarioId) {
+        return getUsuario(usuarioId).getRecuerdos();
     }
 
     @Override

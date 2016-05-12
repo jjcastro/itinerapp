@@ -1,6 +1,7 @@
 package com.ingesoft.itinerapp.api;
 
 
+import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public interface IUsuarioLogic {
     public UsuarioEntity createUsuario(UsuarioEntity dto);
 
     public UsuarioEntity updateUsuario(UsuarioEntity dto);
+    
+    public List<RecuerdoEntity> getRecuerdos(Long usuarioId);
 
     public void deleteUsuario(Long id);
 
