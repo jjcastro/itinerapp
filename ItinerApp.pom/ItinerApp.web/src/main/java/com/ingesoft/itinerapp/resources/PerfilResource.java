@@ -26,13 +26,16 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
 
 @Path("recuerdos")
-@Produces("application/json")
-@Consumes("application/json")     
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+//@Produces("application/json")
+//@Consumes("application/json")     
 @RequestScoped
 public class PerfilResource {
 
@@ -51,7 +54,7 @@ public class PerfilResource {
         
     }
 
-  
+
     @GET
     @Path("{id: \\d+}")
     public RecuerdoDTO getRecuerdo(@PathParam("id") Long id) throws PerfilLogicException {
@@ -60,6 +63,13 @@ public class PerfilResource {
         return RecuerdoConverter.basicEntity2DTO(recuerdo);
     }
 
+    @GET
+    @Path("{usuarioId: \\d+}/recuerdo/{id: \\d+}")
+    public List<RecuerdoDTO> getRecuerdosUsuario(@PathParam("usuarioId")Long usuarioId, @PathParam("id") Long id) throws PerfilLogicException {
+        logger.info("Se ejecuta método getRecuerdosUsuario");
+         List<RecuerdoEntity> recuerdos = perfilLogic.getRecuerdosUsuario(usuarioId);
+        return RecuerdoConverter.listEntity2DTO(recuerdos);
+    }
     
     @POST
     public RecuerdoDTO createRecuerdo(RecuerdoDTO precuerdo) throws PerfilLogicException {

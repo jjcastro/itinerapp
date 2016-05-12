@@ -23,6 +23,13 @@ public class RecuerdoLogic implements IRecuerdoLogic {
         logger.info("Termina proceso de consultar todos los recuerdos");
         return recuerdos;
     }
+     @Override
+    public List<RecuerdoEntity> getRecuerdosUsuario(Long idUsuario) {
+        logger.info("Inicia proceso de consultar todos los recuerdos");
+        List<RecuerdoEntity> recuerdos = persistence.findAllUsuario(idUsuario);
+        logger.info("Termina proceso de consultar todos los recuerdos");
+        return recuerdos;
+    }
 
     @Override
     public RecuerdoEntity getRecuerdo(Long id) {

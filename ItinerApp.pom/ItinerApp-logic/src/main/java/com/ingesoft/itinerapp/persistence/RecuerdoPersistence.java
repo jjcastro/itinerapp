@@ -39,4 +39,8 @@ public class RecuerdoPersistence {
         Query q = em.createQuery("select u from RecuerdoEntity u");
         return q.getResultList();
     }
+     public List<RecuerdoEntity> findAllUsuario(Long idUsuario) {
+        Query q = em.createQuery("select u from RecuerdoEntity u where USUARIO_ID = '"+idUsuario+"'");
+        return q.getResultList();
+    }
 }

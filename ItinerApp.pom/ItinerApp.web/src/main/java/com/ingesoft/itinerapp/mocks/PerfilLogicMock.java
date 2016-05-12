@@ -26,7 +26,7 @@ public class PerfilLogicMock {
     
     public PerfilLogicMock() {
 
-    	if (recuerdos == null) {
+    	/*if (recuerdos == null) {
             recuerdos = new ArrayList<>();
             recuerdos.add(new RecuerdoDTO(1L, "Paris", "Me gustó mucho esta ciudad."
                     + "Paris es una hermosa ciudad, fue increíble la vista "
@@ -35,7 +35,7 @@ public class PerfilLogicMock {
             recuerdos.add(new RecuerdoDTO(3L, "Rio De Janeiro", "Su gente es muy amable","imagen"));
             
         }
-        
+        */
     	
     	logger.setLevel(Level.INFO);
 	

@@ -5,16 +5,42 @@
  */
 package com.ingesoft.itinerapp.resources;
 
+import com.ingesoft.itinerapp.converter.RecuerdoConverter;
+import com.ingesoft.itinerapp.dtos.RecuerdoDTO;
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.junit.InSequence;
+import org.jboss.arquillian.test.api.ArquillianResource;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import uk.co.jemos.podam.api.PodamFactory;
+import uk.co.jemos.podam.api.PodamFactoryImpl;
+
 
 /**
  *
  * @author Lenovo
  */
-public class PerfilResourceTest {
-/*@RunWith(Arquillian.class)
+//public class PerfilResourceTest {
+//@RunWith(Arquillian.class)
 public class PerfilResourceTest {
 
-    private final int OK = Response.Status.OK.getStatusCode();
+   /* private final int OK = Response.Status.OK.getStatusCode();
     private final int CREATED = Response.Status.CREATED.getStatusCode();
     private final int NO_CONTENT = Response.Status.NO_CONTENT.getStatusCode();
 
@@ -71,9 +97,9 @@ public class PerfilResourceTest {
         }
     }
 
-   //@Test
-   // @InSequence(1)
-    public void createBookTest() {
+   @Test
+   //@InSequence(1)
+    public void createRecuerdoTest() {
         RecuerdoDTO recuerdo = oraculo.get(0);
         Response response = target.path(perfilPath).request()
                 .post(Entity.entity(recuerdo, MediaType.APPLICATION_JSON));
