@@ -88,11 +88,13 @@ public class UsuarioLogicTest {
         Assert.assertNotNull(result);
         Assert.assertNotNull(result);
         Assert.assertEquals(expected.getId(), result.getId());
-        Assert.assertEquals(expected.getNombre(), result.getNombre());
-        Assert.assertEquals(expected.getApellido(), result.getApellido());
-        Assert.assertEquals(expected.getUsername(), result.getUsername());
-        Assert.assertEquals(expected.getEmail(), result.getEmail());
-        Assert.assertEquals(expected.getCedula(), result.getCedula());
+        Assert.assertEquals(expected.getLugarNacimiento(),result.getLugarNacimiento());
+        Assert.assertEquals(expected.getNombre(),result.getNombre());
+        Assert.assertEquals(expected.getCorreo(),result.getCorreo());
+        Assert.assertEquals(expected.getPassword(),result.getPassword());
+        Assert.assertEquals(expected.getFechaNacimiento(),result.getFechaNacimiento());
+        Assert.assertEquals(expected.getFoto(),result.getFoto());
+        Assert.assertEquals(expected.getAdministrador(),result.getAdministrador());
     }
 
     @Test
@@ -120,11 +122,13 @@ public class UsuarioLogicTest {
         Assert.assertNotNull(expected);
         Assert.assertNotNull(result);
         Assert.assertEquals(expected.getId(), result.getId());
-        Assert.assertEquals(expected.getNombre(), result.getNombre());
-        Assert.assertEquals(expected.getApellido(), result.getApellido());
-        Assert.assertEquals(expected.getUsername(), result.getUsername());
-        Assert.assertEquals(expected.getEmail(), result.getEmail());
-        Assert.assertEquals(expected.getCedula(), result.getCedula());
+        Assert.assertEquals(expected.getLugarNacimiento(),result.getLugarNacimiento());
+        Assert.assertEquals(expected.getNombre(),result.getNombre());
+        Assert.assertEquals(expected.getCorreo(),result.getCorreo());
+        Assert.assertEquals(expected.getPassword(),result.getPassword());
+        Assert.assertEquals(expected.getFechaNacimiento(),result.getFechaNacimiento());
+        Assert.assertEquals(expected.getFoto(),result.getFoto());
+        Assert.assertEquals(expected.getAdministrador(),result.getAdministrador());
     }
 
     @Test
@@ -144,15 +148,17 @@ public class UsuarioLogicTest {
 
         usuarioLogic.updateUsuario(expected);
 
-        UsuarioEntity resp = em.find(UsuarioEntity.class, entity.getId());
+        UsuarioEntity result = em.find(UsuarioEntity.class, entity.getId());
 
         Assert.assertNotNull(expected);
-        Assert.assertEquals(expected.getId(), resp.getId());
-        Assert.assertEquals(expected.getNombre(), resp.getNombre());
-        Assert.assertEquals(expected.getApellido(), resp.getApellido());
-        Assert.assertEquals(expected.getUsername(), resp.getUsername());
-        Assert.assertEquals(expected.getEmail(), resp.getEmail());
-        Assert.assertEquals(expected.getCedula(), resp.getCedula());
+        Assert.assertEquals(expected.getId(), result.getId());
+        Assert.assertEquals(expected.getLugarNacimiento(),result.getLugarNacimiento());
+        Assert.assertEquals(expected.getNombre(),result.getNombre());
+        Assert.assertEquals(expected.getCorreo(),result.getCorreo());
+        Assert.assertEquals(expected.getPassword(),result.getPassword());
+        Assert.assertEquals(expected.getFechaNacimiento(),result.getFechaNacimiento());
+        Assert.assertEquals(expected.getFoto(),result.getFoto());
+        Assert.assertEquals(expected.getAdministrador(),result.getAdministrador());
     }
 
 }

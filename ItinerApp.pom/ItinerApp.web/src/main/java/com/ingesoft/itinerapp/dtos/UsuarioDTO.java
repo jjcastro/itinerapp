@@ -4,6 +4,8 @@ package com.ingesoft.itinerapp.dtos;
  * @author jc.martha10
  */
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -12,34 +14,52 @@ public class UsuarioDTO {
     /**
      * Atributos de la clase Usuario
      */
-
+    
     private Long id;
+    private String lugarNacimiento;
     private String nombre;
-    private String apellido;
-    private String username;
-    private String email;
-    private String cedula;
+    private String correo;
+    private String password;
+    private String fechaNacimiento;
+    private String foto;
+    private int administrador;
+    private List<RecuerdoDTO> recuerdos;
+    private List<ItinerarioDTO> itinerarios;
+    
 
     /**
      * Metodos GET y SET de la clase Usuario de todos sus atributos
      */
     public UsuarioDTO() {}
 
-    public UsuarioDTO(Long pId, String pNombre, String pApellido, String pUsername, String pEmail, String pCedula) {
+    public UsuarioDTO(Long pId, String pLugarNacimiento, String pNombre, String pCorreo, String pPassword, String pFechaNacimiento, String pFoto, int pAdministrador) {
         id = pId;
+        lugarNacimiento = pLugarNacimiento;
         nombre = pNombre;
-        apellido = pApellido;
-        username = pUsername;
-        email = pEmail;
-        cedula = pCedula;
+        correo = pCorreo;
+        password = pPassword;
+        fechaNacimiento = pFechaNacimiento;
+        foto = pFoto;
+        administrador = pAdministrador;
+        
+        recuerdos = new ArrayList<RecuerdoDTO>();
+        itinerarios = new ArrayList<ItinerarioDTO>();
     }
-
+    
     public Long getId() {
         return id;
     }
 
     public void setId(long pId) {
         this.id = pId;
+    }
+
+    public String getLugarNacimiento() {
+        return this.lugarNacimiento;
+    }
+
+    public void setLugarNacimiento(String pCedula) {
+        this.lugarNacimiento = pCedula;
     }
 
     public String getNombre() {
@@ -50,35 +70,59 @@ public class UsuarioDTO {
         this.nombre = pNombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setApellido(String pApellido) {
-        this.apellido = pApellido;
+    public void setCorreo(String pCorreo) {
+        this.correo = pCorreo;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUsername(String pUsername) {
-        this.username = pUsername;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEmail(String pEmail) {
-        this.email = pEmail;
+    public void setFechaNacimiento(String pFechaNacimiento) {
+        this.fechaNacimiento = pFechaNacimiento;
     }
 
-    public String getCedula() {
-        return this.cedula;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setCedula(String pCedula) {
-        this.cedula = pCedula;
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public int getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(int pAdministrador) {
+        this.administrador = pAdministrador;
+    }
+
+    public List<RecuerdoDTO> getRecuerdos() {
+        return recuerdos;
+    }
+
+    public void setRecuerdos(List<RecuerdoDTO> recuerdos) {
+        this.recuerdos = recuerdos;
+    }
+
+    public List<ItinerarioDTO> getItinerarios() {
+        return itinerarios;
+    }
+
+    public void setItinerarios(List<ItinerarioDTO> itinerarios) {
+        this.itinerarios = itinerarios;
     }
 }

@@ -1,9 +1,14 @@
 package com.ingesoft.itinerapp.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * @generated
@@ -14,21 +19,43 @@ public class UsuarioEntity implements Serializable {
     @Id
     @GeneratedValue(generator = "Usuario")
     private Long id;
+    private String lugarNacimiento;
     private String nombre;
-    private String apellido;
-    private String username;
-    private String email;
-    private String cedula;
+    private String correo;
+    private String password;
+    private String fechaNacimiento;
+    private String foto;
+    private int administrador;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @PodamExclude
+    private List<RecuerdoEntity> recuerdos;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @PodamExclude
+    private List<ItinerarioEntity> itinerarios;
+    
 
-    public UsuarioEntity() {}
+    /**
+     * Metodos GET y SET de la clase Usuario de todos sus atributos
+     */
+    public UsuarioEntity() {
+        recuerdos = new ArrayList<RecuerdoEntity>();
+        itinerarios = new ArrayList<ItinerarioEntity>();
+    }
 
-    public UsuarioEntity(Long pId, String pNombre, String pApellido, String pUsername, String pEmail, String pCedula) {
+    public UsuarioEntity(Long pId, String pLugarNacimiento, String pNombre, String pCorreo, String pPassword, String pFechaNacimiento, String pFoto, int pAdministrador) {
         id = pId;
+        lugarNacimiento = pLugarNacimiento;
         nombre = pNombre;
-        apellido = pApellido;
-        username = pUsername;
-        email = pEmail;
-        cedula = pCedula;
+        correo = pCorreo;
+        password = pPassword;
+        fechaNacimiento = pFechaNacimiento;
+        foto = pFoto;
+        administrador = pAdministrador;
+        
+        recuerdos = new ArrayList<RecuerdoEntity>();
+        itinerarios = new ArrayList<ItinerarioEntity>();
     }
 
     public Long getId() {
@@ -39,6 +66,14 @@ public class UsuarioEntity implements Serializable {
         this.id = pId;
     }
 
+    public String getLugarNacimiento() {
+        return this.lugarNacimiento;
+    }
+
+    public void setLugarNacimiento(String pLugarNacimiento) {
+        this.lugarNacimiento = pLugarNacimiento;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -47,35 +82,59 @@ public class UsuarioEntity implements Serializable {
         this.nombre = pNombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setApellido(String pApellido) {
-        this.apellido = pApellido;
+    public void setCorreo(String pCorreo) {
+        this.correo = pCorreo;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUsername(String pUsername) {
-        this.username = pUsername;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEmail(String pEmail) {
-        this.email = pEmail;
+    public void setFechaNacimiento(String pFechaNacimiento) {
+        this.fechaNacimiento = pFechaNacimiento;
     }
 
-    public String getCedula() {
-        return this.cedula;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setCedula(String pCedula) {
-        this.cedula = pCedula;
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public int getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(int pAdministrador) {
+        this.administrador = pAdministrador;
+    }
+
+    public List<RecuerdoEntity> getRecuerdos() {
+        return recuerdos;
+    }
+
+    public void setRecuerdos(List<RecuerdoEntity> recuerdos) {
+        this.recuerdos = recuerdos;
+    }
+
+    public List<ItinerarioEntity> getItinerarios() {
+        return itinerarios;
+    }
+
+    public void setItinerarios(List<ItinerarioEntity> itinerarios) {
+        this.itinerarios = itinerarios;
     }
 }

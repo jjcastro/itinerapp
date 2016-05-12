@@ -1,59 +1,84 @@
-(function(ng){
+(function (ng) {
 
     var mod = ng.module('usuarioModule');
 
-    mod.controller('usuarioCtrl', ['$scope', 'usuarioSvc', function($scope, svc){
-           $scope.usuarioActual = {};
-           $scope.usuarios = [];
-           $scope.usr = {};
-           $scope.id = -1;
-           $scope.modoEdicion = false;
-           $scope.registrado = false;
+    mod.controller('usuarioCtrl', ['$scope', 'usuarioSvc', function ($scope, svc) {
+            $scope.usuarioActual = {};
+            $scope.usuarios = [];
 
-           // this.pass = '';
-           // this.autenticado = '';
+            $scope.usr = {
+                id: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                lugarNacimiento: '' /*Tipo String*/,
+                nombre: '' /*Tipo String*/,
+                correo: '' /*Tipo String*/,
+                password: '' /*Tipo String*/,
+                fechaNacimiento: '' /*Tipo String*/,
+                foto: '' /*Tipo String*/,
+                administrador: 0 /*Tipo int.*/,
+                itinerarios: {} /*Lista de itinerarios vacía*/,
+                recuerdos: {} /*Lista de recuerdos vacía*/
+            };
+                    
+            $scope.repPassword = '';
 
-           this.crearUsuario = function(){
-               this.cargarUsuarios();
-               $scope.usr.id = $scope.usuarios.length;
-               svc.crearUsuario($scope.usr);
-               $scope.registrado = true;
-           };
+            $scope.id = -1;
+            $scope.modoEdicion = false;
+            $scope.registrado = false;
 
-           this.eliminarUsuario = function(id){
-               svc.eliminarUsuario(id);
-           };
-
-           this.editarUsuario = function(id){
-               this.cargarUsuario(id);
-               $scope.modoEdicion = true;
-           };
-
-           this.modificarUsuario= function(){
-               svc.modificarUsuario($scope.usr);
-               $scope.modoEdicion = false;
-           };
-
-           this.cargarUsuario = function(id){
-               $scope.usr = svc.cargarUsuario(id)
-           };
-
-           this.cargarUsuarios = function(){
-               $scope.usuarios = svc.cargarUsuarios();
-           };
-
-           this.iniciarSesion = function(){
-                usuarioSrv.login(this.username, this.pass);
-                if (usuarioSrv.autenticado){
-                    this.autenticado = 'Autenticado!';
-                } else {
-                    this.autenticado = 'No autenticado';
-                }
-                return usuarioSrv.autenticado;
+            this.crearUsuario = function () {
+                svc.crearUsuario($scope.usr);
+                $scope.registrado = true;
+                this.limpiarUsuario();
             };
 
-            this.cerrarSesion = function(){
-                usuarioSrv.logout();
+            this.eliminarUsuario = function (id) {
+                svc.eliminarUsuario(id);
             };
-    }]);
+
+            this.editarUsuario = function (id) {
+                this.cargarUsuario(id);
+                $scope.modoEdicion = true;
+            };
+
+            this.modificarUsuario = function () {
+                svc.modificarUsuario($scope.usr);
+                $scope.modoEdicion = false;
+            };
+
+            this.cargarUsuario = function (id) {
+                $scope.usr = svc.cargarUsuario(id)
+            };
+
+            this.cargarUsuarios = function () {
+                $scope.usuarios = svc.cargarUsuarios();
+            };
+
+            this.iniciarSesion = function () {
+                svc.iniciarSesion($scope.usr);
+            };
+
+            this.estaAutenticado = function(){
+                return svc.autenticado;
+            };
+
+            this.cerrarSesion = function () {
+                svc.logout();
+            };
+            
+            this.limpiarUsuario = function(){
+                $scope.usr =
+                    {
+                        id: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                        lugarNacimiento: '' /*Tipo String*/,
+                        nombre: '' /*Tipo String*/,
+                        correo: '' /*Tipo String*/,
+                        password: '' /*Tipo String*/,
+                        fechaNacimiento: '' /*Tipo String*/,
+                        foto: '' /*Tipo String*/,
+                        administrador: 0 /*Tipo int.*/,
+                        itinerarios: {} /*Lista de itinerarios vacía*/,
+                        recuerdos: {} /*Lista de recuerdos vacía*/
+                    };
+            }
+        }]);
 })(window.angular);

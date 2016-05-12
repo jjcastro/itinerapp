@@ -18,4 +18,6 @@ public interface IUsuarioLogic {
     public UsuarioEntity updateUsuario(UsuarioEntity dto);
 
     public void deleteUsuario(Long id);
+
+    public boolean login(UsuarioEntity entity);
 }

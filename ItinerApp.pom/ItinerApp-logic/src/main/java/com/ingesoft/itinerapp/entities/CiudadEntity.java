@@ -2,11 +2,15 @@ package com.ingesoft.itinerapp.entities;
 
 import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
@@ -21,21 +25,29 @@ public class CiudadEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @PodamExclude
   private Long id;
-  
+
   private String nombre;
   private String pais;
   private String descripcion;
   private String subtext;
   private String fotoBig;
   private String fotoSmall;
-  
+
   @PodamStrategyValue(DateStrategy.class)
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaI;
-  
+
   @PodamStrategyValue(DateStrategy.class)
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date fechaF;
+
+  @ManyToOne
+  @PodamExclude
+  private ItinerarioEntity itinerario;
+
+  @ManyToMany
+  @PodamExclude
+  private List<EventoEntity> eventos = new ArrayList<>();
 
   public CiudadEntity()
   {
@@ -125,6 +137,22 @@ public class CiudadEntity implements Serializable {
   public Date getFechaF() {
     return fechaF;
   }
+
+  public void setEventos(List<EventoEntity> eventos) {
+    this.eventos = eventos;
+  }
+
+  public List<EventoEntity> getEventos() {
+    return eventos;
+  }
+  
+  public ItinerarioEntity getEditorial() {
+    return itinerario;
+  }
+
+    public void setEditorial(ItinerarioEntity itinerario) {
+      this.itinerario = itinerario;
+    }
 
 
 }

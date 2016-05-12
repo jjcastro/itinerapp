@@ -58,4 +58,12 @@ public class UsuarioLogic implements IUsuarioLogic {
         persistence.delete(id);
         logger.log(Level.INFO, "Termina proceso de borrar usuario con id "+id, id);
     }
+
+    @Override
+    public boolean login(UsuarioEntity entity) {
+        logger.log(Level.INFO, "Inicia proceso de autenticar el usuario con username "+entity.getCorreo(), entity.getCorreo());
+        UsuarioEntity newEntity = persistence.login(entity);
+        logger.log(Level.INFO, "Termina proceso de autenticar usuario con id "+entity.getCorreo(), entity.getCorreo());
+        return newEntity != null;
+    }
 }

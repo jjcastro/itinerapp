@@ -1,23 +1,28 @@
 <div ng-hide="registrado">
     <form class="form-signin col-md-7 col-md-offset-2">
         <h2 class="form-signin-heading">Regístrate</h2>
-        <label for="inputNombre" class="sr-only">Nombre</label>
-        <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" ng-model="usr.nombre" required autofocus><br/>
+        <label for="inputNombre" class="sr-only">Nombres y apellidos</label>
+        <input type="text" id="inputNombre" class="form-control" placeholder="Nombres y apellidos" ng-model="usr.nombre" required autofocus><br/>
 
-        <label for="inputApellido" class="sr-only">Apellido</label>
-        <input type="text" id="inputApellido" class="form-control" placeholder="Apellido" ng-model="usr.apellido" required autofocus><br/>
+        <label for="inputCorreo" class="sr-only">Correo electrónico</label>
+        <input type="email" id="inputCorreo" class="form-control" placeholder="Correo electrónico" ng-model="usr.correo" required autofocus><br/>
 
-        <label for="cedula" class="sr-only">Cédula</label>
-        <input type="text" id="cedula" class="form-control" placeholder="Cédula" ng-model="usr.cedula" required autofocus><br/>
+        <label for="inputLugarNacimiento" class="sr-only">Lugar de nacimiento</label>
+        <input type="text" id="inputLugarNacimiento" class="form-control" placeholder="Lugar de nacimiento" ng-model="usr.lugarNacimiento" required autofocus><br/>
 
-        <label for="inputEmail" class="sr-only">Correo electrónico</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" ng-model="usr.email" required autofocus><br/>
+        <label for="fechaNacimiento" class="sr-only">Fecha de nacimiento</label>
+        <input type="text" id="fechaNacimiento" class="form-control" placeholder="Fecha de nacimiento" ng-model="usr.fechaNacimiento" required autofocus><br/>
+        
+        <label for="inputFoto" class="sr-only">Foto</label>
+        <input type="text" id="inputFoto" class="form-control" placeholder="Foto" ng-model="usr.foto" required autofocus><br/>
 
         <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" ng-model="usr.pass" required><br/>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" ng-model="usr.password" required><br/>
 
         <label for="inputRepPassword" class="sr-only">Repetir contraseña</label>
-        <input type="password" id="inputRepPassword" class="form-control" placeholder="Repetir contraseña" ng-model="usr.repPass" required><br/>
+        <input type="password" id="inputRepPassword" class="form-control" placeholder="Repetir contraseña" ng-model="repPass" rsr.repPassequired><br/>
+        
+        
 
         <button class="btn btn-lg btn-default btn-block" ng-click="ctrl.crearUsuario()">Registrarse</button>
       </form>
