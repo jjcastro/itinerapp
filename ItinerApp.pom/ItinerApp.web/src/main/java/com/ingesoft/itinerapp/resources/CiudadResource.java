@@ -81,7 +81,6 @@ public class CiudadResource {
         }
     }
 
-
     @DELETE
     @Path("{id: \\d+}")
     public void deleteCiudad(@PathParam("id") Long id) throws CiudadLogicException {
@@ -90,7 +89,7 @@ public class CiudadResource {
 
     @GET
     @Path("{bookId: \\d+}/evento")
-    public List<EventoDTO> listAuthors(@PathParam("bookId") Long ciudadId) {
+    public List<EventoDTO> listAuthors(@PathParam("ciudadId") Long ciudadId) {
         List<EventoEntity> authors = ciudadLogic.getEventos(ciudadId);
         return EventoConverter.listEntity2DTO(authors);
     }

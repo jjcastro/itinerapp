@@ -1,37 +1,72 @@
-<div>
-    <!-- AQUÍ COMIENZA EL ESPACIO A MODIFICAR -->
+<div id="evento-header">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#evento-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"><center>Eventos</center></a>
+            </div>
 
-    <h2>Eventos</h2>
-
-    <div class="list-group" ng-repeat="evento in eventos">
-      <a ui-sref="ciudad({id: evento.id})" class="list-group-item active">
-        <h4 class="list-group-item-heading">{{evento.nombre}}, {{evento.ciudad}}</h4>
-      </a>
-    </div>
-
-    <div class="list-group" ng-repeat="evento in eventos">
-      <a ui-sref="evento({id: evento.id})" class="list-group-item active">
-      <span class="badge">{{evento.fechaI}} - {{evento.fechaF}}</span>
-        <h4 class="list-group-item-heading">{{evento.nombre}}, {{evento.pais}}</h4>
-      </a>
-    </div>
-    <input class="btn btn-lg" style="background-color: #fff; border: 1px solid #bbb;" type="button" value="Agregar nuevo Evento" ng-click="createRecord()" ng-show="!editMode">
-
-    <div ng-show="editMode" >
-      <form class="simple-form form-group">
-        <label>Nombre:</label>
-        <input type="text" class="form-control" ng-model="newEvent.nombre" /><br/>
-        <label>Ciudad:</label>
-        <input type="text" class="form-control" ng-model="newEvent.ciudad" /><br/>
-        <label>Descripción:</label>
-        <input type="text" class="form-control" ng-model="newEvent.descripcion" /><br/>
-        <div class="btnes">
-        <input class="btn btn-default" type="submit" ng-click="submitNewRecord(newEvent)" value="Guardar Evento" />
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="evento-navbar">
+                <button id="create-evento" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+                <button id="refresh-evento" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+                <button id="save-evento" type="submit" form="evento-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Save</button>
+                <button id="cancel-evento" type="button" form="evento-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click="form.$setPristine(); ctrl.fetchRecords();"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+            </div>
         </div>
-      </form>
+    </nav>
+</div>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}} </alert>
+<div ng-hide="ctrl.editMode">
+    <div class="col-sm-12">
+        <div ng-repeat="record in records">
+            <div class="col-md-4 col-sm-6 col-lg-3 well">
+                <div class="col-md-12">
+                    <div class="img-thumbnail" id="{{$index}}-image" ng-if="record.image">
+                        <a ng-href="{{record.image}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{record.image}}" alt="{{record.image}}"></a>
+                    </div>
+                </div>
+                <div class="caption" >
+                    <p><strong>Nombre:</strong> <span id="{{$index}}-name">{{record.name}}</span></p>
+                    <p><strong>Descripcion:</strong> <span id="{{$index}}-descripcion">{{record.descripcion}}</span></p>
+                    <p><strong>Ciudad:</strong> <span id="{{$index}}-isbn">{{record.ciudad}}</span></p>
+                </div>
+                <p class="text-center">
+                    <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                </p>
+            </div>
+        </div>
     </div>
-
-
-
-    <!-- AQUÍ TERMINA EL ESPACIO A MODIFICAR -->
+</div>
+<div ng-show="ctrl.editMode" class="col-md-6 well">
+    <form novalidate name="form" id="evento-form" role="form" ng-submit="ctrl.saveRecord()">
+        <fieldset>
+            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.name.$valid && form.name.$dirty, 'has-error': form.name.$invalid && (form.name.$dirty || form.$submitted)}" >
+                <label for="name" class="col-md-4 control-label">Nombre</label>
+                <div class="col-md-8">
+                    <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.name" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.description.$valid && form.descripcion.$dirty, 'has-error': form.descripcion.$invalid && (form.descripcion.$dirty || form.$submitted)}" >
+                <label for="description" class="col-md-4 control-label">Descripcion</label>
+                <div class="col-md-8">
+                    <input id="description" name="descripcion" class="form-control" type="text" ng-model="currentRecord.descripcion" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.ciudad.$valid && form.ciudad.$dirty, 'has-error': form.ciudad.$invalid && (form.ciudad.$dirty || form.$submitted)}" >
+                <label for="isbn" class="col-md-4 control-label">Ciudad</label>
+                <div class="col-md-8">
+                    <input id="isbn" name="isbn" class="form-control" type="text" ng-model="currentRecord.ciudad" required />
+                </div>
+            </div>
+        </fieldset>
+    </form>
 </div>

@@ -21,21 +21,15 @@ import javax.inject.Inject;
 @Stateless
 public class EventoLogic implements IEventoLogic
 {
-
-    private static final Logger logger = Logger.getLogger(RecuerdoLogic.class.getName());
-
     @Inject private EventoPersistence persistence;
 
     public EventoEntity getEvento(Long id) {
         //Faltan Validaciones.
-        logger.log(Level.INFO, "Inicia proceso de consultar el evento con el id dado", id);
-        EventoEntity recuerdo = persistence.find(id);
-        if (recuerdo == null) {
-            logger.log(Level.SEVERE, "El evento con id: " +id+ " no existe", id);
+        EventoEntity evento = persistence.find(id);
+        if (evento == null) {
             throw new IllegalArgumentException("El evento solicitado no existe");
         }
-        logger.log(Level.INFO, "Termina proceso de consultar evento con id "+id, id);
-        return recuerdo;
+        return evento;
     }
 
     public EventoEntity createEvento(EventoEntity entity) {
