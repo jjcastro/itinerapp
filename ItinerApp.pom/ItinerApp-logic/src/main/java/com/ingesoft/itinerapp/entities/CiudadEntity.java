@@ -138,5 +138,21 @@ public class CiudadEntity implements Serializable {
     return fechaF;
   }
 
+  public void setEventos(List<EventoEntity> eventos) {
+    this.eventos = eventos;
+  }
+
+  public List<EventoEntity> getEventos() {
+    return eventos;
+  }
+  
+  public ItinerarioEntity getEditorial() {
+    return itinerario;
+  }
+
+    public void setEditorial(ItinerarioEntity itinerario) {
+      this.itinerario = itinerario;
+    }
+
 
 }

@@ -5,9 +5,12 @@ package com.ingesoft.itinerapp.resources;
 
 import com.ingesoft.itinerapp.api.ICiudadLogic;
 import com.ingesoft.itinerapp.converter.CiudadConverter;
+import com.ingesoft.itinerapp.converter.EventoConverter;
 import com.ingesoft.itinerapp.dtos.CiudadDTO;
+import com.ingesoft.itinerapp.dtos.EventoDTO;
 import com.ingesoft.itinerapp.ejbs.CiudadLogic;
 import com.ingesoft.itinerapp.entities.CiudadEntity;
+import com.ingesoft.itinerapp.entities.EventoEntity;
 import com.ingesoft.itinerapp.exceptions.CiudadLogicException;
 import com.ingesoft.itinerapp.mocks.CiudadLogicMock;
 
@@ -85,6 +88,12 @@ public class CiudadResource {
       ciudadLogic.deleteCiudad(id);
     }
 
+    @GET
+    @Path("{bookId: \\d+}/evento")
+    public List<EventoDTO> listAuthors(@PathParam("bookId") Long ciudadId) {
+        List<EventoEntity> authors = ciudadLogic.getEventos(ciudadId);
+        return EventoConverter.listEntity2DTO(authors);
+    }
 
 
 }
