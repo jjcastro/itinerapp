@@ -7,7 +7,7 @@
 
     var mod = ng.module("eventocrudModule");
 
-     mod.service("eventocrudService", ["$http", "eventocrudContext", function ($http, context) {
+     mod.service("eventocrudService", ["$http", function ($http) {
 
      	this.eventos = [ ];
 
