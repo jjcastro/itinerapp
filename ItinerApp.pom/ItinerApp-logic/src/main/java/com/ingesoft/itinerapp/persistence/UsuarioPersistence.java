@@ -2,7 +2,6 @@ package com.ingesoft.itinerapp.persistence;
 
 
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
-import com.ingesoft.itinerapp.entities.UsuarioLoginEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -41,7 +40,16 @@ public class UsuarioPersistence {
         return q.getResultList();
     }
 
-    public UsuarioLoginEntity login(UsuarioLoginEntity entity){
-        return em.find(UsuarioLoginEntity.class, entity.getUsername());
+    public UsuarioEntity login(UsuarioEntity entity){
+        Query q = em.createQuery("select u from UsuarioEntity u where u.correo = '" + entity.getCorreo() + "'");
+        
+        if (q.getMaxResults() != 0){
+            UsuarioEntity usr = (UsuarioEntity)q.getSingleResult();
+            
+            if (usr.getPassword().equals(entity.getPassword())){
+                return usr;
+            }
+        }
+        return null;
     }
 }

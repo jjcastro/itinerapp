@@ -8,9 +8,7 @@ package com.ingesoft.itinerapp.mocks;
 import com.ingesoft.itinerapp.dtos.UsuarioDTO;
 import com.ingesoft.itinerapp.exceptions.UsuarioException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -68,7 +66,7 @@ public class UsuarioLogicMock {
 		String username5 = "jp.otalora";
 		String email5 = "jp.otalora@uniandes.edu.co";
 		String cedula5 = "78901234";
-
+/*
     	if (usuarios == null) {
             usuarios = new ArrayList<>();
 			usuarios.add(new UsuarioDTO(id1, nombre1, apellido1, username1, email1, cedula1));
@@ -77,7 +75,7 @@ public class UsuarioLogicMock {
 			usuarios.add(new UsuarioDTO(id4, nombre4, apellido4, username4, email4, cedula4));
 			usuarios.add(new UsuarioDTO(id5, nombre5, apellido5, username5, email5, cedula5));
 		}
-
+*/
     	// indica que se muestren todos los mensajes
     	logger.setLevel(Level.INFO);
 
@@ -183,10 +181,10 @@ public class UsuarioLogicMock {
             	// modifica el usuario
             	usuario.setId(updatedUsuario.getId());
                 usuario.setNombre(updatedUsuario.getNombre());
-                usuario.setApellido(updatedUsuario.getApellido());
-                usuario.setUsername(updatedUsuario.getUsername());
-                usuario.setEmail(updatedUsuario.getEmail());
-                usuario.setCedula(updatedUsuario.getCedula());
+                usuario.setFechaNacimiento(updatedUsuario.getFechaNacimiento());
+                usuario.setAdministrador(updatedUsuario.getAdministrador());
+                usuario.setCorreo(updatedUsuario.getCorreo());
+                usuario.setLugarNacimiento(updatedUsuario.getLugarNacimiento());
 
                 // retorna el usuario modificada
             	logger.info("Modificando usuario " + usuario);
@@ -224,11 +222,4 @@ public class UsuarioLogicMock {
         logger.severe("No existe un usuario con ese id");
         throw new UsuarioException("No existe un usuario con ese id");
     }
-
-
-
-
-
-
-
 }

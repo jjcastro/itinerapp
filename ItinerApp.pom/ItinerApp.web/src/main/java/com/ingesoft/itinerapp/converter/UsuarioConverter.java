@@ -12,11 +12,13 @@ public abstract class UsuarioConverter {
         if (entity != null) {
             UsuarioDTO dto = new UsuarioDTO();
             dto.setId(entity.getId());
+            dto.setLugarNacimiento(entity.getLugarNacimiento());
             dto.setNombre(entity.getNombre());
-            dto.setApellido(entity.getApellido());
-            dto.setUsername(entity.getUsername());
-            dto.setEmail(entity.getEmail());
-            dto.setCedula(entity.getCedula());
+            dto.setCorreo(entity.getCorreo());
+            dto.setPassword(entity.getPassword());
+            dto.setFechaNacimiento(entity.getFechaNacimiento());
+            dto.setFoto(entity.getFoto());
+            dto.setAdministrador(entity.getAdministrador());
 
             return dto;
         } else {
@@ -26,7 +28,7 @@ public abstract class UsuarioConverter {
 
     public static UsuarioEntity basicDTO2Entity(UsuarioDTO dto) {
         if (dto != null) {
-            UsuarioEntity entity = new UsuarioEntity(dto.getId(), dto.getNombre(), dto.getApellido(), dto.getUsername(), dto.getEmail(), dto.getCedula());
+            UsuarioEntity entity = new UsuarioEntity(dto.getId(),dto.getLugarNacimiento(), dto.getNombre(), dto.getCorreo(), dto.getPassword(), dto.getFechaNacimiento(), dto.getFoto(), dto.getAdministrador());
             return entity;
         } else {
             return null;

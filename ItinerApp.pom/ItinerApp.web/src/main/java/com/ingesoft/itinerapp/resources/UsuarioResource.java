@@ -6,11 +6,8 @@ package com.ingesoft.itinerapp.resources;
 
 import com.ingesoft.itinerapp.api.IUsuarioLogic;
 import com.ingesoft.itinerapp.converter.UsuarioConverter;
-import com.ingesoft.itinerapp.converter.UsuarioLoginConverter;
 import com.ingesoft.itinerapp.dtos.UsuarioDTO;
-import com.ingesoft.itinerapp.dtos.UsuarioLoginDTO;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
-import com.ingesoft.itinerapp.entities.UsuarioLoginEntity;
 import com.ingesoft.itinerapp.exceptions.UsuarioException;
 import java.util.List;
 import javax.ws.rs.DELETE;
@@ -50,18 +47,17 @@ public class UsuarioResource {
 
     @POST
     public UsuarioDTO createUsuario(UsuarioDTO usuario) throws UsuarioException{
-        System.out.println("id: " + usuario.getId());
-        System.out.println("Nombre; " + usuario.getNombre());
-        System.out.println("Apellido: " + usuario.getApellido());
-        System.out.println("Username: " + usuario.getUsername());
-        System.out.println("Email: " + usuario.getEmail());
-        System.out.println("Cédula: " + usuario.getCedula());
+        System.out.println("Creando usuario con correo: " + usuario.getCorreo());
+        usuario.setAdministrador(0);
+        System.out.println("Convirtiendo DTO en Entity...");
         UsuarioEntity entity = UsuarioConverter.basicDTO2Entity(usuario);
+        System.out.println("Convertido de DTO a Entity");
         UsuarioEntity newEntity = usuarioLogic.createUsuario(entity);
+        System.out.println("Usuario creado.");
         return UsuarioConverter.basicEntity2DTO(newEntity);
     }
 
-     @PUT
+    @PUT
     @Path("{id: \\d+}")
     public UsuarioDTO updateUsuario(@PathParam("id") Long id, UsuarioDTO usuario) throws UsuarioException {
 
@@ -74,7 +70,7 @@ public class UsuarioResource {
     }
 
 
-      @DELETE
+    @DELETE
     @Path("{id: \\d+}")
     public void deleteUsuario(@PathParam("id") Long id) throws UsuarioException {
     	usuarioLogic.deleteUsuario(id);
@@ -82,9 +78,9 @@ public class UsuarioResource {
 
     @POST
     @Path("login")
-    public UsuarioLoginDTO login(UsuarioLoginDTO usuario) throws UsuarioException{
-        System.out.println("Logueando a " + usuario.getUsername() + "...");
-        UsuarioLoginEntity entity = UsuarioLoginConverter.basicDTO2Entity(usuario);
+    public UsuarioDTO login(UsuarioDTO usuario) throws UsuarioException{
+        System.out.println("Logueando a " + usuario.getCorreo() + "...");
+        UsuarioEntity entity = UsuarioConverter.basicDTO2Entity(usuario);
         if (usuarioLogic.login(entity)){
             System.out.println("Logueado confirmado");
             return usuario;

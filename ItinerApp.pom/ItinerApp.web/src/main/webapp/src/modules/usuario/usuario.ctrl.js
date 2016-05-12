@@ -6,20 +6,20 @@
             $scope.usuarioActual = {};
             $scope.usuarios = [];
 
-            $scope.usr =
-                    {
-                        id: undefined /*Tipo Long. El valor se asigna en el backend*/,
-                        nombre: '' /*Tipo String*/,
-                        apellido: '',
-                        username: '' /*Tipo String*/,
-                        email: '' /*Tipo String*/,
-                        cedula: '' /*Tipo String*/
-                    };
-
-            $scope.usrLogin = {
-                username : '',
-                pass : ''
+            $scope.usr = {
+                id: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                lugarNacimiento: '' /*Tipo String*/,
+                nombre: '' /*Tipo String*/,
+                correo: '' /*Tipo String*/,
+                password: '' /*Tipo String*/,
+                fechaNacimiento: '' /*Tipo String*/,
+                foto: '' /*Tipo String*/,
+                administrador: 0 /*Tipo int.*/,
+                itinerarios: {} /*Lista de itinerarios vacía*/,
+                recuerdos: {} /*Lista de recuerdos vacía*/
             };
+                    
+            $scope.repPassword = '';
 
             $scope.id = -1;
             $scope.modoEdicion = false;
@@ -28,6 +28,7 @@
             this.crearUsuario = function () {
                 svc.crearUsuario($scope.usr);
                 $scope.registrado = true;
+                this.limpiarUsuario();
             };
 
             this.eliminarUsuario = function (id) {
@@ -53,15 +54,31 @@
             };
 
             this.iniciarSesion = function () {
-                svc.iniciarSesion($scope.usrLogin);
+                svc.iniciarSesion($scope.usr);
             };
 
             this.estaAutenticado = function(){
                 return svc.autenticado;
-            }
+            };
 
             this.cerrarSesion = function () {
                 svc.logout();
             };
+            
+            this.limpiarUsuario = function(){
+                $scope.usr =
+                    {
+                        id: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                        lugarNacimiento: '' /*Tipo String*/,
+                        nombre: '' /*Tipo String*/,
+                        correo: '' /*Tipo String*/,
+                        password: '' /*Tipo String*/,
+                        fechaNacimiento: '' /*Tipo String*/,
+                        foto: '' /*Tipo String*/,
+                        administrador: 0 /*Tipo int.*/,
+                        itinerarios: {} /*Lista de itinerarios vacía*/,
+                        recuerdos: {} /*Lista de recuerdos vacía*/
+                    };
+            }
         }]);
 })(window.angular);

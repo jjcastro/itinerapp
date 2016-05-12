@@ -84,11 +84,13 @@ public class UsuarioPersistenceTest {
 
         Assert.assertNotNull(resultado);
         UsuarioEntity entity = em.find(UsuarioEntity.class, resultado.getId());
-        Assert.assertEquals(nuevaEntidad.getNombre(), entity.getNombre());
-        Assert.assertEquals(nuevaEntidad.getApellido(), entity.getApellido());
-        Assert.assertEquals(nuevaEntidad.getUsername(), entity.getUsername());
-        Assert.assertEquals(nuevaEntidad.getEmail(), entity.getEmail());
-        Assert.assertEquals(nuevaEntidad.getCedula(), entity.getCedula());
+        Assert.assertEquals(nuevaEntidad.getLugarNacimiento(),entity.getLugarNacimiento());
+        Assert.assertEquals(nuevaEntidad.getNombre(),entity.getNombre());
+        Assert.assertEquals(nuevaEntidad.getCorreo(),entity.getCorreo());
+        Assert.assertEquals(nuevaEntidad.getPassword(),entity.getPassword());
+        Assert.assertEquals(nuevaEntidad.getFechaNacimiento(),entity.getFechaNacimiento());
+        Assert.assertEquals(nuevaEntidad.getFoto(),entity.getFoto());
+        Assert.assertEquals(nuevaEntidad.getAdministrador(),entity.getAdministrador());
     }
 
     @Test
@@ -111,11 +113,13 @@ public class UsuarioPersistenceTest {
         UsuarioEntity entity = data.get(0);
         UsuarioEntity newEntity = usuarioPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(entity.getApellido(), newEntity.getApellido());
-        Assert.assertEquals(entity.getUsername(), newEntity.getUsername());
-        Assert.assertEquals(entity.getEmail(), newEntity.getEmail());
-        Assert.assertEquals(entity.getCedula(), newEntity.getCedula());
+        Assert.assertEquals(entity.getLugarNacimiento(),newEntity.getLugarNacimiento());
+        Assert.assertEquals(entity.getNombre(),newEntity.getNombre());
+        Assert.assertEquals(entity.getCorreo(),newEntity.getCorreo());
+        Assert.assertEquals(entity.getPassword(),newEntity.getPassword());
+        Assert.assertEquals(entity.getFechaNacimiento(),newEntity.getFechaNacimiento());
+        Assert.assertEquals(entity.getFoto(),newEntity.getFoto());
+        Assert.assertEquals(entity.getAdministrador(),newEntity.getAdministrador());
     }
 
     @Test
@@ -137,9 +141,12 @@ public class UsuarioPersistenceTest {
         UsuarioEntity resp = em.find(UsuarioEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
-        Assert.assertEquals(newEntity.getApellido(), resp.getApellido());
-        Assert.assertEquals(newEntity.getUsername(), resp.getUsername());
-        Assert.assertEquals(newEntity.getEmail(), resp.getEmail());
-        Assert.assertEquals(newEntity.getCedula(), resp.getCedula());
+        Assert.assertEquals(newEntity.getLugarNacimiento(),resp.getLugarNacimiento());
+        Assert.assertEquals(newEntity.getNombre(),resp.getNombre());
+        Assert.assertEquals(newEntity.getCorreo(),resp.getCorreo());
+        Assert.assertEquals(newEntity.getPassword(),resp.getPassword());
+        Assert.assertEquals(newEntity.getFechaNacimiento(),resp.getFechaNacimiento());
+        Assert.assertEquals(newEntity.getFoto(),resp.getFoto());
+        Assert.assertEquals(newEntity.getAdministrador(),resp.getAdministrador());
     }
 }
