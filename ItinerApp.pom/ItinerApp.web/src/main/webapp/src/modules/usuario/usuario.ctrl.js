@@ -5,7 +5,19 @@
     mod.controller('usuarioCtrl', ['$scope', 'usuarioSvc', function ($scope, svc) {
             $scope.usuarioActual = {};
             $scope.usuarios = [];
-
+            $scope.Logueado ={
+                id: '' /*Tipo Long. El valor se asigna en el backend*/,
+                lugarNacimiento: '' /*Tipo String*/,
+                nombre: '' /*Tipo String*/,
+                correo: '' /*Tipo String*/,
+                password: '' /*Tipo String*/,
+                fechaNacimiento: '' /*Tipo String*/,
+                foto: '' /*Tipo String*/,
+                administrador: 0 /*Tipo int.*/,
+                itinerarios: {} /*Lista de itinerarios vacía*/,
+                recuerdos: {} /*Lista de recuerdos vacía*/
+            };
+            
             $scope.usr = {
                 id: undefined /*Tipo Long. El valor se asigna en el backend*/,
                 lugarNacimiento: '' /*Tipo String*/,
@@ -54,7 +66,12 @@
             };
 
             this.iniciarSesion = function () {
-                svc.iniciarSesion($scope.usr);
+                return svc.iniciarSesion($scope.usr).then(function(response)
+                {
+                    $scope.Logueado = response.data;
+                    return response;
+                });
+                
             };
 
             this.estaAutenticado = function(){

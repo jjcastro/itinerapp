@@ -31,7 +31,7 @@
         }
 
         this.iniciarSesion = function(usrLogin){
-            $http.post('api/usuarios/login', usrLogin);
+            return $http.post('api/usuarios/login', usrLogin);
         };
 
         this.cerrarSesion = function(){

@@ -22,5 +22,5 @@ public interface IUsuarioLogic {
 
     public void deleteUsuario(Long id);
 
-    public boolean login(UsuarioEntity entity);
+    public UsuarioEntity login(UsuarioEntity entity);
 }

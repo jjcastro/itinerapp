@@ -11,6 +11,7 @@ import com.ingesoft.itinerapp.dtos.RecuerdoDTO;
 import com.ingesoft.itinerapp.dtos.UsuarioDTO;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
 import com.ingesoft.itinerapp.exceptions.UsuarioException;
+import java.util.Iterator;
 import java.util.List;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -22,10 +23,13 @@ import javax.ws.rs.Produces;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.core.MediaType;
 
 
 @Path("usuarios")
-@Produces("application/json")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class UsuarioResource {
 
@@ -44,6 +48,8 @@ public class UsuarioResource {
     @Path("{id: \\d+}")
     public UsuarioDTO getUsuario(@PathParam("id") Long id) throws UsuarioException {
         UsuarioEntity ent = usuarioLogic.getUsuario(id);
+        UsuarioDTO resp = UsuarioConverter.basicEntity2DTO(ent);
+        System.out.println("El id del dto es :     "+resp.getId());
         return UsuarioConverter.basicEntity2DTO(ent);
     }
 
@@ -85,14 +91,19 @@ public class UsuarioResource {
     	usuarioLogic.deleteUsuario(id);
     }
 
+    
     @POST
     @Path("login")
     public UsuarioDTO login(UsuarioDTO usuario) throws UsuarioException{
         System.out.println("Logueando a " + usuario.getCorreo() + "...");
         UsuarioEntity entity = UsuarioConverter.basicDTO2Entity(usuario);
-        if (usuarioLogic.login(entity)){
+        UsuarioEntity entidadLogueada = usuarioLogic.login(entity);
+        System.out.println("Id logueada:   "+entidadLogueada.getId());
+        if (entidadLogueada!= null){
             System.out.println("Logueado confirmado");
-            return usuario;
+            UsuarioDTO logueadoDTO = UsuarioConverter.basicEntity2DTO(entidadLogueada);
+            System.out.println("Id logueada DTO:   "+logueadoDTO.getId());
+            return logueadoDTO;
         }
 
         System.out.println("No fue logueado");
