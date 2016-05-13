@@ -6,6 +6,7 @@ package com.ingesoft.itinerapp.dtos;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -14,8 +15,9 @@ public class UsuarioDTO {
     /**
      * Atributos de la clase Usuario
      */
-    
+    @XmlElement(name="id")
     private Long id;
+    
     private String lugarNacimiento;
     private String nombre;
     private String correo;
@@ -45,6 +47,7 @@ public class UsuarioDTO {
         recuerdos = new ArrayList<RecuerdoDTO>();
         itinerarios = new ArrayList<ItinerarioDTO>();
     }
+    
     
     public Long getId() {
         return id;

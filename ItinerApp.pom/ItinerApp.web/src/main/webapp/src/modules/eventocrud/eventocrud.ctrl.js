@@ -16,7 +16,7 @@
         id: undefiend,
         name:'',
         descripcion:'',
-        ciudad:'',
+        ciudad:''
     };
 
     $scope.records = [];

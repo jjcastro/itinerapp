@@ -1,7 +1,7 @@
 (function (ng) {
 
     var mod = ng.module("mainApp", ["ui.router",
-                "perfilModule", "ciudadCrudModule","itinerarioModule", "usuarioModule"]);
+                "ciudadCrudModule","itinerarioModule", "usuarioModule","perfilModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);

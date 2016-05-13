@@ -1,5 +1,6 @@
 package com.ingesoft.itinerapp.ejbs;
 
+import com.ingesoft.itinerapp.api.IRecuerdoLogic;
 import com.ingesoft.itinerapp.api.IUsuarioLogic;
 import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import com.ingesoft.itinerapp.entities.UsuarioEntity;
@@ -16,6 +17,9 @@ public class UsuarioLogic implements IUsuarioLogic {
     private static final Logger logger = Logger.getLogger(UsuarioLogic.class.getName());
 
     @Inject private UsuarioPersistence persistence;
+    
+    @Inject
+    private IRecuerdoLogic recuerdoLogic;
 
     @Override
     public List<UsuarioEntity> getUsuarios() {
@@ -72,4 +76,15 @@ public class UsuarioLogic implements IUsuarioLogic {
         logger.log(Level.INFO, "Termina proceso de autenticar usuario con id "+entity.getCorreo(), entity.getCorreo());
         return newEntity;
     }
+    @Override
+     public UsuarioEntity addRecuerdo(Long usuarioID, Long recuerdoId)
+     {
+         RecuerdoEntity recuerdo = recuerdoLogic.getRecuerdo(recuerdoId);
+         UsuarioEntity usuario = getUsuario(usuarioID);
+         List<RecuerdoEntity> recuerdosOld = usuario.getRecuerdos();
+         recuerdosOld.add(recuerdo);
+         usuario.setRecuerdos(recuerdosOld);
+         
+         return usuario;
+     }
 }

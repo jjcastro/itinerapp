@@ -1,6 +1,7 @@
 package com.ingesoft.itinerapp.ejbs;
 
 import com.ingesoft.itinerapp.api.IRecuerdoLogic;
+import com.ingesoft.itinerapp.api.IUsuarioLogic;
 import com.ingesoft.itinerapp.entities.RecuerdoEntity;
 import com.ingesoft.itinerapp.persistence.RecuerdoPersistence;
 import java.util.List;
@@ -15,6 +16,8 @@ public class RecuerdoLogic implements IRecuerdoLogic {
     private static final Logger logger = Logger.getLogger(RecuerdoLogic.class.getName());
      
     @Inject private RecuerdoPersistence persistence;
+    
+    
 
     @Override
     public List<RecuerdoEntity> getRecuerdos() {

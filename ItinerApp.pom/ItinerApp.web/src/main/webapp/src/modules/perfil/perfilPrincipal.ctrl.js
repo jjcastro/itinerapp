@@ -6,9 +6,9 @@
 
 (function (ng) {
 
-    var mod = ng.module("perfilModule");
+    var mod = ng.module('perfilModule');
 
-    mod.controller("perfilCtrl", ["$scope", "perfilService", function ($scope, svc) {
+    mod.controller('perfilCtrl', ['$scope', 'perfilService', 'usuarioSvc', function ($scope, svc,uSvc) {
            
         
         var self = this;
@@ -25,7 +25,17 @@
                 id: undefined /*Tipo Long. El valor se asigna en el backend*/,
                 name: '' /*Tipo String*/,
                 descripcion: '' /*Tipo String*/,
-                imagen: '' /*Tipo String*/
+                imagen: '' /*Tipo String*/,
+                usuario:{}
+                
+            };
+            $scope.creado = {
+                id: '11' /*Tipo Long. El valor se asigna en el backend*/,
+                name: '' /*Tipo String*/,
+                descripcion: '' /*Tipo String*/,
+                imagen: '' /*Tipo String*/,
+                usuario:{}
+                
             };
         
           this.actualizarCurrent =function(record)
@@ -84,27 +94,48 @@
             
             this.update = function(user) {
                
+            $scope.user.usuario = uSvc.getLogueadoFull();
             $scope.master = angular.copy($scope.user);
-            svc.crearRecuerdo($scope.master).then(function ()
+            //$scope.creado = 
+            svc.crearRecuerdo($scope.master).then(function (response)
             {
+                $scope.creado = response.data;
+                self.agregarRecuerdo();
                 self.fetchRecordsRec();
                 $scope.edit = false;
                 $scope.delete = false;
                 $scope.read=true; 
             });
-            
-            
-            
+              
             };
             
             this.agregarRecuerdo = function()
             {
-                
+                svc.asignar($scope.creado).then(function ()
+                {
+                    self.fetchRecordsRec();
+                });
             };
-            this.fetchRecordsRec = function () {
+            
+            /*this.fetchRecordsRec = function () {
                 
-                
+               
                return  svc.fetchRecordsRec().then(function(response)
+               {
+                    $scope.records = response.data;
+                    //$scope.master = $scope.records[0];
+                    $scope.edit = false;
+                    $scope.delete = false;
+                    $scope.read=true;
+                    self.reset();
+                    return response;
+               });   
+            };*/
+            
+                this.fetchRecordsRec = function () {
+                
+               idUsuarioLogueado = uSvc.getLogueado();
+               return  svc.fetchRecordsRec(idUsuarioLogueado).then(function(response)
                {
                     $scope.records = response.data;
                     //$scope.master = $scope.records[0];

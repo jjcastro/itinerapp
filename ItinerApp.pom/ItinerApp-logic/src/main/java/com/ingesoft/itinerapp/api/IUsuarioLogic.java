@@ -23,4 +23,6 @@ public interface IUsuarioLogic {
     public void deleteUsuario(Long id);
 
     public UsuarioEntity login(UsuarioEntity entity);
+    
+    public UsuarioEntity addRecuerdo(Long usuarioID, Long recuerdoId);
 }

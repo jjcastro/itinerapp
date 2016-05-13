@@ -109,5 +109,11 @@ public class UsuarioResource {
         System.out.println("No fue logueado");
         return null;
     }
+    
+    @POST
+    @Path("{UsuarioID: \\d+}/recuerdo/{RecuerdoId: \\d+}")
+    public UsuarioDTO addRecuerdo(@PathParam("UsuarioID") Long usuarioID, @PathParam("RecuerdoId") Long recuerdoId) {
+        return UsuarioConverter.basicEntity2DTO(usuarioLogic.addRecuerdo(usuarioID, recuerdoId));
+    }
 
 }

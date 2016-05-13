@@ -69,6 +69,7 @@
                 return svc.iniciarSesion($scope.usr).then(function(response)
                 {
                     $scope.Logueado = response.data;
+                    svc.actualizarLogueado($scope.Logueado);
                     return response;
                 });
                 

@@ -6,6 +6,7 @@
 package com.ingesoft.itinerapp.dtos;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * @generated
@@ -17,18 +18,28 @@ public class RecuerdoDTO {
     private String descripcion;
     private String name;
     private String imagen;
+    
+    @PodamExclude
+    private UsuarioDTO usuario;
 
     public RecuerdoDTO() {
     }
 
-    public RecuerdoDTO(Long id,String name, String descripcion, String imagen) {
+    public RecuerdoDTO(Long id,String name, String descripcion, String imagen,Long idUsuario) {
         this.id = id;
         this.descripcion = descripcion;
         this.name = name;
         this.imagen = imagen;
+        
     }
 
-    
+    public UsuarioDTO getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
+    }
     
     /**
      * @generated

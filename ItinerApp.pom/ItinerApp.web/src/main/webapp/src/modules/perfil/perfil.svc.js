@@ -11,6 +11,7 @@
         var usuario = {};
         var recuerdos = [];
         var actual = -1;
+        var creado = {};
         
         this.actualizarRecuerdoSeleccionado= function(record)
         {
@@ -37,8 +38,15 @@
         };
         this.crearRecuerdo = function(master)
         {
-            //recuerdos.push(master);
             return $http.post('api/recuerdos',master);
+            //creado = $http.post('api/recuerdos',master);
+            //return $http.post('api/usuarios/'+actual+'/recuerdo/'+creado.id);
+        };
+        this.asignar = function(rec)
+        {
+            //return $http.post('api/recuerdos',master);
+            //creado = $http.post('api/recuerdos',master);
+            return $http.post('api/usuarios/'+rec.usuario.id+'/recuerdo/'+rec.id);
         };
         
         
@@ -49,10 +57,11 @@
             return usuario;
         };
         
-        this.fetchRecordsRec = function()
+        this.fetchRecordsRec = function(id)
         {
-            //return recuerdos;
-            return $http.get('api/recuerdos');
+            
+            //return $http.get('api/recuerdos');
+            return $http.get('api/usuarios/'+id+'/recuerdos');
         };
         
         this.existeUsuario = function(nombre)

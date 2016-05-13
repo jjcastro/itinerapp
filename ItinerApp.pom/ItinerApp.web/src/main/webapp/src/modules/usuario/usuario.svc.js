@@ -3,9 +3,36 @@
 
     mod.service('usuarioSvc', ['$http', function($http){
 
-        this.usuarioActual = {};
+        this.usuarioLog = {
+                id: '' /*Tipo Long. El valor se asigna en el backend*/,
+                lugarNacimiento: '' /*Tipo String*/,
+                nombre: '' /*Tipo String*/,
+                correo: '' /*Tipo String*/,
+                password: '' /*Tipo String*/,
+                fechaNacimiento: '' /*Tipo String*/,
+                foto: '' /*Tipo String*/,
+                administrador: 0 /*Tipo int.*/,
+                itinerarios: {} /*Lista de itinerarios vacía*/,
+                recuerdos: {} /*Lista de recuerdos vacía*/
+        };
         this.autenticado = false;
-
+        var idLogueado = -1;
+        
+        this.getLogueado = function()
+        {
+            return idLogueado;
+        };
+        this.getLogueadoFull= function()
+        {
+            return usuarioLog;
+        };
+        this.actualizarLogueado = function(logueado)
+        {
+            idLogueado = logueado.id;
+            usuarioLog = logueado;
+            return idLogueado;
+        };
+        
         this.crearUsuario = function(usr){
            $http.post('api/usuarios',usr);
         };
@@ -28,7 +55,7 @@
 
         this.estaAutenticado = function(){
 
-        }
+        };
 
         this.iniciarSesion = function(usrLogin){
             return $http.post('api/usuarios/login', usrLogin);
