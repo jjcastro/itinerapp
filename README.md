@@ -1,6 +1,6 @@
 # Itinerapp
 
-Vacation planner built using AngularJS and Java EE 7.
+Vacation planner built using AngularJS for the front-end and Java EE 7 for the back-end.
 
 ## Installation
 
